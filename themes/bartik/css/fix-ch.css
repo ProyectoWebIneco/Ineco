@@ -1,0 +1,15 @@
+#page-wrapper-black-content > form {
+	width: 520px;
+}
+#formulario-peticion-contacto-desarrollo-negocio .form-type-select select {
+    width: 338px;
+}
+#formulario-peticion-contacto-desarrollo-negocio .form-item textarea {
+    width: 517px;
+}
+#page-wrapper-black-close { 
+	width: 534px;
+}
+@media screen and (max-width: 480px) {
+	#formulario-peticion-contacto-desarrollo-negocio .form-item-second-surname{ margin-right: 20px; }
+}

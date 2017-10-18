@@ -1,0 +1,60 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/entity/views
+http://svn/despliegues/webineco
+
+
+
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+entity_views_example_query.php
+file
+
+
+
+
+2014-12-10T12:42:03.000000Z
+1d021f5798d17ab3d5a6179a41697ba2
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+handlers
+dir
+
+entity.views.inc
+file
+
+
+
+
+2014-06-06T06:28:31.000000Z
+c01032e70d01625b75601042f28c9876
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+plugins
+dir
+

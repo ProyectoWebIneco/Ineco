@@ -1,0 +1,4 @@
+name = Ajax Search
+description = Busqueda principal del portal ajax
+package = Ineco
+core = 7.x

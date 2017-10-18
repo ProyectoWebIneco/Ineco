@@ -1,0 +1,60 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/wysiwyg/plugins/break
+http://svn/despliegues/webineco
+
+
+
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+break.js
+file
+
+
+
+
+2014-06-06T06:28:19.000000Z
+d0735c14ff642a0d4aba9c0176b843c3
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+langs
+dir
+
+images
+dir
+
+break.css
+file
+
+
+
+
+2014-12-10T12:34:28.000000Z
+9d56803e8f6ada4630f0e1a496a3db27
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+

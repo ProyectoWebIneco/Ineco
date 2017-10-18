@@ -1,0 +1,4 @@
+name = Elementos de menú
+description = Bloque para los menús de Ineco
+package = Ineco
+core = 7.x

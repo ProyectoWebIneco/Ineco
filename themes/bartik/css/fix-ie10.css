@@ -1,0 +1,31 @@
+.slideshow-item-one-col-text-on {
+	width: 938px;
+}
+body.front .banner-list-4 .banner-teaser {
+    margin-right: 9px;
+}
+body.front .banner-list-5 .banner-teaser, body.front .banner-list-3 .banner-teaser {
+    margin-right: 16px;
+}
+body.front .panel-onecol-ineco-content .banner-list-3 { 
+	margin-top: 15px;
+}
+.donde-estamos .panel-col-last .view.view-projects-country {
+    width: 210px;
+}
+.banner-list-3 .banner-teaser {
+	margin-right: 35px;
+}
+
+#page-wrapper-black-content > form {
+	width: 520px;
+}
+#formulario-peticion-contacto-desarrollo-negocio .form-type-select select {
+    width: 338px;
+}
+#formulario-peticion-contacto-desarrollo-negocio .form-item textarea {
+    width: 517px;
+}
+#page-wrapper-black-close { 
+	width: 534px;
+}

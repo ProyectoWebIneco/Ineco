@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_js_compress
+END
+advagg_js_compress.admin.inc
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_js_compress/advagg_js_compress.admin.inc
+END
+advagg_js_compress.advagg.inc
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_js_compress/advagg_js_compress.advagg.inc
+END
+jshrink.inc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_js_compress/jshrink.inc
+END
+jsqueeze.inc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_js_compress/jsqueeze.inc
+END
+advagg_js_compress.module
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_js_compress/advagg_js_compress.module
+END
+advagg_js_compress.install
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_js_compress/advagg_js_compress.install
+END
+advagg_js_compress.php53.inc
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_js_compress/advagg_js_compress.php53.inc
+END
+advagg_js_compress.info
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_js_compress/advagg_js_compress.info
+END
+jspacker.inc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_js_compress/jspacker.inc
+END
+jsminplus.inc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_js_compress/jsminplus.inc
+END

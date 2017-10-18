@@ -1,0 +1,104 @@
+<?php 
+
+/**
+ * Implements hook_block_info().
+ */
+function ineco_mapa_web_block_info() {
+	$blocks=array();
+
+	$blocks['mapa_web_ineco'] = array(
+			'info' => t('Bloque para el mapa web del portal'),
+			'cache' => DRUPAL_CACHE_GLOBAL,
+	);
+
+	return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ *
+ * Prepares the contents of the block.
+ */
+function ineco_mapa_web_block_view($delta = '') {
+	$block=array();
+
+	switch($delta){
+		case 'mapa_web_ineco':
+			$block['subject'] = '<none>';
+			$block['content'] = _mapa_web_block();
+			break;
+	}
+
+	return $block;
+}
+
+function _mapa_web_block(){
+	global $language;
+	$main_menu = menu_tree_output(menu_tree_all_data('main-menu'));
+	$secondary_menu = menu_tree_output(menu_tree_all_data('menu-secondary-menu'));
+
+	if($language->language != language_default()->language){
+		traducir_menu($main_menu);
+		traducir_menu($secondary_menu);
+	}
+	
+	$content = '<h2 class="pane-title">'.t('Web Map').'</h2>';
+
+	$content .= '<div class="webmap">';
+	$content .= '<div class="webmap-primary">';
+	$content .= '<div class="webmap-primary-title">';
+	$content .= t('Main menu');
+	$content .= '</div>';
+	$content .= '<div class="webmap-primary-tree">';
+	$content .= drupal_render($main_menu);
+	$content .= '</div>';
+	$content .= '</div>';
+	
+	$content .= '<div class="webmap-secondary">';
+	$content .= '<div class="webmap-secondary-title">';
+	$content .= t('Secondary menu');
+	$content .= '</div>';
+	$content .= '<div class="webmap-secondary-tree">';
+	$content .= drupal_render($secondary_menu);
+	$content .= '</div>';
+	$content .= '</div>';
+	
+	$content .= '</div>';
+	
+	return $content;
+}
+
+function traducir_menu(&$menu){
+	global $language;
+	foreach($menu as $menu_key => $menu_item){
+		if(isset($menu[$menu_key]['#title'])){
+			$menu[$menu_key]['#title'] = i18n_string('menu:item:'.$menu_key.':title', $menu_item['#title']);
+			$nid = str_replace('node/', '', $menu_item['#href']);
+			$tranlations = translation_node_get_translations($nid);
+			if(isset($tranlations[$language->language])){
+				$nid = $tranlations[$language->language]->nid;
+			}else if(isset($tranlations[language_default("language")])){
+				$nid = $tranlations[language_default("language")]->nid;
+			}
+			$menu[$menu_key]['#href'] = 'node/'.$nid;
+			if(isset($menu[$menu_key]['#below']) && count($menu[$menu_key]['#below']) > 0){
+				foreach($menu[$menu_key]['#below'] as $children_key => $children_item){
+					if(isset($children_item['#title'])){
+						$menu[$menu_key]['#below'][$children_key]['#title'] = i18n_string('menu:item:'.$children_key.':title', $menu[$menu_key]['#below'][$children_key]['#title']);
+						$nid = str_replace('node/', '', $menu[$menu_key]['#below'][$children_key]['#href']);
+						$tranlations = translation_node_get_translations($nid);
+						if(isset($tranlations[$language->language])){
+							$nid = $tranlations[$language->language]->nid;
+						}else if(isset($tranlations[language_default("language")])){
+							$nid = $tranlations[language_default("language")]->nid;
+						}
+						$menu[$menu_key]['#below'][$children_key]['#href'] = 'node/'.$nid;
+					}
+				}
+			}
+		}
+	}
+}
+
+?>

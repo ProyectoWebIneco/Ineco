@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Style
+END
+Border.php
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Style/Border.php
+END
+Alignment.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Style/Alignment.php
+END
+Color.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Style/Color.php
+END
+Borders.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Style/Borders.php
+END
+NumberFormat.php
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Style/NumberFormat.php
+END
+Conditional.php
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Style/Conditional.php
+END
+Fill.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Style/Fill.php
+END
+Font.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Style/Font.php
+END
+Protection.php
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Style/Protection.php
+END

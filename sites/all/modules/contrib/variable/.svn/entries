@@ -1,0 +1,192 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/variable
+http://svn/despliegues/webineco
+
+
+
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+variable.info
+file
+
+
+
+
+2014-06-06T06:28:22.000000Z
+becad3bf6e16cc185259b0f87a9c5e7c
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+variable.variable.inc
+file
+
+
+
+
+2014-06-06T06:28:22.000000Z
+c38203caadcdce43ed2af2cacab8b32c
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+variable.api.php
+file
+
+
+
+
+2014-12-10T12:36:03.000000Z
+e7fcd0f56e5c74e1a5bea1a4f05d6d59
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+variable.install
+file
+
+
+
+
+2014-06-06T06:28:22.000000Z
+be7fbb1fec485c9fada705052465223e
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+variable_admin
+dir
+
+variable.inc
+file
+
+
+
+
+2014-06-06T06:28:22.000000Z
+da0ef518829b0bfbf07562861ff7900d
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+variable.form.inc
+file
+
+
+
+
+2014-06-06T06:28:22.000000Z
+a0663c4320e3fc19005b4067e281efd1
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+variable.tokens.inc
+file
+
+
+
+
+2014-06-06T06:28:22.000000Z
+5f70743b604041fd32e41fb9d675f91a
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+variable_example
+dir
+
+LICENSE.txt
+file
+
+
+
+
+2014-12-10T12:36:04.000000Z
+ffa10f40b98be2c2bc9608f56827ed23
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+variable_store
+dir
+
+variable_views
+dir
+
+variable.test
+file
+
+
+
+
+2014-06-06T06:28:22.000000Z
+50bc6707c264905ca32edb858d7d92cc
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+variable_realm
+dir
+
+includes
+dir
+
+variable.module
+file
+
+
+
+
+2014-06-06T06:28:22.000000Z
+ffc1db8c4bea8af70b72feeb8e17fc43
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+variable_advanced
+dir
+
+README.txt
+file
+
+
+
+
+2014-12-10T12:36:04.000000Z
+efad4d97c0655e8da6f97c9ba7bdb099
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+

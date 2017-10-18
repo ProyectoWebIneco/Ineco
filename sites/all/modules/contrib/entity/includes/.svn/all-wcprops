@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity/includes
+END
+entity.ui.inc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity/includes/entity.ui.inc
+END
+entity.wrapper.inc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity/includes/entity.wrapper.inc
+END
+entity.inc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity/includes/entity.inc
+END
+entity.controller.inc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity/includes/entity.controller.inc
+END
+entity.property.inc
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity/includes/entity.property.inc
+END

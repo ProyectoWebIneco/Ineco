@@ -1,0 +1,54 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/jquery_update/replace/jquery/1.8
+http://svn/despliegues/webineco
+
+
+
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+jquery.js
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+d486715f3fd46f80c84b2436ffa713db
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+jquery.min.js
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+cfa9051cc0b05eb519f1e16b2a6645d7
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+

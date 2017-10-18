@@ -1,0 +1,232 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/i18n
+http://svn/despliegues/webineco
+
+
+
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+i18n_field
+dir
+
+i18n.install
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+491b0a187fa063681706268dbd346ccc
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+INSTALL.txt
+file
+
+
+
+
+2014-12-10T12:33:27.000000Z
+d12238a3ecdbe75b6a8b688831ea548a
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+i18n_variable
+dir
+
+i18n_node
+dir
+
+i18n.pages.inc
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+e05ecca01667a5952df91d1e218a258c
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+i18n_forum
+dir
+
+i18n_block
+dir
+
+i18n.js
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+5e646b36bdb6c1f63a4625558fcc4284
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+i18n_contact
+dir
+
+i18n_path
+dir
+
+i18n.test
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+4ce0253abb2c8da069f89ba306cc843f
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+i18n_translation
+dir
+
+LICENSE.txt
+file
+
+
+
+
+2014-12-10T12:33:28.000000Z
+ffa10f40b98be2c2bc9608f56827ed23
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+i18n_redirect
+dir
+
+tests
+dir
+
+i18n_menu
+dir
+
+i18n.module
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+a6baf7b0f7ea9a69bbc5587e47cc9997
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+i18n_string
+dir
+
+i18n.info
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+873942907c27709faed3e5454d482b9e
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+i18n_sync
+dir
+
+i18n.variable.inc
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+04e8f02ddaf4c90e9cb8fe941811cfa6
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+README.txt
+file
+
+
+
+
+2014-12-10T12:33:29.000000Z
+39bfd905ab011f05c88169a8db4c0936
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+i18n_user
+dir
+
+i18n_taxonomy
+dir
+
+i18n.api.php
+file
+
+
+
+
+2014-12-10T12:33:29.000000Z
+0e44543ff63fe8ea487ab4d453fa9d59
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+i18n_object.inc
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+7d74e78b51f6b26b16068f53e03004a4
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+i18n_select
+dir
+

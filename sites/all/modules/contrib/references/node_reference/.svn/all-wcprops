@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/references/node_reference
+END
+node_reference.test
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/references/node_reference/node_reference.test
+END
+node_reference.devel_generate.inc
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/references/node_reference/node_reference.devel_generate.inc
+END
+node_reference.module
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/references/node_reference/node_reference.module
+END
+node_reference.install
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/references/node_reference/node_reference.install
+END
+node_reference.info
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/references/node_reference/node_reference.info
+END

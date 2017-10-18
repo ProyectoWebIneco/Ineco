@@ -1,0 +1,406 @@
+<?php 
+
+/**
+ * Implements hook_block_info().
+ */
+function ineco_menu_block_info() {
+	$blocks=array();
+
+	$blocks['menu_primario_izquierda'] = array(
+			'info' => t('Bloque para el menú primario izquierdo'),
+			'cache' => DRUPAL_NO_CACHE,
+	);
+
+	$blocks['menu_primario_derecha'] = array(
+			'info' => t('Bloque para el menú primario derecho'),
+			'cache' => DRUPAL_NO_CACHE,
+	);
+
+	$blocks['menu_secundario_izquierda'] = array(
+			'info' => t('Bloque para el menú secundario izquierdo'),
+			'cache' => DRUPAL_NO_CACHE,
+	);
+
+	$blocks['menu_secundario_derecha'] = array(
+			'info' => t('Bloque para el menú secundario derecho'),
+			'cache' => DRUPAL_NO_CACHE,
+	);
+
+	$blocks['menu_pie'] = array(
+			'info' => t('Bloque para el menú del pie'),
+			'cache' => DRUPAL_NO_CACHE,
+	);
+
+	$blocks['menu_completo_responsive'] = array(
+			'info' => t('Bloque para el menú completo responsive'),
+			'cache' => DRUPAL_NO_CACHE,
+	);
+
+	return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ *
+ * Prepares the contents of the block.
+ */
+function ineco_menu_block_view($delta = '') {
+	$block=array();
+
+	switch($delta){
+		case 'menu_primario_izquierda':
+			$block['subject'] = '<none>';
+			$block['content'] = _menu_primario_block('main-menu');
+			break;
+		case 'menu_primario_derecha':
+			$block['subject'] = '<none>';
+			$block['content'] = _menu_primario_block('menu-secondary-menu');
+			break;
+		case 'menu_secundario_izquierda':
+			$block['subject'] = '<none>';
+			$block['content'] = _menu_secundario_block('main-menu');
+			break;
+		case 'menu_secundario_derecha':
+			$block['subject'] = '<none>';
+			$block['content'] = _menu_secundario_block('menu-secondary-menu');
+			break;
+		case 'menu_pie':
+			$block['subject'] = '<none>';
+			$block['content'] = _menu_primario_block('menu-foot-menu');
+			break;
+		case 'menu_completo_responsive':
+			$block['subject'] = '<none>';
+			$block['content'] = _menu_completo_responsive_block();
+			break;
+	}
+
+	return $block;
+}
+
+/**
+ * Devuelve el primer nivel del menú pasado como parámetro.
+ */
+function _menu_primario_block($menu){
+
+	// Se obtienen los elementos de primer nivel
+	$sql = "SELECT * FROM {menu_links} WHERE menu_name = '".$menu."' AND plid = 0 ORDER BY weight;";
+	$result = db_query($sql);
+	$menu_items = array();
+	foreach ($result as $record) {
+		$menu_items[] = $record;
+	}
+
+	if(count($menu_items) > 0){
+		$content = '<div class="'.$menu.'">';
+		$content .= _menu_primario_block_html(
+				array(
+						'links' => $menu_items,
+						'attributes' => array(
+								'id' => 'primary',
+								'class' => array(
+										'links',
+										'clearfix',
+										'menu-primario-'.$menu
+								)
+						)
+				),
+				0
+		);
+		$content .= '</div>';
+	}
+	return $content;
+}
+
+/**
+ * Devuelve el HTML correspondiente con el menú
+ */
+function _menu_primario_block_html($variables, $level = 0){
+	$current_path_complete = str_replace(base_path(), '', drupal_get_path_alias(request_uri(), 1));
+
+	$current_path = explode('/', $current_path_complete);
+
+	$links = $variables['links'];
+	$attributes = $variables['attributes'];
+
+	$output = '';
+	$num_links = count($links);
+
+	if ($num_links > 0) {
+		global $language;
+		$default_language = language_default();
+
+		$output = '';
+		$output .= '<ul' . drupal_attributes($attributes) . '>';
+		$i = 1;
+		foreach ($links as $key => $link_object) {
+
+			// Se pasa el objeto a array
+			$link = (array)$link_object;
+
+			// Si el usuario no está usando el lenguaje por defecto hay que traducirlo
+			_localize_links($link);
+
+			$class = array($key);
+			// Add first, last and active classes to the list of links to help out themers.
+			if ($i == 1) {
+				$class[] = 'first';
+			}
+			if ($i == $num_links) {
+				$class[] = 'last';
+			}
+
+			// Calcular la condición para marcar el menú como activo
+
+
+			$aux_path = explode('/', drupal_lookup_path('alias', $link['link_path']));
+		
+			$link['options'] = array();
+
+			// Si no estamos en español el primer elemento es el prefijo del idioma
+			if(isset($current_path[0]) && $current_path[0] == $language->language){
+				$current_path = array_slice($current_path, 1, 1);
+			}
+
+			if(isset($aux_path[0]) && $aux_path[0] == $language->language){
+				$aux_path = array_slice($aux_path, 1, 1);
+			}
+
+			if (isset($current_path[$level]) && isset($aux_path[$level]) && $current_path[$level] == $aux_path[$level]) {	
+				$link['options'] = array('attributes' => array('class' => array('active')));
+				$_REQUEST['active_primary_link'] = $link;				
+			}
+
+			$output .= '<li' . drupal_attributes(array('class' => $class)) . '>';
+
+			if (isset($link['link_path'])) {
+				// Pass in $link as $options, they share the same keys.
+				$aux = l($link['link_title'], $link['link_path'], $link['options']);
+				$aux = str_replace('active active', 'active', $aux);
+				$output .= $aux;
+			}
+
+			$i++;
+			$output .= "</li>\n";
+		}
+
+		$output .= '</ul>';
+	}
+
+	return $output;
+}
+
+/**
+ * Devuelve el segundo nivel del menú pasado como parámetro.
+ */
+function _menu_secundario_block($menu){
+
+	if(isset($_REQUEST['active_primary_link'])){
+
+		// Se obtienen los hijos
+		$sql = "SELECT * FROM {menu_links} WHERE menu_name = '".$menu."' AND plid = ".$_REQUEST['active_primary_link']['mlid']." ORDER BY weight;";
+		$result = db_query($sql);
+		$menu_items = array();
+		foreach ($result as $record) {
+			$menu_items[] = $record;
+		}
+
+		$content = '';
+		if(count($menu_items) > 0){
+			$content = '<div class="'.$menu.'">';
+			$content .= _menu_secundario_block_html(
+					array(
+							'links' => $menu_items,
+							'attributes' => array(
+									'id' => 'secondary',
+									'class' => array(
+											'links',
+											'clearfix',
+											'menu-secundario-'.$menu
+									)
+							)
+					),
+					1
+			);
+			$content .= '</div>';
+		}
+		return $content;
+	}
+}
+
+/**
+ * Devuelve el HTML correspondiente con el menú
+ */
+function _menu_secundario_block_html($variables, $level = 0){
+	//$current_path = explode('/', drupal_lookup_path('alias', $_GET['q']));
+	$current_path_complete = str_replace(base_path(), '', drupal_get_path_alias(request_uri(), 1));
+	$current_path = explode('/', $current_path_complete);
+
+	$links = $variables['links'];
+	$attributes = $variables['attributes'];
+
+	$output = '';
+	$num_links = count($links);
+
+	if ($num_links > 0) {
+		global $language;
+		$default_language = language_default();
+
+		$output = '';
+		$output .= '<ul' . drupal_attributes($attributes) . '>';
+		$i = 1;
+		foreach ($links as $key => $link_object) {
+
+			// Se pasa el objeto a array
+			$link = (array)$link_object;
+			
+			_localize_links($link);
+
+			$class = array($key);
+			// Add first, last and active classes to the list of links to help out themers.
+			if ($i == 1) {
+				$class[] = 'first';
+				$output .= '<ul>';
+			}
+			if ($i == $num_links) {
+				$class[] = 'last';
+			}
+
+
+			// Calcular la condición para marcar el menú como activo
+			$aux_path = explode('/', drupal_lookup_path('alias', $link['link_path']));
+			$link['options'] = array();
+
+			// Si no estamos en español el primer elemento es el prefijo del idioma
+			if(isset($current_path[0]) && $current_path[0] == $language->language){
+				$current_path = array_slice($current_path, 1);
+			}
+
+			if(isset($aux_path[0]) && $aux_path[0] == $language->language){
+				$aux_path = array_slice($aux_path, 1);
+			}
+
+			if (isset($current_path[$level]) && isset($aux_path[$level]) && $current_path[$level] == $aux_path[$level]) {
+				$link['options'] = array('attributes' => array('class' => array('active')));
+				$_REQUEST['active_secondary_link'] = $link;
+			}
+
+			$output .= '<li' . drupal_attributes(array('class' => $class)) . '>';
+
+			if (isset($link['link_path'])) {
+				// Pass in $link as $options, they share the same keys.
+				$aux = l($link['link_title'], $link['link_path'], $link['options']);
+				$aux = str_replace('active active', 'active', $aux);
+				$output .= $aux;
+			}
+
+			$i++;
+			$output .= "</li>\n";
+		}
+
+		$output .= '</ul>';
+	}
+
+	return $output;
+}
+
+function _menu_completo_responsive_block(){
+
+	drupal_add_js(drupal_get_path('module', 'ineco_menu') .'/js/ineco_menu_responsive.js', 'file');
+
+	// Se carga el menu primario
+	$menu = menu_tree_all_data('main-menu');
+	$complete_menu_main = menu_tree_output($menu);
+
+	// Se carga el menu secundario
+	$menu = menu_tree_all_data('menu-secondary-menu');
+	$complete_menu_secondary = menu_tree_output($menu);
+
+	$aux_main = render($complete_menu_main);
+	$aux_secondary = render($complete_menu_secondary);
+
+	$output = '<div class="responsive-menu-all">';
+	$output .= '<div class="responsive-menu-access">';
+	$output .= '<a href="#" id="show-menu">'.t("Browse the web").'</a>';
+	$output .= '</div>';
+	$output .= '<div id="responsive-menu-wrapper" style="display: none;">';
+	$output .= '<div id="responsive-menu-primary">';
+	$output .= '<ul>';
+	$output .= _menu_responsive_links_html(_menu_responsive_links('main-menu'));
+	$output .= '</ul>';
+	$output .= '</div>';
+	$output .= '<div id="responsive-menu-secondary">';
+	$output .= '<ul>';
+	$output .= _menu_responsive_links_html(_menu_responsive_links('menu-secondary-menu'));
+	$output .= '</ul>';
+	$output .= '</div>';
+	$output .= '</div>';
+	$output .= '</div>';
+
+	return $output;
+}
+
+/**
+ * Devuelve el menu completo para el responsive.
+ */
+function _menu_responsive_links($menu, $plid = 0){
+
+	// Se obtienen los elementos
+	$sql = "SELECT * FROM {menu_links} WHERE menu_name = '".$menu."' AND plid = ".$plid." ORDER BY plid, weight;";
+
+	$result = db_query($sql);
+	$menu_items = array();
+	foreach ($result as $record) {
+		$menu_items[$record->mlid]['link'] = $record;
+		if($record->has_children){
+			$menu_items[$record->mlid]['children'] = _menu_responsive_links($menu, $record->mlid);//'_menu_responsive_links($menu, $record->mlid)';//
+		}
+	}
+	return $menu_items;
+}
+
+function _menu_responsive_links_html($items){
+	
+	$output = '';
+	global $language;
+	$flech_url = url('themes/bartik/images/flech.png');
+	if($language->language != language_default()->language){
+		$flech_url = str_replace($language->language, '', url('themes/bartik/images/flech.png'));
+	}
+	foreach ($items as $item_key => $item_value) {
+		$link = (array)$item_value['link'];
+		$output .= '<li id="menu-responsive-'.$item_key.'">';
+
+		_localize_links($link);
+
+		$output .= l($link['link_title'], $link['link_path'], array('attributes' => array('class' => array('not-subtree'))));
+		if(isset($item_value['children'])){
+			$output .= '<a href="#" id="expand-'.$link['mlid'].'" class="expand-subtree not-expanded"><img alt="flecha" src="'.$flech_url.'" /></a>';
+			$output .= '<ul id="child-of-'.$link['mlid'].'" style="display: none;">';
+			$output .= _menu_responsive_links_html($item_value['children']);
+			$output .= '</ul>';
+		}
+
+		$output .= '</li>';
+	}
+	
+	return $output;
+}
+
+function _localize_links(&$link){
+	global $language;
+	$default_language = language_default();
+
+	if($language->language != 'es'){
+		$nid = str_replace('node/', '', $link['link_path']);
+		$tranlations = translation_node_get_translations($nid);
+		if(isset($tranlations[$language->language])){
+			$nid = $tranlations[$language->language]->nid;
+		}else if(isset($tranlations[language_default("language")])){
+			$nid = $tranlations[language_default("language")]->nid;
+		}
+		$link['link_title'] = i18n_string('menu:item:'.$link['mlid'].':title', $link['link_title']);
+		$link['link_path'] = 'node/'.$nid;
+	}
+}
+?>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/LICENSE
+END
+aboutus.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/aboutus.html
+END
+changelog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/changelog.txt
+END
+class.phpmailer.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/class.phpmailer.php
+END
+class.pop3.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/class.pop3.php
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/README
+END
+class.smtp.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/class.smtp.php
+END

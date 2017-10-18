@@ -1,0 +1,110 @@
+<?php 
+
+function ineco_ajax_search_menu() {
+	$items['ajax-search/%'] = array(
+			'page callback' => '_ajax_search_results',
+			'page arguments' => array(1),
+			'access callback' => TRUE,
+			'type' => MENU_CALLBACK,
+	);
+
+	return $items;
+}
+
+
+/**
+ * Implements hook_block_info().
+ */
+function ineco_ajax_search_block_info() {
+	$blocks['ajax_search'] = array(
+			'info' => t('Ajax Search'),
+			'cache' => DRUPAL_CACHE_GLOBAL,
+	);
+
+	return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ *
+ * Prepares the contents of the block.
+ */
+function ineco_ajax_search_block_view($delta = '') {
+	$block=array();
+	switch($delta){
+		case 'ajax_search':
+			$block['subject'] = t('Ajax Search');
+			$block['content'] = _ajax_search_content_block();
+	}
+
+	return $block;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ineco_ajax_search_theme() {
+	$path = drupal_get_path('module', 'ineco_ajax_search'). '/theme';
+
+	return array(
+			'ajax_search_block' => array(
+					'template' => 'ajax_search_block',
+					'variables' => array(
+							'url_search' => NULL,
+							'value' => NULL
+					),
+					'path' => $path,
+
+			)
+	);
+}
+
+
+
+function _ajax_search_content_block(){
+	global $language;
+	
+	$path = drupal_get_path('module', 'ineco_ajax_search') . '/js';
+	drupal_add_js($path .'/ajax_search.js');
+	
+	$settings=array('ajax_search_url' => url("ajax-search"));
+	drupal_add_js(array('ajax_search' => $settings), 'setting');
+	
+	$id = 731;
+	if(language_default()->language != $language->language){
+		$node = node_load($id);
+		$id = $node->nid;
+		if(isset($node->tnid)){
+			$id = $node->tnid;
+		}
+	}
+	$url_search = url("node/".$id);
+
+	$value = isset($_REQUEST['keys']) ? filter_xss($_REQUEST['keys'], array()) : "";
+	
+	return theme('ajax_search_block', array('url_search' => $url_search, 'value' => $value));
+}
+
+
+
+function _ajax_search_results($string){
+	global $language;
+	
+	
+	$result = db_query_range(
+			"SELECT s.word word,count(*) count
+			FROM search_index s
+			INNER JOIN node n ON s.type='node' AND n.nid=s.sid AND (n.type IN  ('book', 'new', 'people', 'project', 'panel', 'tender', 'video'))
+			WHERE n.status=1 AND n.language=:language
+					AND s.word LIKE :pattern
+			GROUP BY s.word
+			ORDER BY s.score desc, count desc", 0, 10, //10 primeros resultados
+			array(':language' => $language->language, ':pattern' => db_like($string) . '%')
+	);
+	
+	print json_encode($result->fetchAll());
+	die();
+}
+
+?>

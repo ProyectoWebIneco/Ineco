@@ -1,0 +1,324 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ */
+function ineco_setup_block_info() {
+	$blocks=array();
+
+	$blocks['return_link_ineco'] = array(
+			'info' => t('Block to hold the return link'),
+			'cache' => DRUPAL_CACHE_GLOBAL,
+	);
+
+	return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ *
+ * Prepares the contents of the block.
+ */
+function ineco_setup_block_view($delta = '') {
+	$block=array();
+
+	switch($delta){
+		case 'return_link_ineco':
+			$block['subject'] = '<none>';
+			$block['content'] = _return_link_ineco();
+			break;
+	}
+
+	return $block;
+}
+
+/**
+ * Implementation of hook_menu
+ */
+function ineco_setup_menu(){
+	$items['project/%'] = array(
+			'title' => 'Proyecto',
+			'page callback' => 'show_project_content',
+			'page arguments' => array(1),
+			'access arguments' => array('access content'),
+			'type' => MENU_NORMAL_ITEM,
+	);
+
+	return $items;
+}
+
+/**
+ * Implementation of hook_form_alter
+ */
+function ineco_setup_form_alter(&$form, &$form_state, $form_id){
+	//watchdog("mavb","<pre>".print_r($form_id,true)."</pre>");
+	switch ($form_id){
+		case 'project_node_form':
+			eliminar_por_idioma($form['field_project_service']['und']['#options'], $form['language']['#value'] );
+			eliminar_por_idioma($form['field_project_country']['und']['#options'], $form['language']['#value']);
+			eliminar_por_idioma($form['field_project_geographic_area']['und']['#options'], $form['language']['#value']);
+			eliminar_por_idioma($form['field_project_sector']['und']['#options'], $form['language']['#value']);
+			break;
+		case 'webform_client_form_126':
+			global $language;
+			$form['submitted']['acepto']['#options']['acepto'] = 'He leído y acepto la <a class="acceptance-link" href="'.file_create_url(file_build_uri('normativa_proteccion_datos_'.$language->language.'.pdf')).'">Cláusula de Privacidad</a> de Ineco.';
+			break;
+		case 'webform_client_form_678':
+			global $language;
+			$form['submitted']['accept']['#options']['accept'] = 'I have read and accept the <a class="acceptance-link" href="'.file_create_url(file_build_uri('normativa_proteccion_datos_'.$language->language.'.pdf')).'">Privacy Policy</a> Ineco.';
+			break;
+		case 'webform_client_form_693':
+			global $language;
+			$form['submitted']['acepto']['#options']['acepto'] = 'He leído y acepto la <a class="acceptance-link" href="'.file_create_url(file_build_uri('Politica_de_Privacidad_candidatos_'.$language->language.'.pdf')).'">Cláusula de Privacidad</a> de Ineco.';
+			//dpm($form);
+			break;
+		case 'webform_client_form_468':
+			global $language;
+			$form['submitted']['accept']['#options']['accept'] = 'I have read and accept the <a class="acceptance-link" target="_blanc" href="'.file_create_url(file_build_uri('Politica_de_Privacidad_candidatos_'.$language->language.'.pdf')).'">Privacy Policy</a> Ineco.';
+			break;
+		case 'views_exposed_form':
+			if($form['#id'] == 'views-exposed-form-principales-proyectos-panel-pane-1'){
+
+				$form['sector']['#options']['All'] = t('Select market');
+				eliminar_terminos_idioma($form['sector']['#options']);
+
+				$form['servicios']['#options']['All'] = t('Select solution');
+				eliminar_terminos_idioma($form['servicios']['#options']);
+				eliminar_terminos_no_enlazables($form['servicios']['#options']);
+
+				$form['area_geografica']['#options']['All'] = t('Select area');
+				eliminar_terminos_idioma_area_geografica($form['area_geografica']['#options']);
+
+				$form['pais']['#options']['All'] = t('Select country');
+				eliminar_terminos_idioma($form['pais']['#options']);
+
+				//Se marcan los por defecto
+				if(isset($_GET['pre_sector']) && in_array($_GET['pre_sector'], array_keys($form['sector']['#options']))){
+					$form['sector']['#default_value'] = $_GET['pre_sector'];
+					$form_state['input']['sector'] = $form_state['input']['pre_sector'];
+				}
+
+				if(isset($_GET['pre_servicios']) && in_array($_GET['pre_servicios'], array_keys($form['servicios']['#options']))){
+					$form['servicios']['#default_value'] = $_GET['pre_servicios'];
+					$form_state['input']['servicios'] = $form_state['input']['pre_servicios'];
+				}
+					
+				if(isset($_GET['pre_area_geografica'])){
+					$aux = array();
+					$tid = array();
+					foreach($form['area_geografica']['#options'] as $opt => $value){
+						if(isset($value->option)){
+							$value = (array)$value->option;
+							$value = array_keys($value);
+							$aux[] = $value[0];
+						}
+					}
+					if(in_array($_GET['pre_area_geografica'], $aux)){
+						$tid = explode("?", $_GET['pre_area_geografica']);
+						$form['area_geografica']['#default_value'] = $tid[0];
+						$form_state['input']['area_geografica'] = $tid[0];
+						//$form['area_geografica']['#default_value'] = $_GET['pre_area_geografica'];
+						//$form_state['input']['area_geografica'] = $form_state['input']['pre_area_geografica'];
+						$array_paises = array();
+						foreach($form['pais']['#options'] as $opt => $value){
+							if ($opt != 'All'){
+								$aux = taxonomy_term_load($opt);
+								$field = field_get_items('taxonomy_term', $aux, 'field_country_geographic_area');	
+							}
+							if( ($opt == 'All') || ($tid[0] == $field[0]['tid']) ){
+								$array_paises[$opt] =  $value;
+							}
+						}	
+						//meter arraypoises donde corresponde
+						$form['pais']['#options'] = $array_paises;
+						watchdog("MAVB","<pre>".print_r($form['pais']['#options'],true)."</pre>");
+					}
+				}
+
+				if(isset($_GET['pre_pais']) && in_array($_GET['pre_pais'], array_keys($form['pais']['#options']))){
+					$form['pais']['#default_value'] = $_GET['pre_pais'];
+					$form_state['input']['pais'] = $form_state['input']['pre_pais'];
+				}
+			}
+			break;
+			case 'tender_node_form':
+			global $language;
+			if($language->language == "en"){
+				$form['field_tender_place_receipt']['und']['0']['value']['#default_value'] = "The offers will be sent via e-mail to the following address: ofertas@ineco.com
+				
+E-mails exceeding 15.0 MB can be sent in electronic format (CD) to the following address:
+Unidad de Compras y Contratación
+Paseo de la Habana, 138
+28036 Madrid
+
+The file number available in Ineco's website must be referred to in both cases.
+
+The technical and economic offer must be delivered in separate folders, without referring to the economic offer within the technical proposal.
+
+The folder containing the economic offer will be preferably identified as:
+O.E.-file number.-SUPPLIER
+and the folder containing the technical offer will be identified as:
+O.T.-file number.-SUPPLIER";
+			}
+			break;
+	}
+}
+
+function show_project_content($nid){
+	global $language;
+	$_GET['q'] = $_GET['source'];
+	$source_alias = drupal_lookup_path('alias', $_GET['q']);
+
+	// Se comprueba si existe el alias
+	if($source_alias !== FALSE){
+		// El alias existe, se comprueba si existe el alias con el nodo, se obtienen todos los alias del nodo
+		$sql = "SELECT * FROM {url_alias} WHERE source = '".'node/'.$nid."' AND language = '".$language->language."' ORDER BY CHAR_LENGTH(alias)";
+		$result = db_query($sql);
+		$paths = array();
+		foreach ($result as $record) {
+			$paths[$record->alias] = $record;
+		}
+
+		// Si en el proyecto no se ha puesto la url con este procesamiento se elimina la opción de que se dupliquen
+		$aux = explode("/", key($paths));
+
+		if(isset($aux[0]) && $aux[0] == $source_alias){
+			unset($aux[0]);
+		}
+
+		$source_alias = $source_alias.'/'.implode("/", $aux);
+
+		if(!in_array($source_alias, array_keys($paths))){
+			// El alias con el nodo no existe, se crea y se redirige
+			$path = array(
+					'source' => 'node/'.$nid,
+					'alias' => $source_alias,
+					'language' => $language->language,
+			);
+			path_save($path);
+		}
+		drupal_goto($source_alias);
+	}else{
+		// El origen no existe, por tanto se manda a la página de error para evitar la creación indiscriminada de alias por parte de usuarios malintencionados
+		drupal_not_found();
+	}
+}
+
+function setup_menu_alter(&$items) {
+  $items['taxonomy/term/%taxonomy_term/edit']['context'] = MENU_CONTEXT_INLINE;
+}
+
+function ineco_setup_views_query_alter(&$view, &$query) {
+	if ($view->name == 'que_hacemos_sectores') {
+		$query->where[] = array(
+			'conditions' => array(array(
+				'field' => 'taxonomy_term_data.language',
+				'value' => array('***CURRENT_LANGUAGE***'),
+				'operator' => 'in',
+			)),
+	      		'args' => array(),
+			'type' => 'AND',
+		);
+	}
+	
+		if ($view->name == 'oportunidades_profesionales_categorias') {
+		$query->where[] = array(
+			'conditions' => array(array(
+				'field' => 'taxonomy_term_data.language',
+				'value' => array('***CURRENT_LANGUAGE***'),
+				'operator' => 'in',
+			)),
+	      		'args' => array(),
+			'type' => 'AND',
+		);
+	}
+
+	if ($view->name == 'que_hacemos_servicios') {
+		$query->where[] = array(
+			'conditions' => array(array(
+				'field' => 'taxonomy_term_data.language',
+				'value' => array('***CURRENT_LANGUAGE***'),
+				'operator' => 'in',
+			)),
+	      		'args' => array(),
+			'type' => 'AND',
+		);
+	}
+
+	if ($view->name == 'donde_estamos_europa') {
+		$query->where[] = array(
+			'conditions' => array(array(
+				'field' => 'taxonomy_term_data.language',
+				'value' => array('***CURRENT_LANGUAGE***'),
+				'operator' => 'in',
+			)),
+	      		'args' => array(),
+			'type' => 'AND',
+		);
+	}
+
+}
+
+// Eliminar por idioma teniendo en cuenta si crea o edita si edita coger idioma del contenido.
+function eliminar_por_idioma(&$terms, $language_cont){
+	global $language;
+	$aux = $terms;
+	
+	foreach($aux as $tid => $term_name){
+		$termino = taxonomy_term_load($tid);
+		if($termino != FALSE && $language_cont != $termino->language && $language_cont != 'und'){
+			unset($terms[$tid]);
+		}
+		if($termino != FALSE && $termino->language != $language->language && $language_cont == 'und' ){
+			unset($terms[$tid]);
+		}
+	}
+}
+
+
+function eliminar_terminos_idioma(&$terms){
+	global $language;
+	$aux = $terms;
+	foreach($aux as $tid => $term_name){
+		$termino = taxonomy_term_load($tid);
+		if($termino != FALSE && $termino->language != $language->language){
+			unset($terms[$tid]);
+		}
+	}
+}
+
+function eliminar_terminos_idioma_area_geografica(&$terms){
+	global $language;
+	$aux = $terms;
+	$borrar = array();
+	for($i = 0 ; $i < count($terms) - 1; $i++){
+		$aux = (array)$terms[$i];
+		$tid = array_keys($aux['option']);
+		$tid = $tid[0];
+		$termino = taxonomy_term_load($tid);
+		if($termino != FALSE && $termino->language != $language->language){
+			$borrar[] = $i;
+		}
+	}
+	foreach($borrar as $b){
+		unset($terms[$b]);
+	}
+}
+
+function eliminar_terminos_no_enlazables(&$opciones){
+	$aux = $opciones;
+	foreach($aux as $opcion_key => $opcion_value){
+		$termino = taxonomy_term_load($opcion_key);
+		if(isset($termino->field_service_es_enlazable_['und'][0]['value']) && 
+			$termino->field_service_es_enlazable_['und'][0]['value'] == 0){
+			unset($opciones[$opcion_key]);
+		}
+	}
+}
+
+function _return_link_ineco(){
+	return '<a href="javascript:history.back(1);" class="back"></a>';
+}
+
+?>

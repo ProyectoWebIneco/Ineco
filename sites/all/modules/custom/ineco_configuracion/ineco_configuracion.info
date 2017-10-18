@@ -1,0 +1,4 @@
+name = Configuraciones
+description = Parámetros de configuración de la plataforma
+package = Ineco
+core = 7.x

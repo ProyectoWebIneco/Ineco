@@ -1,0 +1,140 @@
+8
+
+dir
+26
+http://svn/despliegues/webineco/themes/bartik
+http://svn/despliegues/webineco
+
+
+
+2016-02-09T15:44:16.152106Z
+26
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+jquery-1.7.2.min.js
+file
+12
+
+
+
+2014-06-06T06:28:16.000000Z
+b8d64d0bc142b3f670cc0611b0aebcae
+2014-06-02T15:30:42.677548Z
+9
+servicios.aplic
+has-props
+
+layouts
+dir
+
+screenshot.png
+file
+12
+
+
+
+2014-06-06T06:28:16.000000Z
+ca29fac50b1e9bbbebac8f62b1742a87
+2013-12-17T13:11:44.178368Z
+1
+servicios.aplic
+has-props
+
+template.php
+file
+18
+
+
+
+2015-05-22T05:20:52.000000Z
+34bd4ddd8eb4b560e6237d984b2fea99
+2015-05-06T12:27:02.789159Z
+17
+servicios.aplic
+has-props
+
+logo.png
+file
+12
+
+
+
+2014-06-06T06:28:16.000000Z
+33d18b7a597ef911dc43a547191f36cb
+2013-12-17T13:11:44.178368Z
+1
+servicios.aplic
+has-props
+
+flowplayer
+dir
+
+images
+dir
+
+bartik.info
+file
+12
+
+
+
+2014-06-06T06:28:16.000000Z
+bcb843c4f56797256f1f7c48c1ff6b0e
+2014-06-02T15:30:42.677548Z
+9
+servicios.aplic
+has-props
+
+css
+dir
+
+logofomento.png
+file
+12
+
+
+
+2014-06-06T06:28:16.000000Z
+d6f56231c0b09edfad486b50165f7f6b
+2014-02-18T08:34:54.831722Z
+7
+servicios.aplic
+has-props
+
+js
+dir
+
+color
+dir
+
+templates
+dir
+
+favicon.ico
+file
+12
+
+
+
+2014-06-06T06:28:16.000000Z
+3cf01e7d85f4010d6668d9f642339a17
+2013-12-17T13:11:44.178368Z
+1
+servicios.aplic
+has-props
+

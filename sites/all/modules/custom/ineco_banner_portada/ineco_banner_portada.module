@@ -1,0 +1,175 @@
+<?php 
+define('BANNER_PORTADA_NID', 324);
+/**
+ * Implements hook_block_info().
+ */
+function ineco_banner_portada_block_info() {
+	$blocks=array();
+
+	$blocks['banner_portada_ineco'] = array(
+			'info' => t('Bloque para los banners de portada'),
+			'cache' => DRUPAL_CACHE_GLOBAL,
+	);
+
+	return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ *
+ * Prepares the contents of the block.
+ */
+function ineco_banner_portada_block_view($delta = '') {
+	$block=array();
+
+	switch($delta){
+		case 'banner_portada_ineco':
+			$block['subject'] = '<none>';
+			$block['content'] = _ineco_banner_portada_block();
+			break;
+	}
+
+	return $block;
+}
+
+function _ineco_banner_portada_block(){
+
+	global $language;
+	$sql = "SELECT nid FROM {node} WHERE type = 'new' AND language = '".$language->language."' ORDER BY created DESC LIMIT 0, 1";
+	$result = db_query($sql);
+	$items = array();
+	foreach ($result as $record) {
+		$items[] = $record->nid;
+	}
+
+	$noticia = node_load($items[0]);
+
+	$nid = BANNER_PORTADA_NID;
+	$translations = translation_node_get_translations($nid);
+	$nid = $translations[$language->language]->nid;
+	$banner = node_load($nid);
+
+	$content = '<div class="banner-wrapper">';
+	if(isset($node->field_banner_header['und'][0]['value'])){
+		$content .= '<div class="banner-header">';
+		$content .= $node->field_banner_header['und'][0]['value'];
+		$content .= '</div>';
+	}
+
+	$notice_position = $banner->field_banner_position['und'][0]['value'];
+	
+	if(isset($banner->field_banner_links['und']) && count($banner->field_banner_links['und']) > 0){
+		$index = 0;
+		$content .= '<div class="banner-list banner-list-'.(count($banner->field_banner_links['und'])+1).'">';
+		$colocado = FALSE;
+		foreach ($banner->field_banner_links['und'] as $field_banner_links){
+			$last = "";
+			if($index == $notice_position && !$colocado){
+				$html_noticia = '<div class="lastest-new">';
+				$html_noticia .= '<div class="lastest-new-name">';
+				$html_noticia .= strtolower(t('News'));
+				$html_noticia .= '</div>';
+				$html_noticia .= '<div class="lastest-new-title">';
+				$html_noticia .= l($noticia->title, 'node/'.$noticia->nid, array('query' => array('home' => '1')));
+				$html_noticia .= '</div>';
+				$html_noticia .= '<div class="lastest-new-subtitle">';
+				$html_noticia .= _limit_text($noticia->body['und'][0]['value'], 100);
+				$html_noticia .= '</div>';
+				$html_noticia .= '</div>';
+				$content .= $html_noticia;
+				$colocado = TRUE;
+			}
+			$element = array_values(entity_load('field_collection_item', array($field_banner_links['value'])));
+			$element = $element[0];
+			$image_off = $element->field_banner_link_image_off;
+			$image_on = $element->field_banner_link_image_on;
+			$link = $element->field_banner_link_link;
+	  		$banner_url = '';
+			if(isset($link['und'])){
+				$options = drupal_parse_url($link['und'][0]['url']);
+				$options['absolute'] = TRUE;
+		  		$banner_url = url($options['path'], $options);
+			}
+
+			if($index == count($banner->field_banner_links['und'])-1){
+				$last = "-last";
+			}
+			
+			$target = '';
+			if($index == 1){
+				//$target = ' target="_blank" ';
+				$target = '';
+			}
+
+			if($current_url != $banner_url){
+				drupal_add_js(drupal_get_path('theme', 'bartik') .'/js/banner_ineco.js', 'file');
+				$content .= '<div class="banner-teaser'.$last.'">';
+				$content .= '<div id="banner-teaser-off-'.$image_off['und'][0]['fid'].'" class="banner-teaser-off">';
+				if($banner_url != ''){
+					$content .= '<a '.$target.' href="'.$banner_url.'?show_link=1'.'" alt="'.$image_off['und'][0]['title'].'">';
+				}
+				$content .= theme('image', array('path' => $image_off['und'][0]['uri'], 'alt' => $image_off['und'][0]['title']));
+				if($banner_url != ''){
+					$content .= '</a>';
+				}
+				$content .= '</div>';
+				$content .= '<div id="banner-teaser-on-'.$image_off['und'][0]['fid'].'" class="banner-teaser-on" style="display:none">';
+				if($banner_url != ''){
+					$content .= '<a '.$target.' href="'.$banner_url.'?show_link=1'.'" alt="'.$image_on['und'][0]['title'].'">';
+				}
+				$content .= theme('image', array('path' => $image_on['und'][0]['uri'], 'alt' => $image_on['und'][0]['title']));
+				if($banner_url != ''){
+					$content .= '</a>';
+				}
+				$content .= '</div>';
+				$content .= '</div>';
+			}else{
+				$content .= '<div class="banner-teaser'.$last.'">';
+				$content .= '<div class="banner-teaser-on">';
+				if($banner_url != ''){
+					$content .= '<a '.$target.' href="'.$banner_url.'?show_link=1'.'" alt="'.t($image_on['und'][0]['title']).'">';
+				}
+				$content .= theme('image', array('path' => $image_on['und'][0]['uri'], 'alt' => $image_on['und'][0]['title']));
+				if($banner_url != ''){
+					$content .= '</a>';
+				}
+				$content .= '</div>';
+				$content .= '</div>';
+			}
+			
+			$index ++;
+		}
+		if(!$colocado){
+			$html_noticia = '<div class="lastest-new-last">';
+			$html_noticia .= '<div class="lastest-new-name">';
+			$html_noticia .= strtolower(t('News'));
+			$html_noticia .= '</div>';
+			$html_noticia .= '<div class="lastest-new-title">';
+			$html_noticia .= l($noticia->title, 'node/'.$noticia->nid);
+			$html_noticia .= '</div>';
+			$html_noticia .= '<div class="lastest-new-subtitle">';
+			$html_noticia .= drupal_substr(strip_tags($noticia->body['und'][0]['value'], ''), 0, 50).' ...';
+			$html_noticia .= '</div>';
+			$html_noticia .= '</div>';
+			$content .= $html_noticia;
+			$content = str_replace('banner-teaser-last', 'banner-teaser', $content);
+			$colocado = TRUE;
+		}
+		$content .= '</div>';
+	}
+	$content .= '</div>';
+
+	return $content;
+}
+
+function _limit_text($text, $limit, $ellipsis="..."){
+	$text = strip_tags($text);
+	if(strlen($text) > $limit){
+		$text = substr($text, 0, $limit);
+		$index = strrpos($text, " ");
+		$text = substr($text, 0,$index) . $ellipsis;
+	}
+
+	return $text;
+}

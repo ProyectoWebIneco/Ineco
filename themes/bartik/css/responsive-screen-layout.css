@@ -1,0 +1,29 @@
+#complete-menu-responsive {
+	display: none;
+}
+.lastest-new-name {
+    border-bottom: 1px solid #FFFFFF;
+    color: #B19401;
+    font-family: 'Century Gothic';
+    font-size: 28px;
+    margin: 0 10px;
+    text-align: center;
+}
+.lastest-new-subtitle {
+    color: #006678;
+    font-family: 'Century Gothic';
+    font-size: 13px;
+    line-height: 17px;
+    padding: 0 10px;
+}
+.lastest-new-title a {
+    color: #006678;
+    font-family: 'Century Gothic';
+    font-size: 18px;
+}
+.lastest-new-title {
+    line-height: 19px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 0 10px;
+}

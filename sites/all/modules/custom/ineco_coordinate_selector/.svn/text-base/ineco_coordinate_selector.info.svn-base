@@ -1,0 +1,4 @@
+name = Selector de coordenadas
+description = Permite seleccionar las coordenadas a través de un mapa
+package = Ineco
+core = 7.x

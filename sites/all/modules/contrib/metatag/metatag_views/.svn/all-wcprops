@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/metatag/metatag_views
+END
+metatag_views.module
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/metatag/metatag_views/metatag_views.module
+END
+metatag_views.views.inc
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/metatag/metatag_views/metatag_views.views.inc
+END
+metatag_views.metatag.inc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/metatag/metatag_views/metatag_views.metatag.inc
+END
+metatag_views.info
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/metatag/metatag_views/metatag_views.info
+END
+metatag_views.tokens.inc
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/metatag/metatag_views/metatag_views.tokens.inc
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/metatag/metatag_views/README.txt
+END
+metatag_views_plugin_display_extender_metatags.inc
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/metatag/metatag_views/metatag_views_plugin_display_extender_metatags.inc
+END

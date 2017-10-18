@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/date
+END
+date_elements.inc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_elements.inc
+END
+date.install
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date.install
+END
+INSTALL.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/date/INSTALL.txt
+END
+date_repeat.inc
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_repeat.inc
+END
+date.tokens.inc
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date.tokens.inc
+END
+date.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date.js
+END
+date_admin.inc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_admin.inc
+END
+date.devel_generate.inc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date.devel_generate.inc
+END
+date_admin.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_admin.js
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/date/LICENSE.txt
+END
+date.module
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date.module
+END
+CHANGELOG.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/date/CHANGELOG.txt
+END
+date.field.inc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date.field.inc
+END
+date.info
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date.info
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/date/README.txt
+END
+date.api.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/date/date.api.php
+END
+date.theme
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date.theme
+END

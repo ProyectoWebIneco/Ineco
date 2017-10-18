@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/wysiwyg
+END
+wysiwyg.init.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/wysiwyg/wysiwyg.init.js
+END
+wysiwyg.api.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/wysiwyg/wysiwyg.api.php
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/wysiwyg/LICENSE.txt
+END
+wysiwyg.admin.inc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/wysiwyg/wysiwyg.admin.inc
+END
+CHANGELOG.txt
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/wysiwyg/CHANGELOG.txt
+END
+wysiwyg.api.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/wysiwyg/wysiwyg.api.js
+END
+wysiwyg.module
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/wysiwyg/wysiwyg.module
+END
+wysiwyg.install
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/wysiwyg/wysiwyg.install
+END
+wysiwyg.features.inc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/wysiwyg/wysiwyg.features.inc
+END
+wysiwyg.dialog.inc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/wysiwyg/wysiwyg.dialog.inc
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/wysiwyg/README.txt
+END
+wysiwyg.info
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/wysiwyg/wysiwyg.info
+END
+wysiwyg.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/wysiwyg/wysiwyg.js
+END
+wysiwyg-dialog-page.tpl.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/wysiwyg/wysiwyg-dialog-page.tpl.php
+END

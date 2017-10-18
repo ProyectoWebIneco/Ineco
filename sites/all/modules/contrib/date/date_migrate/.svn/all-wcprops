@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/date/date_migrate
+END
+date_migrate.info
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_migrate/date_migrate.info
+END
+date_migrate.test
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_migrate/date_migrate.test
+END
+date_migrate.module
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_migrate/date_migrate.module
+END
+date.migrate.inc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_migrate/date.migrate.inc
+END

@@ -1,0 +1,4 @@
+name = Contact Request
+description = Plan de contacto de usuarios
+package = Ineco
+core = 7.x

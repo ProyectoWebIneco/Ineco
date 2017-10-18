@@ -1,0 +1,4 @@
+name = Parte izquierda contextual
+description = Permite cargar la zona izquierda en función de dónde esté el usuario
+package = Ineco
+core = 7.x

@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples
+END
+test_smtp_gmail_basic.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_smtp_gmail_basic.php
+END
+test_sendmail_basic.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_sendmail_basic.php
+END
+test_smtp_basic_no_auth.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_smtp_basic_no_auth.php
+END
+test_mail_advanced.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_mail_advanced.php
+END
+test_smtp_advanced.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_smtp_advanced.php
+END
+test_pop_before_smtp_advanced.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_pop_before_smtp_advanced.php
+END
+contents.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/contents.html
+END
+test_smtp_gmail_advanced.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_smtp_gmail_advanced.php
+END
+test_sendmail_advanced.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_sendmail_advanced.php
+END
+test_mail_basic.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_mail_basic.php
+END
+test_smtp_basic.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_smtp_basic.php
+END
+test_pop_before_smtp_basic.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_pop_before_smtp_basic.php
+END
+test_smtp_advanced_no_auth.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_smtp_advanced_no_auth.php
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/index.html
+END
+test_db_smtp_basic.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/despliegues/webineco/!svn/ver/10/sites/all/libraries/phpmailer/examples/test_db_smtp_basic.php
+END

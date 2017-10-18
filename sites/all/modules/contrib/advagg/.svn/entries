@@ -1,0 +1,227 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/advagg
+http://svn/despliegues/webineco
+
+
+
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+advagg_font
+dir
+
+advagg.info
+file
+
+
+
+
+2015-07-28T05:34:45.000000Z
+3481a24a934ca5e25c0b55e9d59885c8
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+advagg_ext_compress
+dir
+
+advagg.drush.inc
+file
+
+
+
+
+2015-07-28T05:34:46.000000Z
+b2712b85f3c18f7c37bd720cf3297526
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+advagg_css_cdn
+dir
+
+advagg.api.php
+file
+
+
+
+
+2015-07-28T05:34:47.000000Z
+e591693243cd8d0af1c1dbddcc197120
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+advagg.admin.inc
+file
+
+
+
+
+2015-07-28T05:34:47.000000Z
+c820ff681ce8a1061c9b5e6b6ec135bc
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+advagg_mod
+dir
+
+advagg.advagg.inc
+file
+
+
+
+
+2015-07-28T05:34:48.000000Z
+2f1b6418efb6e46da69971ccb8940663
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+advagg.admin.js
+file
+
+
+
+
+2015-07-28T05:34:49.000000Z
+702a52a35f311b46284a6b6207acf0df
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+advagg_validator
+dir
+
+advagg.install
+file
+
+
+
+
+2015-07-28T05:34:49.000000Z
+1604b7acf69205b24cf5956d9dd45ae6
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+advagg_js_compress
+dir
+
+LICENSE.txt
+file
+
+
+
+
+2015-07-28T05:34:50.000000Z
+b234ee4d69f5fce4486a80fdaf4a4263
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+advagg.inc
+file
+
+
+
+
+2015-07-28T05:34:51.000000Z
+0692c8aefa76a0084be64264975ba134
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+tests
+dir
+
+advagg.cache.inc
+file
+
+
+
+
+2015-07-28T05:34:51.000000Z
+2f3351abd16a8087f9bafb7a74feeab8
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+advagg_bundler
+dir
+
+advagg_js_cdn
+dir
+
+advagg.missing.inc
+file
+
+
+
+
+2015-07-28T05:34:52.000000Z
+4531a43bd0500a390f62b7059e7395ef
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+README.txt
+file
+
+
+
+
+2015-07-28T05:34:53.000000Z
+6fa2554db89edebd8c749d468e9c94a6
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+advagg_css_compress
+dir
+
+advagg.module
+file
+
+
+
+
+2015-07-28T05:34:53.000000Z
+d6ec02aaa1b9da4bdac5800cc1404fcb
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+

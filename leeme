@@ -1,0 +1,22 @@
+GUÍA DE INSTALACIÓN PLATAFORMA WEB INECO
+========================================
+
+PRERREQUISITOS
+	APACHE 2.X (mod_rewrite y mod_php)
+	MySQL 5.X
+	PHP 5.3
+
+PASO 1:
+	Descomprimir el fichero install.tar.gz (tar -zxvf install.tar.gz -C .) en un directorio
+
+PASO 2:
+	Copiar el directorio ineco al raiz del servidor Apache (cp -r ineco RAIZ_SERVIDOR, por ejemplo /var/www/)
+
+PASO 3:
+	Instalar base de datos (mysql -u DATABASE_USER -pDATABASE_PASS DATABASE_NAME < 201309112025.sql)
+
+PASO 4:
+	Configurar acceso de base de datos (vi RAIZ_SERVIDOR/ineco/sites/default/settings.php) y editar los parámetros DATABASE_USER, DATABASE_PASS y DATABASE_NAME
+
+PASO 5:
+	Configurar permisos de acceso (chmod 775 -R RAIZ_SERVIDOR/ineco/sites/default/files y chmod 775 -R RAIZ_SERVIDOR/ineco/sites/default/settings.php)

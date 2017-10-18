@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/panels/panels_node
+END
+panels_node.info
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/panels/panels_node/panels_node.info
+END
+panels_node.module
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/panels/panels_node/panels_node.module
+END
+panels_node.install
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/panels/panels_node/panels_node.install
+END

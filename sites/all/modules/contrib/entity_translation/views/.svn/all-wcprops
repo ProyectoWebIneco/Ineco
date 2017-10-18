@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/views
+END
+entity_translation_handler_relationship.inc
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/views/entity_translation_handler_relationship.inc
+END
+entity_translation_handler_field_label.inc
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/views/entity_translation_handler_field_label.inc
+END
+entity_translation_handler_filter_entity_type.inc
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/views/entity_translation_handler_filter_entity_type.inc
+END
+entity_translation_handler_filter_translation_exists.inc
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/views/entity_translation_handler_filter_translation_exists.inc
+END
+entity_translation_handler_filter_language.inc
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/views/entity_translation_handler_filter_language.inc
+END
+entity_translation_handler_field_translate_link.inc
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/views/entity_translation_handler_field_translate_link.inc
+END
+entity_translation.views.inc
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/views/entity_translation.views.inc
+END

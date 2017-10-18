@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/entity_translation
+END
+entity-translation.css
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/entity_translation/entity-translation.css
+END
+entity_translation.install
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/entity_translation.install
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/entity_translation/LICENSE.txt
+END
+entity_translation.info
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/entity_translation.info
+END
+CHANGELOG.txt
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/entity_translation/CHANGELOG.txt
+END
+entity_translation.node.inc
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/entity_translation.node.inc
+END
+MAINTAINERS.txt
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/entity_translation/MAINTAINERS.txt
+END
+entity_translation.api.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/entity_translation/entity_translation.api.php
+END
+entity_translation.admin.inc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/entity_translation.admin.inc
+END
+entity_translation.node-form.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/entity_translation.node-form.js
+END
+entity_translation.rules.inc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/entity_translation.rules.inc
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/entity_translation/README.txt
+END
+entity_translation.module
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/entity_translation.module
+END

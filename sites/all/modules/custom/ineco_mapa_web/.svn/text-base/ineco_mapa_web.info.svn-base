@@ -1,0 +1,4 @@
+name = Mapa web
+description = Mapa web del portal en el formato de Ineco
+package = Ineco
+core = 7.x

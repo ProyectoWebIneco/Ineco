@@ -1,0 +1,54 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/panels/panels_mini/plugins/content_types
+http://svn/despliegues/webineco
+
+
+
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+panels_mini.inc
+file
+
+
+
+
+2014-06-06T06:28:21.000000Z
+a54be1520f84a64be0b534694324ca0c
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+icon_panels_mini.png
+file
+
+
+
+
+2014-06-06T06:28:21.000000Z
+57a0e35d3a2a51621782eb52fd6e4d85
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+

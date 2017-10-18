@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/panels/plugins/display_renderers
+END
+simple.inc
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/panels/plugins/display_renderers/simple.inc
+END
+panels_renderer_standard.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/panels/plugins/display_renderers/panels_renderer_standard.class.php
+END
+panels_renderer_editor.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/panels/plugins/display_renderers/panels_renderer_editor.class.php
+END
+standard.inc
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/panels/plugins/display_renderers/standard.inc
+END
+panels_renderer_simple.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/panels/plugins/display_renderers/panels_renderer_simple.class.php
+END
+editor.inc
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/panels/plugins/display_renderers/editor.inc
+END

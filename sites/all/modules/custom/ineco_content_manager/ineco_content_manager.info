@@ -1,0 +1,4 @@
+name = Gestor de contenidos
+description = Configuraciones para el usuario gestor de contenidos
+package = Ineco
+core = 7.x

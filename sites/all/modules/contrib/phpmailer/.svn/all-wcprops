@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/phpmailer
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/phpmailer/LICENSE.txt
+END
+phpmailer.admin.inc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/phpmailer/phpmailer.admin.inc
+END
+CHANGELOG.txt
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/phpmailer/CHANGELOG.txt
+END
+phpmailer.module
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/phpmailer/phpmailer.module
+END
+phpmailer.install
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/phpmailer/phpmailer.install
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/phpmailer/README.txt
+END
+phpmailer.info
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/phpmailer/phpmailer.info
+END

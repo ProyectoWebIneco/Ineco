@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/despliegues/webineco/!svn/ver/18/sites/all/modules/contrib/smtp
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/despliegues/webineco/!svn/ver/18/sites/all/modules/contrib/smtp/LICENSE.txt
+END
+smtp.admin.inc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/despliegues/webineco/!svn/ver/18/sites/all/modules/contrib/smtp/smtp.admin.inc
+END
+smtp.transport.inc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/despliegues/webineco/!svn/ver/18/sites/all/modules/contrib/smtp/smtp.transport.inc
+END
+smtp.module
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/despliegues/webineco/!svn/ver/18/sites/all/modules/contrib/smtp/smtp.module
+END
+smtp.install
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/despliegues/webineco/!svn/ver/18/sites/all/modules/contrib/smtp/smtp.install
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/despliegues/webineco/!svn/ver/18/sites/all/modules/contrib/smtp/README.txt
+END
+smtp.phpmailer.inc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/despliegues/webineco/!svn/ver/18/sites/all/modules/contrib/smtp/smtp.phpmailer.inc
+END
+smtp.mail.inc
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/despliegues/webineco/!svn/ver/18/sites/all/modules/contrib/smtp/smtp.mail.inc
+END
+smtp.info
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/despliegues/webineco/!svn/ver/18/sites/all/modules/contrib/smtp/smtp.info
+END

@@ -1,0 +1,131 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/libraries/phpmailer
+http://svn/despliegues/webineco
+
+
+
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+test
+dir
+
+LICENSE
+file
+
+
+
+
+2014-06-06T06:28:36.000000Z
+ef938cb01cb27e791cc3c596e363acfb
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+language
+dir
+
+aboutus.html
+file
+
+
+
+
+2014-06-06T06:28:36.000000Z
+37858536ca5aaa398022614e32be79f3
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+changelog.txt
+file
+
+
+
+
+2014-06-06T06:28:36.000000Z
+b3b07ca35d67e8636f21ce70cb451867
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+docs
+dir
+
+class.phpmailer.php
+file
+
+
+
+
+2014-06-06T06:28:36.000000Z
+4e4a21176bd4be6926e22bbee6ca74b7
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+class.pop3.php
+file
+
+
+
+
+2014-06-06T06:28:36.000000Z
+ab51f422f393949a95ffc2be686b445c
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+README
+file
+
+
+
+
+2014-06-06T06:28:36.000000Z
+7f027da7d3d8554b19aeaf468e48f90d
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+class.smtp.php
+file
+
+
+
+
+2014-06-06T06:28:36.000000Z
+c8e9d697c14e6e4000f7e23e4a3712bd
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+examples
+dir
+

@@ -1,0 +1,54 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/field_group/horizontal-tabs
+http://svn/despliegues/webineco
+
+
+
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+horizontal-tabs.css
+file
+
+
+
+
+2014-12-10T12:39:13.000000Z
+c591442671461d3a9017ee022bb19920
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+horizontal-tabs.js
+file
+
+
+
+
+2014-06-06T06:28:26.000000Z
+2e6bcfea8168dff3d9b08880310ed683
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+

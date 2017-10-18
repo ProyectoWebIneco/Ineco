@@ -1,0 +1,1153 @@
+<?php
+
+/**
+ * IMPLEMENTACIÓN DE HOOKS
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function ineco_contact_request_permission() {
+	return array(
+			'change status' => array(
+					'title' => t('Change contact request status'),
+			),
+			'access dashboard' => array(
+					'title' => t('Access dashboard page'),
+			),
+			'export contact request data' => array(
+					'title' => t('Export contact request data'),
+			),
+			'access contact request statistics' => array(
+					'title' => t('Access contact request statistics'),
+			),
+			'open closed contact requests' => array(
+					'title' => t('Open closed contact requests'),
+			),
+	);
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function ineco_contact_request_block_info() {
+	$blocks=array();
+
+	$blocks['contact_form_ineco'] = array(
+			'info' => t('Block to hold the contact form'),
+			'cache' => DRUPAL_CACHE_GLOBAL,
+	);
+
+	$blocks['contact_form_ineco_bd'] = array(
+			'info' => t('Block to hold the contact form from business development'),
+			'cache' => DRUPAL_CACHE_GLOBAL,
+	);
+
+	return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ *
+ * Prepares the contents of the block.
+ */
+function ineco_contact_request_block_view($delta = '') {
+	$block=array();
+
+	switch($delta){
+		case 'contact_form_ineco':
+			$block['subject'] = '<none>';
+			$block['content'] = drupal_get_form('formulario_peticion_contacto');
+			break;
+		case 'contact_form_ineco_bd':
+			$block['subject'] = '<none>';
+			$block['content'] = drupal_get_form('formulario_peticion_contacto_desarrollo_negocio');
+			break;
+	}
+
+	return $block;
+}
+
+/**
+ * Implementation of hook_menu
+ */
+function ineco_contact_request_menu(){
+	$items['preconfigured-reports/%'] = array(
+			'title' => 'Preconfigured reports',
+			'page callback' => 'return_preconfigured_reports',
+			'page arguments' => array(1),
+			'access arguments' => array('access content'),
+			'type' => MENU_NORMAL_ITEM,
+	);
+
+	$items['filter-contact-requests/ajax/%taxonomy_term'] = array(
+				'page callback' => 'ineco_filter_contact_request',
+				'page arguments' => array(2),
+				'access callback' => TRUE,
+				'type' => MENU_CALLBACK,
+	);
+
+	$items['filter-contact-requests/ajax/All'] = array(
+				'page callback' => 'ineco_filter_contact_request_all',
+				'access callback' => TRUE,
+				'type' => MENU_CALLBACK,
+	);
+
+	$items['export-excel-data'] = array(
+				'page callback' => 'ineco_export_excel',
+				'access callback' => TRUE,
+				'type' => MENU_CALLBACK,
+	);
+
+	$items['export-excel-statistics'] = array(
+				'page callback' => 'ineco_export_excel_statistics',
+				'access callback' => TRUE,
+				'type' => MENU_CALLBACK,
+	);
+
+	$items['contact-form-ajax/%'] = array(
+				'page callback' => 'ineco_contact_form_ajax',
+				'access callback' => TRUE,
+				'page arguments' => array(1),
+				'type' => MENU_CALLBACK,
+	);
+
+	return $items;
+}
+
+/**
+ * Implementation of hook_form_alter
+ */
+function ineco_contact_request_form_alter(&$form, &$form_state, $form_id){
+	switch ($form_id){
+		case 'contact_request_node_form':
+			contact_request_form_process($form);
+			break;
+		case 'views_exposed_form':
+			switch($form['#id']){
+				case 'views-exposed-form-contact-requests-page-1':
+					contact_request_view_form_process($form);
+					//$form = formulario_filtro_vista_listado();
+					break;
+				case 'views-exposed-form-contact-requests-page-3':
+					contact_request_view_form_process($form);
+					break;
+			}
+			break;
+	}
+}
+
+/**
+ * Implementation of hook_node_insert
+ */
+function ineco_contact_request_node_insert($node){
+	if($node->type == 'contact_request'){
+		// Envío de correos
+		variable_set('last_unique_id', $node->title);
+		formulario_peticion_contacto_submit_send_mail_ineco_changed_request($node);
+	}
+}
+
+/**
+ * Implementation of hook_mail
+ */
+function ineco_contact_request_mail($key, &$message, $params){
+  // The key allows for a module to define multiple mails. This 
+  // key needs to be the same as the first parameter in drupal_mail() above
+  switch ($key) {
+  	case 'new_contact_request_ineco':
+  		// Mensaje a ineco
+	    	$message['subject'] = t('New contact request @contact_request_id', array('@contact_request_id' => $params['node']->title));
+	    	$message['body'][] = t('It has generated the contact request @contact_request_id you can see the detail by clicking the following <a href="'.url('user', array('query' => array('destination' => drupal_lookup_path('alias', 'node/'.$params['node']->nid)))).'">link</a>', array('@contact_request_id' => $params['node']->title));
+	    	break;
+    	case 'new_contact_request_user':
+    		// Mensaje a ineco
+	    	$message['subject'] = t('Thank for contact Ineco');
+	    	$message['body'][] = t('Thank you for contacting Ineco, shortly we will contact you.');
+	    	$message['body'][] = '';
+	    	$message['body'][] = t('This is the tracking code of your contact request @contact_request_id', array('@contact_request_id' => $params['node']->title));
+	    	break;
+    	case 'new_contact_request_changed_request':
+    		// Mensaje a ineco
+	    	$message['subject'] = t('Contact request change');
+	    	$message['body'][] = t('The contact request @contact_request_id has changed, you can see the detail by clicking the following <a href="'.url('user', array('query' => array('destination' => drupal_lookup_path('alias', 'node/'.$params['node']->nid)))).'">link</a>', array('@contact_request_id' => $params['node']->title));
+	    	break;
+  }
+}
+
+/**
+ * FUNCIONES AUXILIARES
+ */
+/**
+ * Formulario de petición de contacto.
+ */
+function formulario_filtro_vista_listado(){
+	global $language;
+
+	$form['name'] = array(
+			'#title' => t('Name'),
+			'#type' => 'textfield',
+			'#required' => TRUE,
+			'#size' => '20',
+	);
+
+	return $form;
+}
+
+/**
+ * Formulario de petición de contacto.
+ */
+function formulario_peticion_contacto(){
+	global $language;
+
+	if(isset($_SESSION['mensaje_agradecimiento'])){
+		$form['message'] = array(
+			'#markup' => $_SESSION['mensaje_agradecimiento']
+		);
+		unset($_SESSION['mensaje_agradecimiento']);
+	}
+
+	$form['name'] = array(
+			'#title' => t('Name'),
+			'#type' => 'textfield',
+			'#required' => TRUE,
+			'#size' => '20',
+	);
+
+	$form['first_surname'] = array(
+			'#title' => t('First Surname'),
+			'#type' => 'textfield',
+			'#required' => TRUE,
+			'#size' => '20',
+	);
+
+	$form['second_surname'] = array(
+			'#title' => t('Second Surname'),
+			'#type' => 'textfield',
+			'#required' => TRUE,
+			'#size' => '20',
+	);
+
+	$form['mail'] = array(
+			'#title' => t('Mail'),
+			'#type' => 'textfield',
+			'#required' => TRUE,
+			'#size' => '20',
+	);
+
+	$form['phone'] = array(
+			'#title' => t('Phone'),
+			'#type' => 'textfield',
+			'#size' => '20',
+	);
+
+	$form['country'] = array(
+			'#title' => t('Country'),
+			'#type' => 'textfield',
+			'#required' => TRUE,
+			'#size' => '20',
+	);
+
+	$form['business'] = array(
+			'#title' => t('Business'),
+			'#type' => 'textfield',
+			'#required' => TRUE,
+			'#size' => '20',
+	);
+
+	formulario_peticion_contacto_combos($form);
+
+	$form['comments'] = array(
+			'#title' => t('Comments'),
+			'#type' => 'textarea',
+			'#required' => TRUE,
+	);
+
+	$form['aceptance'] = array(
+			'#type' => 'checkbox',
+			'#title' => t('I have read and accept the !link Ineco.', array('!link' => l(t('Privacy Policy'), file_create_url(file_build_uri('normativa_proteccion_datos_'.$language->language.'.pdf'))))),
+			'#required' => TRUE,
+	);
+
+	$form['submit'] = array(
+			'#type' => 'submit',
+			'#value' => t('Send'),
+	);
+
+	return $form;
+}
+
+function formulario_peticion_contacto_desarrollo_negocio(){
+
+	global $language;
+	
+	//$node_para = node_load(str_replace('contact-form-ajax/', '', $_GET['q']));
+	$node_para = node_load(358);
+
+	if(isset($_SESSION['mensaje_agradecimiento'])){
+		$form['message'] = array(
+			'#markup' => $_SESSION['mensaje_agradecimiento']
+		);
+		unset($_SESSION['mensaje_agradecimiento']);
+	}
+
+	$form['nid_para'] = array('#type' => 'hidden', '#value' => $node_para->nid);
+
+	$form['to'] = array(
+		'#type' => 'item',
+		'#title' => t('To'),
+		'#markup' => '%%USER_TO%%',
+	);
+
+	$form['from'] = array(
+		'#type' => 'item',
+		'#title' => t('From'),
+		'#markup' => '',
+	);
+
+	$form['from_wrapper_ini'] = array(
+		'#markup' => '<div class="from-wrapper">'
+	);
+
+	$form['name'] = array(
+		'#title' => t('Name'),
+		'#type' => 'textfield',
+		'#required' => TRUE,
+		'#size' => '20',
+	);
+
+	$form['first_surname'] = array(
+			'#title' => t('First Surname'),
+			'#type' => 'textfield',
+			'#required' => TRUE,
+			'#size' => '20',
+	);
+
+	$form['second_surname'] = array(
+			'#title' => t('Second Surname'),
+			'#type' => 'textfield',
+			'#required' => TRUE,
+			'#size' => '20',
+	);
+
+	$form['mail'] = array(
+			'#title' => t('Mail'),
+			'#type' => 'textfield',
+			'#required' => TRUE,
+			'#size' => '20',
+	);
+
+	$form['phone'] = array(
+			'#title' => t('Phone'),
+			'#type' => 'textfield',
+			'#size' => '20',
+	);
+
+	$form['country'] = array(
+			'#title' => t('Country'),
+			'#type' => 'textfield',
+			'#required' => TRUE,
+			'#size' => '20',
+	);
+
+	$form['business'] = array(
+			'#title' => t('Business'),
+			'#type' => 'textfield',
+			'#required' => TRUE,
+			'#size' => '20',
+	);
+
+	$type = 154;
+	$subtype = 155;
+	formulario_peticion_contacto_combos($form, $type, $subtype);
+
+	$form['from_wrapper_end'] = array(
+		'#markup' => '</div>'
+	);
+
+	$form['comments'] = array(
+			'#title' => t('Comments'),
+			'#type' => 'textarea',
+			'#required' => TRUE,
+	);
+
+	$form['aceptance'] = array(
+			'#type' => 'checkbox',
+			'#title' => t('I have read and accept the !link Ineco.', array('!link' => l(t('Privacy Policy'), file_create_url(file_build_uri('normativa_proteccion_datos_'.$language->language.'.pdf'))))),
+			'#required' => TRUE,
+	);
+
+	$form['submit'] = array(
+			'#type' => 'submit',
+			'#value' => t('Send'),
+	);
+
+	return $form;
+}
+
+/**
+ * Genera los combos encadenados
+ */
+function formulario_peticion_contacto_combos(&$form, $forcedtype = 0, $forcedsubtype = 0){
+	
+	global $language;
+	
+	$terms = taxonomy_get_tree(18);
+	$result = array();
+
+	$form['request_type'] = array(
+			'#type' => 'select',
+			'#title' => t('Request type'),
+			'#options' => array('All' => t('Select Request')),
+			'#default_value' => 'All',
+			'#required' => TRUE,
+	);
+	
+	
+	$form['acepted_pdf_open'] = array(
+		'#markup' => '<div class="from-acepted-pdf" style="display:none">'
+	);
+	
+	$form['aceptance_pdf'] = array( 
+			'#type' => 'checkbox',
+			'#title' => t('Process !link.', array('!link' => l(t('complaints and claims processing'), file_create_url(file_build_uri('quejas_reclamaciones_'.$language->language.'.pdf')), array('attributes'=>array('target'=>'blank')) ))),
+			'#required' => TRUE,
+	);
+	
+	$form['acepted_pdf_closed'] = array(
+		'#markup' => '</div>'
+	);
+
+	
+	if(isset($_GET['type'])){
+		$form['request_type']['#default_value'] = $_GET['type'];
+	}elseif($type != 0){
+		$form['request_type']['#default_value'] = $forcedtype;
+	}
+
+	foreach($terms as $term){
+		if($term->depth == 0){
+			$form['request_type']['#options'][$term->tid] = t($term->name);
+		}else{
+			if(!isset($form['request_type_'.$term->parents[0]])){
+				$parent_term = taxonomy_term_load($term->parents[0]);
+				$form['request_type_'.$term->parents[0]] = array(
+						'#type' => 'select',
+						'#title' => t($parent_term->name.' type'),
+						'#states' => array(
+								'visible' => array(
+										':input[name="request_type"]' => array('value' => $term->parents[0]),
+								),
+						),
+						'#options' => array('All' => t($parent_term->name.' type'), $term->tid => t($term->name)),
+						'#attributes' => array('class' => array($term->tid => t('select-subtipo-'.$term->tid))),
+						'#default_value' => 'All',
+						'#required' => TRUE,
+				);
+			}else{
+				$form['request_type_'.$term->parents[0]]['#options'][$term->tid] = t($term->name);
+			}
+		}
+	}
+	if(isset($_GET['subtype'])){
+		$form['request_type_'.$_GET['type']]['#default_value'] = $_GET['subtype'];
+	}elseif($subtype != 0){
+		$form['request_type']['#default_value'] = $forcedsubtype;
+	}
+	
+	
+}
+
+/**
+ * Validación del formulario
+ */
+function formulario_peticion_contacto_desarrollo_negocio_validate($form, &$form_state) {
+	$mail = $form_state['values']['mail'];
+	if(!valid_email_address($mail)) {
+		form_set_error('mail', t('The email has incorrect format.'));
+	}
+}
+
+/**
+ * Envío del formulario
+ */
+function formulario_peticion_contacto_desarrollo_negocio_submit($form, &$form_state) {
+	global $language;
+
+	$node = new stdClass();
+	$node->type = 'contact_request';
+	node_object_prepare($node);
+	 
+	$node->title    = generate_unique_id();
+	$node->language = LANGUAGE_NONE;
+	$node->status = 1;
+	node_save($node);
+	 
+	// Se añaden los campos CCK
+	$node->field_contact_request_date['und'][0]['value'] = date('Y-m-d H:i:s', time());
+	$node->field_contact_request_name['und'][0]['value'] = $form_state['values']['name'];
+	$node->field_contact_request_first_s['und'][0]['value'] = $form_state['values']['first_surname'];
+	$node->field_contact_request_ss['und'][0]['value'] = $form_state['values']['second_surname'];
+	$node->field_contact_request_email['und'][0]['value'] = $form_state['values']['mail'];
+	$node->field_contact_request_phone['und'][0]['value'] = $form_state['values']['phone'];
+	$node->field_contact_request_country['und'][0]['value'] = $form_state['values']['country'];
+	$node->field_contact_request_business['und'][0]['value'] = $form_state['values']['business'];
+	$node->field_contact_request_type['und'][0]['tid'] = $form_state['values']['request_type_'.$form_state['values']['request_type']];
+	$node->field_contact_request_comments['und'][0]['value'] = $form_state['values']['comments'];
+	// Se marca como "Pendiente de validar"
+	$node->field_contact_request_status['und'][0]['tid'] = 151;
+	$node->field_contact_request_cr = '';
+	// Se marca el origen como web
+	$node->field_contact_request_origin['und'][0]['tid'] = 139;
+	// Se asigna el responsable
+	$term = taxonomy_term_load($form_state['values']['request_type_'.$form_state['values']['request_type']]);
+	$node->field_contact_request_resp['und'][0]['tid'] = $term->field_responsible['und'][0]['tid'];
+	 
+	node_save($node);
+	
+	// Se envían los correos a los usuarios de ineco
+	formulario_peticion_contacto_submit_send_mail_ineco_users($node);
+	
+	// Se envían el correo al usuarios que ha generado la petición
+	formulario_peticion_contacto_submit_send_mail_ineco_user_request($node);
+	 
+	// Se envía al usuario a la página de agradecimiento
+	$tranlations = translation_node_get_translations(1050);
+	$nid = 1050;
+	if(isset($tranlations[$language->language])){
+		$nid = $tranlations[$language->language]->nid;
+	}else if(isset($tranlations[language_default("language")])){
+		$nid = $tranlations[language_default("language")]->nid;
+	}
+	// Se manda el correo al usuario seleccionado
+	//formulario_peticion_contacto_desarrollo_negocio_direct_contact($form_state, $request);
+}
+
+/**
+ * Validación del formulario
+ */
+function formulario_peticion_contacto_validate($form, &$form_state) {
+	$mail = $form_state['values']['mail'];
+	if(!valid_email_address($mail)) {
+		form_set_error('mail', t('The email has incorrect format.'));
+	}
+}
+
+/**
+ * Envío del formulario
+ */
+function formulario_peticion_contacto_submit($form, &$form_state) {
+	global $language;
+
+	$node = new stdClass();
+	$node->type = 'contact_request';
+	node_object_prepare($node);
+	 
+	$node->title    = generate_unique_id();
+	$node->language = LANGUAGE_NONE;
+	$node->status = 1;
+	node_save($node);
+	 
+	// Se añaden los campos CCK
+	$node->field_contact_request_date['und'][0]['value'] = date('Y-m-d H:i:s', time());
+	$node->field_contact_request_name['und'][0]['value'] = $form_state['values']['name'];
+	$node->field_contact_request_first_s['und'][0]['value'] = $form_state['values']['first_surname'];
+	$node->field_contact_request_ss['und'][0]['value'] = $form_state['values']['second_surname'];
+	$node->field_contact_request_email['und'][0]['value'] = $form_state['values']['mail'];
+	$node->field_contact_request_phone['und'][0]['value'] = $form_state['values']['phone'];
+	$node->field_contact_request_country['und'][0]['value'] = $form_state['values']['country'];
+	$node->field_contact_request_business['und'][0]['value'] = $form_state['values']['business'];
+	$node->field_contact_request_type['und'][0]['tid'] = $form_state['values']['request_type_'.$form_state['values']['request_type']];
+	$node->field_contact_request_comments['und'][0]['value'] = $form_state['values']['comments'];
+	// Se marca como "Pendiente de validar"
+	$node->field_contact_request_status['und'][0]['tid'] = 151;
+	$node->field_contact_request_cr = '';
+	// Se marca el origen como web
+	$node->field_contact_request_origin['und'][0]['tid'] = 139;
+	// Se asigna el responsable
+	$term = taxonomy_term_load($form_state['values']['request_type_'.$form_state['values']['request_type']]);
+	$node->field_contact_request_resp['und'][0]['tid'] = $term->field_responsible['und'][0]['tid'];
+	 
+	node_save($node);
+	
+	// Se envían los correos a los usuarios de ineco
+	formulario_peticion_contacto_submit_send_mail_ineco_users($node);
+	
+	// Se envían el correo al usuarios que ha generado la petición
+	formulario_peticion_contacto_submit_send_mail_ineco_user_request($node);
+	 
+	// Se envía al usuario a la página de agradecimiento
+	$tranlations = translation_node_get_translations(1050);
+	$nid = 1050;
+	if(isset($tranlations[$language->language])){
+		$nid = $tranlations[$language->language]->nid;
+	}else if(isset($tranlations[language_default("language")])){
+		$nid = $tranlations[language_default("language")]->nid;
+	}
+	$_SESSION['mensaje_agradecimiento'] = t('Thank you for using our mailbox. We hope to reply as soon as possible');
+}
+
+/**
+ * Se envían los correos a los usuarios de ineco
+ */
+function formulario_peticion_contacto_submit_send_mail_ineco_users($node){
+ 	drupal_mail('ineco_contact_request', 'new_contact_request_ineco', 'dptocomunicacion@ineco.es',	language_default()->language, array('node' => $node));
+ 	drupal_mail('ineco_contact_request', 'new_contact_request_ineco', 'calidad@ineco.es',	language_default()->language, array('node' => $node));
+}
+
+/**
+ * Se envían los correos a los usuarios de ineco
+ */
+function formulario_peticion_contacto_submit_send_mail_ineco_user_request($node){
+	drupal_mail('ineco_contact_request', 'new_contact_request_user', $node->field_contact_request_email['und'][0]['value'],	language_default()->language, array('node' => $node));
+}
+
+function formulario_peticion_contacto_submit_send_mail_ineco_changed_request($node){
+	if(isset($node->field_contact_request_resp['und'])){
+		$responsible_tid = $node->field_contact_request_resp['und'][0]['tid'];
+		$responsible = taxonomy_term_load($responsible_tid);
+		drupal_mail('ineco_contact_request', 'new_contact_request_changed_request', $responsible->field_mailbox['und'][0]['value'], language_default()->language, array('node' => $node));
+	}
+}
+
+function formulario_peticion_contacto_desarrollo_negocio_direct_contact($nid){
+	$node = node_load($nid);
+	drupal_mail('ineco_contact_request', 'new_contact_request_changed_request', $node->field_people_mail['und'][0]['value'], language_default()->language, array('node' => $node));
+}
+
+/**
+ * Sustitución de campos de filtro para filtros preconfigurados.
+ */
+function return_preconfigured_reports($tid){
+	$term = taxonomy_term_load($tid);
+
+	$value = $term->field_value['und'][0]['value'];
+	$value = str_replace('now-1', date('Y-m-d',strToTime('yesterday')), $value);
+	$value = str_replace('now-7', date('Y-m-d',strToTime('now -7 day')), $value);
+	$value = str_replace('lastweek_start', date('Y-m-d',strToTime('now last week')), $value);
+	$value = str_replace('lastweek_end', date('Y-m-d',strToTime('now last week + 6 day')), $value);
+	$value = str_replace('now-31', date('Y-m-d',strToTime('now - 31 day')), $value);
+	$value = str_replace('lastmonth_start', date('Y-m-d',strToTime('first day of last month')), $value);
+	$value = str_replace('lastmonth_end', date('Y-m-d',strToTime('last day of last month')), $value);
+	$value = str_replace('now-365', date('Y-m-d',strToTime('now - 365 day')), $value);
+	$value = str_replace('lastyear_start', date('Y-01-01',strToTime('last year')), $value);
+	$value = str_replace('lastyear_end', date('Y-12-31',strToTime('last year')), $value);
+	$value = str_replace('now', date('Y-m-d',strToTime('now')), $value);
+	$value = 'preconfigured='.$tid.'&'.$value;
+	drupal_json_output(array('url' => $value));
+}
+
+/**
+ * Procesamiento del formulario de Contact Request
+ */
+function contact_request_form_process(&$form){
+
+	global $language, $user;
+	$path = drupal_get_path('module', 'ineco_contact_request');
+	drupal_add_js("{$path}/js/ineco_contact_request.js");
+
+	// Generación automática del id
+	if(!isset($form['title']['#default_value'])){
+		$form['title']['#default_value'] = generate_unique_id();
+	}
+	
+	$form['title']['#disabled'] = TRUE;
+	
+	// Si la petición está cerrada no se puede tocar solo si tienes permiso
+	if(isset($form['field_contact_request_status']['und']['#default_value'][0]) && $form['field_contact_request_status']['und']['#default_value'][0] == 152){
+		$form['title']['#disabled'] = TRUE;
+		$form['field_contact_request_date']['#disabled'] = TRUE;
+		$form['field_contact_request_name']['#disabled'] = TRUE;
+		$form['field_contact_request_first_s']['#disabled'] = TRUE;
+		$form['field_contact_request_ss']['#disabled'] = TRUE;
+		$form['field_contact_request_email']['#disabled'] = TRUE;
+		$form['field_contact_request_phone']['#disabled'] = TRUE;
+		$form['field_contact_request_country']['#disabled'] = TRUE;
+		$form['field_contact_request_business']['#disabled'] = TRUE;
+		$form['field_contact_request_comments']['#disabled'] = TRUE;
+		$form['field_contact_request_documents']['#disabled'] = TRUE;
+		$form['field_contact_request_cr']['#disabled'] = TRUE;
+		$form['field_contact_request_type']['#disabled'] = TRUE;
+		$form['field_contact_request_status']['#disabled'] = TRUE;
+		$form['field_contact_request_origin']['#disabled'] = TRUE;
+		$form['field_contact_request_resp']['#disabled'] = TRUE;
+		$form['actions']['submit']['#access'] = FALSE;
+		$form['actions']['delete']['#access'] = FALSE;
+	}
+	
+	if(user_access('open closed contact requests', $user)){
+		$form['field_contact_request_status']['#disabled'] = FALSE;
+		$form['actions']['submit']['#access'] = TRUE;
+		$form['actions']['delete']['#access'] = TRUE;
+	}
+
+	// Combos encadenados
+	$terms = taxonomy_get_tree(18);
+	$result = array();
+
+	$form['request_type'] = array(
+			'#type' => 'select',
+			'#title' => t('Request type'),
+			'#options' => array('All' => t('Select Request')),
+			'#default_value' => 'All',
+			'#required' => TRUE,
+	);
+
+	$form['#group_children']['request_type'] = 'group_contact_request_process';
+
+	foreach($terms as $term){
+		if($term->depth == 0){
+			$form['request_type']['#options'][$term->tid] = t($term->name);
+		}else{
+			if(!isset($form['request_type_'.$term->parents[0]])){
+				$parent_term = taxonomy_term_load($term->parents[0]);
+				$form['request_type_'.$term->parents[0]] = array(
+						'#type' => 'select',
+						'#title' => t('Request subtype'),
+						'#states' => array(
+								'visible' => array(
+										':input[name="request_type"]' => array('value' => $term->parents[0]),
+								),
+						),
+						'#options' => array(),
+						'#default_value' => 'All',
+						'#required' => TRUE,
+						'#attributes' => array('class' => array('combo-final')),
+				);
+			}else{
+				$form['request_type_'.$term->parents[0]]['#options'][$term->tid] = t($term->name);
+			}
+			if(!in_array('request_type_'.$term->parents[0], array_keys($form['#group_children']))){
+				$form['#group_children']['request_type_'.$term->parents[0]] = 'group_contact_request_process';
+			}
+		}
+	}
+	$default_value = $form['field_contact_request_type']['und']['#default_value'][0];
+	$parents = taxonomy_get_parents($default_value);
+	foreach($parents  as $parent_key => $parent_value){
+		$termino = taxonomy_term_load($parent_key);
+	}
+	$form['request_type']['#default_value'] = $termino->tid;
+	$form['request_type_'.$termino->tid]['#default_value'] = $default_value;
+
+	$form['#groups']['group_contact_request_process']->label = t('Process');
+	$form['field_contact_request_type']['#access'] = FALSE;
+
+	$form['field_contact_request_date']['und'][0]['value']['#title'] = t($form['field_contact_request_first_s']['und'][0]['value']['#title']);
+	$form['field_contact_request_name']['und'][0]['value']['#title'] = t($form['field_contact_request_name']['und'][0]['value']['#title']);
+	$form['field_contact_request_first_s']['und'][0]['value']['#title'] = t($form['field_contact_request_first_s']['und'][0]['value']['#title']);
+	$form['field_contact_request_ss']['und'][0]['value']['#title'] = t($form['field_contact_request_ss']['und'][0]['value']['#title']);
+	$form['field_contact_request_email']['und'][0]['value']['#title'] = t($form['field_contact_request_email']['und'][0]['value']['#title']);
+	$form['field_contact_request_phone']['und'][0]['value']['#title'] = t($form['field_contact_request_phone']['und'][0]['value']['#title']);
+	$form['field_contact_request_country']['und'][0]['value']['#title'] = t($form['field_contact_request_country']['und'][0]['value']['#title']);
+	$form['field_contact_request_business']['und'][0]['value']['#title'] = t($form['field_contact_request_business']['und'][0]['value']['#title']);
+	$form['field_contact_request_comments']['und'][0]['value']['#title'] = t($form['field_contact_request_comments']['und'][0]['value']['#title']);
+	$form['field_contact_request_cr']['und'][0]['value']['#title'] = t($form['field_contact_request_cr']['und'][0]['value']['#title']);
+	$form['field_contact_request_type']['und'][0]['value']['#title'] = t($form['field_contact_request_type']['und'][0]['value']['#title']);
+
+	$form['field_contact_request_status']['und']['#title'] = t($form['field_contact_request_status']['und']['#title']);
+	$form['field_contact_request_origin']['und']['#title'] = t($form['field_contact_request_origin']['und']['#title']);
+	$form['field_contact_request_resp']['und']['#title'] = t($form['field_contact_request_resp']['und']['#title']);
+
+	$form['field_contact_request_documents']['und']['#title'] = t($form['field_contact_request_documents']['und']['#title']);
+}
+
+/**
+ * Procesamiento del formulario de filtro de vista de contact request
+ */
+function contact_request_view_form_process(&$form){
+
+	$path = drupal_get_path('module', 'ineco_contact_request');
+	drupal_add_js("{$path}/js/ineco_contact_request.js");
+
+	//$form['type']['#disabled'] = TRUE;
+	//$form['#submit'][0] = 'ineco_contact_request_views_exposed_form_submit';
+}
+
+/**
+ * Función que procesa el envío del formulario de filtro de la vista
+ */
+function ineco_contact_request_views_exposed_form_submit(&$form, &$form_state) {
+	foreach (array('field', 'filter') as $type) {
+		$handlers = &$form_state['view']->$type;
+		foreach ($handlers as $key => $info) {
+			$handlers[$key]->exposed_submit($form, $form_state);
+		}
+	}
+	$form_state['view']->exposed_data = $form_state['values'];
+	$form_state['view']->exposed_raw_input = array();
+
+
+	$exclude = array('q', 'submit', 'form_build_id', 'form_id', 'form_token', 'exposed_form_plugin', '', 'reset');
+	$exposed_form_plugin = $form_state['exposed_form_plugin'];
+	$exposed_form_plugin->exposed_form_submit($form, $form_state, $exclude);
+
+	foreach ($form_state['values'] as $key => $value) {
+		if (!in_array($key, $exclude)) {
+			$form_state['view']->exposed_raw_input[$key] = $value;
+		}
+	}
+}
+
+/**
+ * Generación de ID único
+ */
+function generate_unique_id(){
+	$last_unique_id = explode('/', variable_get('last_unique_id', '2013/00000'));
+	$last_unique_id_year = intval($last_unique_id[0]);
+	$current_year = intval(date('Y', time()));
+	$last_unique_id_number = intval($last_unique_id[1]);
+	$current_id_number = $last_unique_id_number ++;
+	if($current_year > $last_unique_id_year){
+		$current_id_number = 0;
+	}
+	$current_id_number ++;
+	$current_id_number = str_pad($current_id_number, 5, "0", STR_PAD_LEFT);
+	return $current_year.'/'.$current_id_number;
+}
+
+function ineco_filter_contact_request($term){
+	global $language;
+	$terms = taxonomy_get_tree(18);
+	$output['html'] = '<option value="All" selected="selected">'.t('Select type').'</option>';
+	foreach($terms as $aux_term){
+		$parents = taxonomy_get_parents($aux_term->tid);
+		$parent_tid = 0;
+		foreach($parents  as $parent_key => $parent_value){
+			$parent_tid = $parent_key;
+		}
+		if($parent_tid == $term->tid){
+			$output['html'] .= '<option value="'.$aux_term->tid.'">'.t($aux_term->name).'</option>';
+		}
+	}
+	print json_encode($output);
+	die();
+}
+
+function ineco_filter_contact_request_all(){
+	global $language;
+	$terms = taxonomy_get_tree(18);
+	$output['html'] = '<option value="All" selected="selected">'.t('Select type').'</option>';
+	print json_encode($output);
+	die();
+}
+
+function ineco_export_excel(){
+	$resultado = $_SESSION['resultados_consulta'];
+	module_load_include('inc', 'ineco_contact_request', 'includes/PHPExcel');
+	module_load_include('inc', 'ineco_contact_request', 'includes/PHPExcel/Writer/Excel2007');
+
+	// crear nuevo PHPExcel object
+	$objPHPExcel = new PHPExcel();
+
+	// Propiedades
+	$objPHPExcel->getProperties()->setCreator(t("Ineco"));
+	$objPHPExcel->getProperties()->setLastModifiedBy(t("Ineco"));
+	$objPHPExcel->getProperties()->setTitle(t("Ineco requests contacts"));
+	$objPHPExcel->getProperties()->setSubject("Office 2007 XLSX Test Document");
+
+
+	// Se añade nueva hoja
+	$currentSheet = 1;
+	$objWorkSheet = $objPHPExcel->createSheet('worksheet'.$currentSheet);
+	$objPHPExcel->addSheet($objWorkSheet);
+
+	// Se activa la hoja actual
+	$objPHPExcel->setActiveSheetIndex($currentSheet);
+	// Se renombra la hoja
+	$objPHPExcel->setActiveSheetIndex($currentSheet)->setTitle(t("Ineco requests contacts"));
+	// Se generan las cabeceras
+	$col = 0;
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, 1, t('ID'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, 1, t('Date'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, 1, t('Status'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+3, 1, t('Request type'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+4, 1, t('Request origin'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+5, 1, t('Name'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+6, 1, t('First surname'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+7, 1, t('Second surname'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+8, 1, t('Mail'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+9, 1, t('Phone'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+10, 1, t('Business'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+11, 1, t('Country'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+12, 1, t('Comments'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+13, 1, t('Closing report'));
+	$row = 2;
+	foreach($resultado as $res){
+		$col = 0;
+		(isset($res->node_title))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, strip_tags($res->node_title)) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, ' - ');
+		(isset($res->field_field_contact_request_date[0]['rendered']['#markup']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row, strip_tags($res->field_field_contact_request_date[0]['rendered']['#markup'])) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row, ' - ');
+		(isset($res->field_field_contact_request_status[0]['rendered']['#title']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, $row, strip_tags($res->field_field_contact_request_status[0]['rendered']['#title'])) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, $row, ' - ');
+		(isset($res->field_field_contact_request_type[0]['rendered']['#title']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+3, $row, t(strip_tags($res->field_field_contact_request_type[0]['rendered']['#title']))) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+3, $row, ' - ');
+		(isset($res->field_field_contact_request_origin[0]['rendered']['#markup']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+4, $row, strip_tags($res->field_field_contact_request_origin[0]['rendered']['#markup'])) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+4, $row, ' - ');
+		(isset($res->field_field_contact_request_name[0]['rendered']['#markup']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+5, $row, strip_tags($res->field_field_contact_request_name[0]['rendered']['#markup'])) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+5, $row, ' - ');
+		(isset($res->field_field_contact_request_first_s[0]['rendered']['#markup']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+6, $row, strip_tags($res->field_field_contact_request_first_s[0]['rendered']['#markup'])) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+6, $row, ' - ');
+		(isset($res->field_field_contact_request_ss[0]['rendered']['#markup']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+7, $row, strip_tags($res->field_field_contact_request_ss[0]['rendered']['#markup'])) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+7, $row, ' - ');
+		(isset($res->field_field_contact_request_email[0]['rendered']['#markup']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+8, $row, strip_tags($res->field_field_contact_request_email[0]['rendered']['#markup'])) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+8, $row, ' - ');
+		(isset($res->field_field_contact_request_phone[0]['rendered']['#markup']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+9, $row, strip_tags($res->field_field_contact_request_phone[0]['rendered']['#markup'])) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+9, $row, ' - ');
+		(isset($res->field_field_contact_request_business[0]['rendered']['#markup']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+10, $row, strip_tags($res->field_field_contact_request_business[0]['rendered']['#markup'])) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+10, $row, ' - ');
+		(isset($res->field_field_contact_request_country[0]['rendered']['#markup']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+11, $row, strip_tags($res->field_field_contact_request_country[0]['rendered']['#markup'])) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+11, $row, ' - ');
+		(isset($res->field_field_contact_request_comments[0]['rendered']['#markup']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+12, $row, strip_tags($res->field_field_contact_request_comments[0]['rendered']['#markup'])) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+12, $row, ' - ');
+		(isset($res->field_field_contact_request_cr[0]['rendered']['#markup']))? $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+13, $row, strip_tags($res->field_field_contact_request_cr[0]['rendered']['#markup'])) : $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+13, $row, ' - ');
+		$row ++;
+	}
+
+	//Borramos la primera hoja que nos la crea por defecto.
+	$objPHPExcel->removeSheetByIndex(0);
+	//prepare download
+	$fecha = date("d-m-Y",time());
+	$filename = time().'_data.xlsx';
+	header('Content-Type: application/vnd.ms-excel');
+	header('Content-Disposition: attachment;filename="'.$filename.'"');
+	header('Cache-Control: max-age=0');
+	// Save Excel 2007 file
+	$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+	$objWriter->save('php://output');
+	unset($_SESSION['resultados_consulta']);
+	exit;
+}
+
+function ineco_export_excel_statistics(){
+
+	$request_by_type_parent = $_SESSION['resultados_consulta_estadisticas']['request_by_type_parent'];
+	$request_by_type = $_SESSION['resultados_consulta_estadisticas']['request_by_type'];
+	$request_by_country = $_SESSION['resultados_consulta_estadisticas']['request_by_country'];
+	$request_by_path_access = $_SESSION['resultados_consulta_estadisticas']['request_by_path_access'];
+	$request_by_business = $_SESSION['resultados_consulta_estadisticas']['request_by_business'];
+
+	module_load_include('inc', 'ineco_contact_request', 'includes/PHPExcel');
+	module_load_include('inc', 'ineco_contact_request', 'includes/PHPExcel/Writer/Excel2007');
+
+	// crear nuevo PHPExcel object
+	$objPHPExcel = new PHPExcel();
+
+	// Propiedades
+	$objPHPExcel->getProperties()->setCreator(t("Ineco"));
+	$objPHPExcel->getProperties()->setLastModifiedBy(t("Ineco"));
+	$objPHPExcel->getProperties()->setTitle(t("Ineco requests contacts"));
+	$objPHPExcel->getProperties()->setSubject("Office 2007 XLSX Test Document");
+
+	//----------------
+	
+	// Se añade nueva hoja
+	$currentSheet = 1;
+	$objWorkSheet = $objPHPExcel->createSheet('worksheet'.$currentSheet);
+	$objPHPExcel->addSheet($objWorkSheet);
+
+	// Se activa la hoja actual
+	$objPHPExcel->setActiveSheetIndex($currentSheet);
+	// Se renombra la hoja
+	$objPHPExcel->setActiveSheetIndex($currentSheet)->setTitle(t("Requests by type"));
+	// Se generan las cabeceras
+	$col = 0;
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, 1, t('Type'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, 1, t('Number'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, 1, t('%'));
+	$row = 2;
+	$total = 0;
+	
+	//Hallar el total para el porcentage
+	$total_percent = 0;
+	foreach($request_by_type_parent as $key => $elem){	
+		$total_percent = $total_percent + $elem;
+	}
+	
+	ksort($request_by_type_parent);
+	foreach($request_by_type_parent as $key => $elem){
+		$col = 0;
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, t($key));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row, $elem);
+		
+		$perc = number_format( ( ($elem * 100) / $total_percent) , 1 );
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, $row, $perc);
+		$row ++;
+		$total = $total + $elem;
+	}
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row+1, t('Total'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row+1, $total);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, $row+1, 100);
+
+	$currentSheet ++;
+	
+	//-----------------
+	
+	// Se añade nueva hoja
+	//$currentSheet = 1;
+	
+	$objWorkSheet = $objPHPExcel->createSheet('worksheet'.$currentSheet);
+	$objPHPExcel->addSheet($objWorkSheet);
+
+	// Se activa la hoja actual
+	$objPHPExcel->setActiveSheetIndex($currentSheet);
+	// Se renombra la hoja
+	$objPHPExcel->setActiveSheetIndex($currentSheet)->setTitle(t("Requests by subtype"));
+	// Se generan las cabeceras
+	$col = 0;
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, 1, t('Subtype'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, 1, t('Number'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, 1, t('%'));
+	$row = 2;
+	$total = 0;
+	
+	//Hallar el total para el porcentage
+	$total_percent = 0;
+	foreach($request_by_type as $key => $elem){	
+		$total_percent = $total_percent + $elem;
+	}
+	
+	ksort($request_by_type);
+	foreach($request_by_type as $key => $elem){
+		$col = 0;
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, t($key));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row, $elem);
+		
+		$perc = number_format( ( ($elem * 100) / $total_percent) , 1 );
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, $row, $perc);
+		$row ++;
+		$total = $total + $elem;
+	}
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row+1, t('Total'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row+1, $total);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, $row+1, 100);
+
+	$currentSheet ++;
+
+	// Se añade nueva hoja
+	$objWorkSheet = $objPHPExcel->createSheet('worksheet'.$currentSheet);
+	$objPHPExcel->addSheet($objWorkSheet);
+
+	// Se activa la hoja actual
+	$objPHPExcel->setActiveSheetIndex($currentSheet);
+	// Se renombra la hoja
+	$objPHPExcel->setActiveSheetIndex($currentSheet)->setTitle(t("Requests by country"));
+	// Se generan las cabeceras
+	$col = 0;
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, 1, t('Country'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, 1, t('Number'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, 1, t('%'));
+	$row = 2;
+	$total = 0;
+	
+	//Hallar el total para el porcentage
+	$total_percent = 0;
+	foreach($request_by_type as $key => $elem){	
+		$total_percent = $total_percent + $elem;
+	}
+	
+	ksort($request_by_country);
+	foreach($request_by_country as $key => $elem){
+		$col = 0;
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, $key);
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row, $elem);
+		
+		$perc = number_format( ( ($elem * 100) / $total_percent) , 1 );
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, $row, $perc);
+		$row ++;
+		$total = $total + $elem;
+	}
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row+1, t('Total'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row+1, $total);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, $row+1, 100);
+
+	$currentSheet ++;
+
+	// Se añade nueva hoja
+	$objWorkSheet = $objPHPExcel->createSheet('worksheet'.$currentSheet);
+	$objPHPExcel->addSheet($objWorkSheet);
+
+	// Se activa la hoja actual
+	$objPHPExcel->setActiveSheetIndex($currentSheet);
+	// Se renombra la hoja
+	$objPHPExcel->setActiveSheetIndex($currentSheet)->setTitle(t("Requests by path access"));
+	// Se generan las cabeceras
+	$col = 0;
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, 1, t('Path'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, 1, t('Number'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, 1, t('%'));
+	$row = 2;
+	$total = 0;
+	
+	//Hallar el total para el porcentage
+	$total_percent = 0;
+	foreach($request_by_type as $key => $elem){	
+		$total_percent = $total_percent + $elem;
+	}
+	
+	foreach($request_by_path_access as $key => $elem){
+		$col = 0;
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, $key);
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row, $elem);
+		
+		$perc = number_format( ( ($elem * 100) / $total_percent) , 1 );
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, $row, $perc);
+		$row ++;
+		$total = $total + $elem;
+	}
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row+1, t('Total'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row+1, $total);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, $row+1, 100);
+
+	$currentSheet ++;
+
+	// Se añade nueva hoja
+	$objWorkSheet = $objPHPExcel->createSheet('worksheet'.$currentSheet);
+	$objPHPExcel->addSheet($objWorkSheet);
+
+	// Se activa la hoja actual
+	$objPHPExcel->setActiveSheetIndex($currentSheet);
+	// Se renombra la hoja
+	$objPHPExcel->setActiveSheetIndex($currentSheet)->setTitle(t("Requests by business"));
+	// Se generan las cabeceras
+	$col = 0;
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, 1, t('Business'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, 1, t('Number'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, 1, t('%'));
+	$row = 2;
+	$total = 0;
+	
+	//Hallar el total para el porcentage
+	$total_percent = 0;
+	foreach($request_by_type as $key => $elem){	
+		$total_percent = $total_percent + $elem;
+	}
+	
+	foreach($request_by_business as $key => $elem){
+		$col = 0;
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, $key);
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row, $elem);
+		
+		$perc = number_format( ( ($elem * 100) / $total_percent) , 1 );
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, $row, $perc);
+		$row ++;
+		$total = $total + $elem;
+	}
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row+1, t('Total'));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+1, $row+1, $total);
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col+2, $row+1, 100);
+
+	//Borramos la primera hoja que nos la crea por defecto.
+	$objPHPExcel->removeSheetByIndex(0);
+	//prepare download
+	$fecha = date("d-m-Y",time());
+	$filename = time().'_statistics.xlsx';
+	header('Content-Type: application/vnd.ms-excel');
+	header('Content-Disposition: attachment;filename="'.$filename.'"');
+	header('Cache-Control: max-age=0');
+	// Save Excel 2007 file
+	$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+	$objWriter->save('php://output');
+	unset($_SESSION['resultados_consulta_estadisticas']);
+	exit;
+
+}
+
+function ineco_contact_form_ajax($nid){
+	$node = node_load($nid);
+	$result = array(
+		'nombre' => check_plain($node->title).' ('.$node->field_people_job['und'][0]['value'].')',
+		'nid' => $nid
+	);
+	drupal_json_output($result);
+	exit;
+}

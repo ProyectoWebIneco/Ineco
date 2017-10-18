@@ -1,0 +1,54 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/metatag/metatag_devel
+http://svn/despliegues/webineco
+
+
+
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+metatag_devel.module
+file
+
+
+
+
+2015-07-28T05:31:06.000000Z
+d63ed6fc921f8d156bb2b015c6ee7dff
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+metatag_devel.info
+file
+
+
+
+
+2015-07-28T05:31:07.000000Z
+ed6e1c9245bc2fff3e4da60063946873
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+

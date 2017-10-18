@@ -1,0 +1,80 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/custom/ineco_content_manager/theme
+http://svn/despliegues/webineco
+
+
+
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+ineco_content_manager_administration_panel.tpl.php.old
+file
+
+
+
+
+2014-06-06T06:28:35.000000Z
+4e1692bcdf729796b5c47417da39c806
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+ineco_content_manager_administration_menu_block.tpl.php
+file
+
+
+
+
+2014-12-10T12:46:41.000000Z
+9d31e252847f70869afa4d1335e040fd
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+ineco_content_manager_administration_panel.tpl.php
+file
+
+
+
+
+2014-12-10T12:46:41.000000Z
+148d3ce5df9e6cba852e8b982eb1094a
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+ineco_content_manager_administration_panel.tpl.php (2).old
+file
+
+
+
+
+2014-06-12T05:22:01.000000Z
+8862df862ca4216caf86bf49a731f722
+2014-06-11T08:52:31.716164Z
+11
+servicios.aplic
+has-props
+

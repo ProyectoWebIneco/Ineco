@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/devel/krumo
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/devel/krumo/LICENSE
+END
+TODO
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/devel/krumo/TODO
+END
+VERSION
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/devel/krumo/VERSION
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/devel/krumo/INSTALL
+END
+class.krumo.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/devel/krumo/class.krumo.php
+END
+krumo.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/devel/krumo/krumo.js
+END
+krumo.ini
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/devel/krumo/krumo.ini
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/devel/krumo/README
+END

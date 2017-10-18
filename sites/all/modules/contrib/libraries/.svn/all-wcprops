@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/libraries
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/libraries/LICENSE.txt
+END
+libraries.module
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/libraries/libraries.module
+END
+libraries.install
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/libraries/libraries.install
+END
+CHANGELOG.txt
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/libraries/CHANGELOG.txt
+END
+libraries.info
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/libraries/libraries.info
+END
+libraries.drush.inc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/libraries/libraries.drush.inc
+END
+libraries.api.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/libraries/libraries.api.php
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/libraries/README.txt
+END

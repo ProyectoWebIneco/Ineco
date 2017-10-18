@@ -1,0 +1,115 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/references
+http://svn/despliegues/webineco
+
+
+
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+LICENSE.txt
+file
+
+
+
+
+2014-12-10T12:33:37.000000Z
+ffa10f40b98be2c2bc9608f56827ed23
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+node_reference
+dir
+
+CHANGELOG.txt
+file
+
+
+
+
+2014-12-10T12:33:38.000000Z
+ec6f787e75b1cb840cfb1dbbd97166a3
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+references.module
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+6c26c0744f907dbf74307f6a1ca11fd5
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+README.txt
+file
+
+
+
+
+2014-12-10T12:33:38.000000Z
+9af884a76e39ffa7a451911df5f13dda
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+references.info
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+f99f4661f11430ea844d4ee9e5283837
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+user_reference
+dir
+
+views
+dir
+
+references.feeds.inc
+file
+
+
+
+
+2014-06-06T06:28:17.000000Z
+257e6f866b5164e8130b8542b0fd0da1
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+

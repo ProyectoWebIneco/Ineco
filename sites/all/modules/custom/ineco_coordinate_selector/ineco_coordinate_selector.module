@@ -1,0 +1,207 @@
+<?php
+global $base_url;
+define("IMAGE_SELECTOR_SRC", $base_url."/themes/bartik/images/mapamundi-selector-on.png");
+define("IMAGE_SELECTOR_RIGHT_SRC", $base_url."/themes/bartik/images/puntito_on.png");
+define("IMAGE_SELECTOR_LEFT_SRC", $base_url."/themes/bartik/images/puntito_on.png");
+define("IMAGE_BACKGROUND_SRC", $base_url."/themes/bartik/images/mapamundi.png");
+
+/**
+ * Implements hook_menu().
+ */
+function ineco_coordinate_selector_menu() {
+	$items['coordinate-selector/ajax/map/%taxonomy_term'] = array(
+				'page callback' => 'ineco_coordinate_selector_get_image_url_by_tid',
+				'page arguments' => array(3),
+				'access callback' => TRUE,
+				'type' => MENU_CALLBACK,
+			);
+			
+	$items['coordinate-selector/ajax/projects-country/%taxonomy_term'] = array(
+				'page callback' => 'ineco_coordinate_projects_country',
+				'page arguments' => array(3),
+				'access callback' => TRUE,
+				'type' => MENU_CALLBACK,
+			);
+
+	$items['filter-project/ajax/%taxonomy_term'] = array(
+				'page callback' => 'ineco_filter_project',
+				'page arguments' => array(2),
+				'access callback' => TRUE,
+				'type' => MENU_CALLBACK,
+			);
+
+	$items['filter-project/ajax/All'] = array(
+				'page callback' => 'ineco_filter_project_all',
+				'access callback' => TRUE,
+				'type' => MENU_CALLBACK,
+			);
+			
+	return $items;
+}
+
+ 
+/**
+ * Implements hook_form_alter().
+ */
+function ineco_coordinate_selector_form_alter(&$form, &$form_state, $form_id) {
+	$path = drupal_get_path('module', 'ineco_coordinate_selector');
+
+	switch($form_id){
+		case 'work_zone_node_form':
+			$title = '';
+			$x = $y = 0;
+			if(isset($form['#node']->nid)){
+				$node = $form['#node'];
+				$title = $node->title;
+				$x = $node->field_work_zone_x['und'][0]['value'];
+				$y = $node->field_work_zone_y['und'][0]['value'];
+			}
+			$style = ' style="position:absolute; margin-left:'.$x.'px; margin-top:'.$y.'px;"';
+			
+			$form['title']['#weight'] = -10;
+			$form['ineco_map_selector'] = array(
+				'#markup' => '	
+					<div id="map-image" style="background-image: url('.IMAGE_BACKGROUND_SRC.');" class="drop" ondrop="onDropMap(event)" ondragover="onDragOverMap(event)" ondragenter="return false" />
+						<div id="map-selector" '.$style.' draggable="true" ondragstart="onDragStartMap(this, event)">
+							<div id="map-selector-title">
+								'.$title.'
+							</div>
+							<div id="map-selector-image">
+								<img src="'.IMAGE_SELECTOR_SRC.'" />
+							</div>
+						</div>
+					</div>
+					',
+				'#weight' => -4,
+			);
+			drupal_add_js("{$path}/js/ineco_coordinate_selector.js", array('scope' => 'footer'));
+			break;
+		case 'taxonomy_form_term':
+			if($form['#vocabulary']->vid==3){ //Taxonomy: country
+				$title='';
+				$x = $y = 0;
+				$icon_direction='rigth';
+				if(isset($form['#term']['tid'])){
+					//$term = $form['#term']; //No es un objeto term
+					$term = taxonomy_term_load($form['#term']['tid']);
+					$title = $term->name;
+					$point_x_field = field_get_items('taxonomy_term', $term, 'field_coordinate_x');
+					$point_y_field = field_get_items('taxonomy_term', $term, 'field_coordinate_y');
+					$direction_field = field_get_items('taxonomy_term', $term, 'field_country_icon_position');
+					$x = $point_x_field[0]['value'];
+					$y = $point_y_field[0]['value'];
+					$icon_direction = $direction_field[0]['value'];
+				}
+				
+				$style = 'margin-left:'.$x.'px; margin-top:'.$y.'px;';
+			
+			
+				if($icon_direction=='rigth'){
+					$form['ineco_map_selector'] = array(
+						'#markup' => '	
+							<div id="map-image-country" class="position-rigth" style="background-image: url();" class="drop" ondrop="onDropMap(event)" ondragover="onDragOverMap(event)" ondragenter="return false" />
+								<div id="map-selector" style="position:absolute; '.$style.'" draggable="true" ondragstart="onDragStartMap(this, event)">
+									<div id="map-selector-title">
+										'.$title.'
+									</div>
+									<div id="map-selector-image">
+										<img src="'.IMAGE_SELECTOR_RIGHT_SRC.'" />
+									</div>
+								</div>
+							</div>
+							',
+						'#weight' => -10,
+					);
+				}else{
+					$form['ineco_map_selector'] = array(
+						'#markup' => '	
+							<div id="map-image-country" class="position-left" style="background-image: url();" class="drop" ondrop="onDropMap(event)" ondragover="onDragOverMap(event)" ondragenter="return false" />
+								<div id="map-selector" style="position:absolute; '.$style.'" draggable="true" ondragstart="onDragStartMap(this, event)">
+									<div id="map-selector-image">
+										<img src="'.IMAGE_SELECTOR_LEFT_SRC.'" />
+									</div>
+									<div id="map-selector-title">
+										'.$title.'
+									</div>
+								</div>
+							</div>
+							',
+						'#weight' => -10,
+					);
+				}
+				$form['#group_children']['ineco_map_selector'] = 'group_coordenadas';
+				
+				
+				$settings=array(
+						'url_ajax_map' => url("coordinate-selector/ajax/map"),
+				);
+
+				$form['#attached']['js'] = array(
+						"{$path}/js/ineco_coordinate_country_selector.js"
+				);
+				$form['#attached']['js'][] = array(
+						'data' => array('ineco_coordinate_selector' => $settings),
+						'type' => 'setting',
+				);
+			}
+			break;
+	}
+}
+
+
+function ineco_coordinate_selector_get_image_url_by_tid($term){
+	$image = field_get_items('taxonomy_term', $term, 'field_geographic_area_imagen');
+	
+	$image_url = file_create_url($image[0]['uri']);
+	$output['image_url'] = $image_url;
+	
+	$image_info = getimagesize($image_url);
+	
+	$output['width'] = $image_info[0];
+	$output['height'] = $image_info[1];
+	
+	print json_encode($output);
+	die();
+}
+
+
+function ineco_coordinate_projects_country($term){
+	$view = views_get_view('projects_country');
+	
+	$output['html'] = $view->preview('page', array($term->tid));;
+	
+	print json_encode($output);
+	die();
+}
+
+function ineco_filter_project($term){
+	global $language;
+	$terms = taxonomy_get_tree(3);
+	$output['html'] = '<option value="All" selected="selected">'.t('Select country').'</option>';
+	foreach($terms as $aux_term){
+		$termino = taxonomy_term_load($aux_term->tid);
+		if(isset($termino->field_country_geographic_area['und'][0]['tid']) && 
+			$termino->field_country_geographic_area['und'][0]['tid'] == $term->tid &&
+			$termino->language == $language->language){
+			$output['html'] .= '<option value="'.$termino->tid.'">'.$termino->name.'</option>';
+		}
+	}
+	print json_encode($output);
+	die();
+}
+
+function ineco_filter_project_all(){
+	global $language;
+	$terms = taxonomy_get_tree(3);
+	$output['html'] = '<option value="All" selected="selected">'.t('Select country').'</option>';
+	foreach($terms as $aux_term){
+		$termino = taxonomy_term_load($aux_term->tid);
+		if(isset($termino->field_country_geographic_area['und'][0]['tid']) &&
+			$termino->language == $language->language){
+			$output['html'] .= '<option value="'.$termino->tid.'">'.$termino->name.'</option>';
+		}
+	}
+	print json_encode($output);
+	die();
+}
+?>

@@ -1,0 +1,54 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/custom/ineco_custom_node_views
+http://svn/despliegues/webineco
+
+
+
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+ineco_custom_node_views.info
+file
+
+
+
+
+2014-06-06T06:28:35.000000Z
+ae17ec46a64333fb44b9d66cd2cdd7bd
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+ineco_custom_node_views.module
+file
+
+
+
+
+2014-06-06T06:28:35.000000Z
+54400176aa819c2e35640208670343a0
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/variable/variable_store
+END
+variable_store.test
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/variable/variable_store/variable_store.test
+END
+variable_store.module
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/variable/variable_store/variable_store.module
+END
+variable_store.install
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/variable/variable_store/variable_store.install
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/variable/variable_store/README.txt
+END
+variable_store.info
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/variable/variable_store/variable_store.info
+END
+variable_store.class.inc
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/variable/variable_store/variable_store.class.inc
+END

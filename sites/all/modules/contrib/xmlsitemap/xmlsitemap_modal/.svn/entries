@@ -1,0 +1,54 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/xmlsitemap/xmlsitemap_modal
+http://svn/despliegues/webineco
+
+
+
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+xmlsitemap_modal.module
+file
+
+
+
+
+2015-07-28T05:32:45.000000Z
+6ad8bafedb1b06c9919417a8871db3cb
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+xmlsitemap_modal.info
+file
+
+
+
+
+2015-07-28T05:32:46.000000Z
+ac3d9ada424fe38a9eda5d5615e95d24
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+

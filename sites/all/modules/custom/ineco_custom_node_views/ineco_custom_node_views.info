@@ -1,0 +1,4 @@
+name = Vista de nodos
+description = Permite añadir tipos de vista a los nodos
+package = Ineco
+core = 7.x

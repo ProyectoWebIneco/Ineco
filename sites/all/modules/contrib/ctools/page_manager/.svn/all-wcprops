@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/ctools/page_manager
+END
+page_manager.info
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/ctools/page_manager/page_manager.info
+END
+page_manager.api.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/ctools/page_manager/page_manager.api.php
+END
+page_manager.admin.inc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/ctools/page_manager/page_manager.admin.inc
+END
+page_manager.module
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/ctools/page_manager/page_manager.module
+END
+page_manager.install
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/ctools/page_manager/page_manager.install
+END

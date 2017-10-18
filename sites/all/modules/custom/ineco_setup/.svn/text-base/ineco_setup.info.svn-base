@@ -1,0 +1,4 @@
+name = Setup
+description = Alta del proyecto
+package = Ineco
+core = 7.x

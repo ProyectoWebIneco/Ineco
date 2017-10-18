@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n_variable
+END
+i18n_variable.class.inc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n_variable/i18n_variable.class.inc
+END
+i18n_variable.variable.inc
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n_variable/i18n_variable.variable.inc
+END
+i18n_variable.test
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n_variable/i18n_variable.test
+END
+i18n_variable.module
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n_variable/i18n_variable.module
+END
+i18n_variable.install
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n_variable/i18n_variable.install
+END
+i18n_variable.info
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n_variable/i18n_variable.info
+END

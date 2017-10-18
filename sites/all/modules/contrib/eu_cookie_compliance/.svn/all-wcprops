@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/despliegues/webineco/!svn/ver/25/sites/all/modules/contrib/eu_cookie_compliance
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/despliegues/webineco/!svn/ver/25/sites/all/modules/contrib/eu_cookie_compliance/LICENSE.txt
+END
+eu_cookie_compliance.module
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/despliegues/webineco/!svn/ver/25/sites/all/modules/contrib/eu_cookie_compliance/eu_cookie_compliance.module
+END
+eu_cookie_compliance.install
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/despliegues/webineco/!svn/ver/25/sites/all/modules/contrib/eu_cookie_compliance/eu_cookie_compliance.install
+END
+eu_cookie_compliance.info
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/despliegues/webineco/!svn/ver/25/sites/all/modules/contrib/eu_cookie_compliance/eu_cookie_compliance.info
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/despliegues/webineco/!svn/ver/25/sites/all/modules/contrib/eu_cookie_compliance/README.txt
+END
+eu_cookie_compliance.admin.inc
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/despliegues/webineco/!svn/ver/25/sites/all/modules/contrib/eu_cookie_compliance/eu_cookie_compliance.admin.inc
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/tests
+END
+entity_translation_test.info
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/tests/entity_translation_test.info
+END
+entity_translation.test
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/tests/entity_translation.test
+END
+entity_translation_test.module
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/tests/entity_translation_test.module
+END
+entity_translation_test.install
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/tests/entity_translation_test.install
+END

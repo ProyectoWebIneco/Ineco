@@ -1,0 +1,44 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/Escher/DggContainer
+http://svn/despliegues/webineco
+
+
+
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+BstoreContainer
+dir
+
+BstoreContainer.php
+file
+
+
+
+
+2014-12-10T12:44:59.000000Z
+56780cad7c98ced4b227a75b627099f1
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+

@@ -1,0 +1,27 @@
+#complete-menu-responsive { display: none; }
+.banner-list-3 .banner-teaser-last { float:left; margin-right:0px; }
+.banner-list-3 .banner-teaser {
+	margin-right: 35px;
+}
+body.front .banner-list-4 .banner-teaser {
+    margin-right: 9px;
+}
+body.front .banner-list-5 .banner-teaser body.front .banner-list-3 .banner-teaser {
+    margin-right: 16px;
+}
+
+#page-wrapper-black-content > form {
+	background: url("../images/repe.png") repeat scroll 0 0 transparent;
+	width: 520px;
+}
+#formulario-peticion-contacto-desarrollo-negocio .form-type-select select {
+    width: 338px;
+}
+#formulario-peticion-contacto-desarrollo-negocio .form-item textarea {
+    width: 517px;
+}
+#page-wrapper-black-close { 
+	width: 534px;
+}
+.responsive-menu-all { display: none; }
+

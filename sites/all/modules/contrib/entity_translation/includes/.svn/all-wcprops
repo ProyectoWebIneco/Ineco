@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/includes
+END
+translation.handler.user.inc
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/includes/translation.handler.user.inc
+END
+translation.handler.inc
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/includes/translation.handler.inc
+END
+translation.handler.comment.inc
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/includes/translation.handler.comment.inc
+END
+translation.handler.node.inc
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/includes/translation.handler.node.inc
+END
+translation.handler.taxonomy_term.inc
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/entity_translation/includes/translation.handler.taxonomy_term.inc
+END

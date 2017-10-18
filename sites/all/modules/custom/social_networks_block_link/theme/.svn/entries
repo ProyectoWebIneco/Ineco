@@ -1,0 +1,41 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/custom/social_networks_block_link/theme
+http://svn/despliegues/webineco
+
+
+
+2015-05-06T10:11:42.360559Z
+16
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+social_networks_block_link_block.tpl.php
+file
+
+
+
+
+2015-05-22T05:22:45.000000Z
+a122f3506cfc5bdbcf1553bcafd7c39d
+2015-05-06T10:11:42.360559Z
+16
+servicios.aplic
+has-props
+

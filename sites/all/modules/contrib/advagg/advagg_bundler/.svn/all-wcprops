@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_bundler
+END
+advagg_bundler.admin.inc
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_bundler/advagg_bundler.admin.inc
+END
+advagg_bundler.advagg.inc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_bundler/advagg_bundler.advagg.inc
+END
+advagg_bundler.module
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_bundler/advagg_bundler.module
+END
+advagg_bundler.install
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_bundler/advagg_bundler.install
+END
+advagg_bundler.info
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_bundler/advagg_bundler.info
+END

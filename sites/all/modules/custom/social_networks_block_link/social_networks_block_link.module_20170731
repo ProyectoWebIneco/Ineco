@@ -1,0 +1,408 @@
+<?php 
+
+/**
+ * Implements hook_block_info().
+ */
+function social_networks_block_link_block_info() {
+	$blocks['social_networks_block_link'] = array(
+			'info' => t('Social Networks links'),
+			'cache' => DRUPAL_NO_CACHE,
+			'mb_enabled' => TRUE,
+	);
+
+	return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ *
+ * Prepares the contents of the block.
+ */
+function social_networks_block_link_block_view($delta = '', $edit = array()) {
+	$block=array();
+	switch($delta){
+		case 'social_networks_block_link':
+			//$mb_delta =  isset($edit['multiblock_delta']['#value']) ? $edit['multiblock_delta']['#value'] : 0;
+			$block['subject'] = '';
+			$block['content'] = _social_networks_block_link_block_content();
+	}
+
+	return $block;
+}
+
+
+
+/**
+ * Implements hook_block_configure().
+ *
+ * Defines the contents of the block
+ */
+function social_networks_block_link_block_configure($delta = '', $edit = array()){
+	$form= array();
+	switch($delta) {
+		case 'social_networks_block_link' :
+
+			//Fieldset
+			
+			$form['twitter'] = array(
+					'#type' => 'fieldset',
+					'#title' => t('Twitter'),
+					'#weight' => variable_get('tw_weight','1'),
+					'#collapsible' => TRUE,
+					'#collapsed' => FALSE,
+			);
+
+			$form['facebook'] = array(
+					'#type' => 'fieldset',
+					'#title' => t('Facebook'),
+					'#weight' => variable_get('fb_weight','2'),
+					'#collapsible' => TRUE,
+					'#collapsed' => FALSE,
+			);
+				
+			
+			$form['linkedin'] = array(
+					'#type' => 'fieldset',
+					'#title' => t('linkedin'),
+					'#weight' => variable_get('li_weight','3'),
+					'#collapsible' => TRUE,
+					'#collapsed' => FALSE,
+			);
+
+			$form['youtube'] = array(
+					'#type' => 'fieldset',
+					'#title' => t('Youtube'),
+					'#weight' => variable_get('yt_weight','4'),
+					'#collapsible' => TRUE,
+					'#collapsed' => FALSE,
+			);
+
+			
+			$form['rss'] = array(
+					'#type' => 'fieldset',
+					'#title' => t('rss'),
+					'#weight' => variable_get('rss_weight','4'),
+					'#collapsible' => TRUE,
+					'#collapsed' => FALSE,
+			);
+			
+			//Twitter
+			$form['twitter']['tw_url_link'] = array(
+					'#type' => 'textfield',
+					'#title' => t('Twitter url'),
+					'#size' => 30,
+					'#default_value' => variable_get('tw_url_link',''),
+					'#description' => t('Enter your twitter url'),
+			);
+			
+			$form['twitter']['tw_weight'] = array(
+					'#type' => 'textfield',
+					'#title' => t('Twitter weight'),
+					'#size' => 2,
+					'#default_value' => variable_get('tw_weight',''),
+					'#description' => t('Enter twitter weight'),
+			);
+
+			$form['twitter']['tw_activate'] = array(
+					'#type' => 'checkbox',
+					'#title' => t('Twitter activate'),
+					'#default_value' => variable_get('tw_activate',''),
+					'#description' => t('Activate this button to display Twitter')
+			);
+
+
+			//Facebook
+			$form['facebook']['fb_url_link'] = array(
+					'#type' => 'textfield',
+					'#title' => t('URL Link Facebook'),
+					'#size' => 50,
+					'#maxlength' => 100,
+					'#default_value' => variable_get('fb_url_link',''),
+					'#description' => t('Enter url link of your Facebook page'),
+			);
+				
+			$form['facebook']['fb_weight'] = array(
+					'#type' => 'textfield',
+					'#title' => t('Facebook weight'),
+					'#size' => 2,
+					'#default_value' => variable_get('fb_weight',''),
+					'#description' => t('Enter Facebook weight'),
+			);
+
+			$form['facebook']['fb_activate'] = array(
+					'#type' => 'checkbox',
+					'#title' => t('Facebook activate'),
+					'#default_value' => variable_get('fb_activate',''),
+					'#description' => t('Activate this button to display Facebook')
+			);
+
+
+			//linkedin
+			$form['linkedin']['li_url_link'] = array(
+					'#type' => 'textfield',
+					'#title' => t('Linkedin URL'),
+					'#size' => 50,
+					'#default_value' => variable_get('li_url_link',''),
+					'#description' => t('Enter your Linkedin URL link'),
+			);
+
+			$form['linkedin']['li_weight'] = array(
+					'#type' => 'textfield',
+					'#title' => t('linkedin weight'),
+					'#size' => 2,
+					'#default_value' => variable_get('li_weight',''),
+					'#description' => t('Enter linkedin weight'),
+			);
+
+			$form['linkedin']['li_activate'] = array(
+					'#type' => 'checkbox',
+					'#title' => t('linkedin activate'),
+					'#default_value' => variable_get('li_activate',''),
+					'#description' => t('Activate this button to display linkedin')
+			);
+
+
+			//youtube
+			$form['youtube']['yt_url_link'] = array(
+					'#type' => 'textfield',
+					'#title' => t('YouTube URL'),
+					'#size' => 60,
+					'#default_value' => variable_get('yt_url_link',''),
+					'#description' => t('Enter your YouTube URL link'),
+			);
+
+			$form['youtube']['yt_weight'] = array(
+					'#type' => 'textfield',
+					'#title' => t('YouTube weight'),
+					'#size' => 2,
+					'#default_value' => variable_get('yt_weight',''),
+					'#description' => t('Enter YouTube weight'),
+			);
+
+			$form['youtube']['yt_activate'] = array(
+					'#type' => 'checkbox',
+					'#title' => t('YouTube activate'),
+					'#default_value' => variable_get('yt_activate',''),
+					'#description' => t('Activate this button to display YouTube')
+			);
+			
+			//rss
+			$form['rss']['rss_url_link'] = array(
+					'#type' => 'textfield',
+					'#title' => t('RSS URL'),
+					'#size' => 60,
+					'#default_value' => variable_get('rss_url_link',''),
+					'#description' => t('Enter your RSS URL link'),
+			);
+			
+			$form['rss']['rss_weight'] = array(
+					'#type' => 'textfield',
+					'#title' => t('RSS weight'),
+					'#size' => 2,
+					'#default_value' => variable_get('rss_weight',''),
+					'#description' => t('Enter RSS weight'),
+			);
+			
+			$form['rss']['rss_activate'] = array(
+					'#type' => 'checkbox',
+					'#title' => t('RSS activate'),
+					'#default_value' => variable_get('rss_activate',''),
+					'#description' => t('Activate this button to display RSS')
+			);
+
+			break;
+	}
+	return $form;
+}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Adds validation of block configuration custom fields.
+ */
+function social_networks_block_link_form_block_admin_configure_alter(&$form, &$form_state, $form_id) {
+	if ($form['module']['#value'] == 'social_networks_block_link') {
+		$form['#validate'][] = 'social_networks_block_link_block_validate';
+	}
+}
+
+function social_networks_block_link_block_validate(&$form, &$form_state){
+	$error=FALSE;
+	
+	//filtro twitter
+	$act_tw = $form_state["values"]["tw_activate"];
+	
+	if($act_tw == 1){
+		//peso
+		$weight_tw = $form_state["values"]["tw_weight"];
+		
+		if (($weight_tw==NULL)||(!filter_var($weight_tw, FILTER_VALIDATE_INT))){
+			form_set_error('tw_weight', t('You must enter a number in Twitter weight.'));
+			$error=TRUE;
+		}
+	}	
+	
+	
+	//filtro facebook	
+	$act_fb = $form_state["values"]["fb_activate"];
+	
+	if($act_fb == 1){		
+		//peso
+		$weight_fb = $form_state["values"]["fb_weight"];
+		
+		if (($weight_fb==NULL)||(!filter_var($weight_fb, FILTER_VALIDATE_INT))){
+			form_set_error('fb_weight', t('You must enter a number in Facebook weight.'));
+			$error=TRUE;
+		}
+	}	
+			
+		
+	//filtro linkedin
+	$act_in = $form_state["values"]["li_activate"];
+	
+	if($act_in == 1){	
+		//peso
+		$weight_in = $form_state["values"]["li_weight"];
+		
+		if (($weight_in==NULL)||(!filter_var($weight_in, FILTER_VALIDATE_INT))){
+			form_set_error('li_weight', t('You must enter a number in linkedin weight.'));
+			$error=TRUE;
+		}
+	}
+		
+	
+	//filtro youtube
+	$act_yt = $form_state["values"]["yt_activate"];
+	
+	if($act_yt == 1){
+		//peso
+		$weight_yt = $form_state["values"]["yt_weight"];
+	
+		if (($weight_yt==NULL)||(!filter_var($weight_yt, FILTER_VALIDATE_INT))){
+			form_set_error('yt_weight', t('You must enter a number in YouTube weight.'));
+			$error=TRUE;
+		}
+	}
+
+	//filtro rss
+	$act_rss = $form_state["values"]["rss_activate"];
+	
+	if($act_rss == 1){
+		//peso
+		$weight_rss = $form_state["values"]["rss_weight"];
+	
+		if (($weight_rss==NULL)||(!filter_var($weight_rss, FILTER_VALIDATE_INT))){
+			form_set_error('rss_weight', t('You must enter a number in RSS weight.'));
+			$error=TRUE;
+		}
+	}
+}
+
+
+/**
+ * Implements hook_block_configure().
+ *
+ * Necessary for the options defined in block configure are saved
+ */
+function social_networks_block_link_block_save($delta = '', $edit = array()) {
+		
+	
+	switch($delta) {
+		case 'social_networks_block_link' :
+
+			variable_set("tw_url_link", $edit["tw_url_link"]);
+			variable_set("tw_weight", $edit["tw_weight"]);
+			variable_set("tw_activate", $edit["tw_activate"]);
+
+			variable_set("fb_url_link", $edit["fb_url_link"]);
+			variable_set("fb_weight", $edit["fb_weight"]);
+			variable_set("fb_activate", $edit["fb_activate"]);
+			
+			
+			variable_set("li_url_link", $edit["li_url_link"]);
+			variable_set("li_weight", $edit["li_weight"]);
+			variable_set("li_activate", $edit["li_activate"]);
+			
+			variable_set("yt_url_link", $edit["yt_url_link"]);
+			variable_set("yt_weight", $edit["yt_weight"]);
+			variable_set("yt_activate", $edit["yt_activate"]);
+			
+			variable_set("rss_url_link", $edit["rss_url_link"]);
+			variable_set("rss_weight", $edit["rss_weight"]);
+			variable_set("rss_activate", $edit["rss_activate"]);
+			
+			break;
+	}
+	
+
+}
+
+
+function _social_networks_block_link_block_content(){	
+
+	$rrss = array(
+		'facebook' => array(
+			'link' => variable_get('fb_url_link',FALSE),	
+			'status' => variable_get('fb_activate', FALSE),
+			'weight' => variable_get('fb_weight', FALSE)
+		),
+		'twitter' => array(
+			'link' => variable_get('tw_url_link',FALSE),
+			'status' => variable_get('tw_activate', FALSE),
+			'weight' => variable_get('tw_weight', FALSE)
+		),
+		'youtube' => array(
+			'link' => variable_get('yt_url_link',FALSE),
+			'status' => variable_get('yt_activate', FALSE),
+			'weight' => variable_get('yt_weight', FALSE)
+		),
+		'linkedin' => array(
+			'link' => variable_get('li_url_link',FALSE),
+			'status' => variable_get('li_activate', FALSE),
+			'weight' => variable_get('li_weight', FALSE)
+		),
+		'rss' => array(
+				'link' => variable_get('rss_url_link',FALSE),
+				'status' => variable_get('rss_activate', FALSE),
+				'weight' => variable_get('rss_weight', FALSE)
+		),
+	);
+	
+	
+	uasort($rrss,"_order_array_by_attr");
+	
+	return theme('social_networks_block_link_block', array('rrss' => $rrss));
+}
+
+/**
+ * Implements hook_theme().
+ */
+function social_networks_block_link_theme($existing, $type, $theme, $path) {
+	$path = drupal_get_path('module', 'social_networks_block_link'). '/theme';
+
+	return array(
+				
+			'social_networks_block_link_block' => array(
+					'template' => 'social_networks_block_link_block',
+					'path' => $path,
+					'variables' => array('rrss' => NULL),
+			),
+	);
+}
+
+
+function _order_array_by_attr($a, $b, $attr = 'weight') {
+	if(is_array($a) && is_array($b)){
+		if(isset($a[$attr]) && isset($b[$attr])){
+			return $a[$attr] - $b[$attr];
+		}
+	}else if(is_object($a) && is_object($b)){
+		if(isset($a->$attr) && isset($b->$attr)){
+			return $a->$attr - $b->$attr;
+		}
+	}
+
+	return 0;
+}

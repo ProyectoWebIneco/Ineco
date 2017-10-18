@@ -1,0 +1,54 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/devel/krumo/docs/Krumo
+http://svn/despliegues/webineco
+
+
+
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+krumo.html
+file
+
+
+
+
+2014-06-06T06:28:27.000000Z
+b6ea996dfbc0301b0cf1c45857badc6f
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+_class.krumo.php.html
+file
+
+
+
+
+2014-06-06T06:28:27.000000Z
+ff3f8c30e415927f6117efde4bd75fc9
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+

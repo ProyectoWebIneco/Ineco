@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/i18n
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/i18n/LICENSE.txt
+END
+i18n.module
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n.module
+END
+INSTALL.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/i18n/INSTALL.txt
+END
+i18n.install
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n.install
+END
+i18n.pages.inc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n.pages.inc
+END
+i18n.info
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n.info
+END
+i18n.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n.js
+END
+i18n.variable.inc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n.variable.inc
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/i18n/README.txt
+END
+i18n.test
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n.test
+END
+i18n.api.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/i18n/i18n.api.php
+END
+i18n_object.inc
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/i18n/i18n_object.inc
+END

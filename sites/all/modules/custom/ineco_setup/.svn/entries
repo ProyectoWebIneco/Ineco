@@ -1,0 +1,54 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/custom/ineco_setup
+http://svn/despliegues/webineco
+
+
+
+2016-02-09T10:42:56.458571Z
+25
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+ineco_setup.module
+file
+
+
+
+
+2016-02-12T06:09:04.000000Z
+ffe9b8c3f5ccd2ab1786236954e893e5
+2016-02-09T10:42:56.458571Z
+25
+servicios.aplic
+has-props
+
+ineco_setup.info
+file
+
+
+
+
+2014-06-06T06:28:35.000000Z
+30e8050b1adda50a8a5e90ce724a1536
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+

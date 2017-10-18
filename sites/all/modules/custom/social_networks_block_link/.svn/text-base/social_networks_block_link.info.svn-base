@@ -1,0 +1,4 @@
+name = Social Networks Admin
+description = Administration for social networking links in a content block type
+package = Sdos
+core = 7.x

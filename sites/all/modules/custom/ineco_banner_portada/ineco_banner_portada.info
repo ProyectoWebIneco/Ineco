@@ -1,0 +1,4 @@
+name = Banner portada
+description = Banner portada
+package = Ineco
+core = 7.x

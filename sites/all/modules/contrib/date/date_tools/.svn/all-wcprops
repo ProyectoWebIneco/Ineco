@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_tools
+END
+date_tools.module
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_tools/date_tools.module
+END
+date_tools.wizard.inc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_tools/date_tools.wizard.inc
+END
+date_tools.info
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_tools/date_tools.info
+END
+date_tools.change_type.inc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_tools/date_tools.change_type.inc
+END

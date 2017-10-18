@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/date/date_api
+END
+date_api.info
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_api/date_api.info
+END
+date-rtl.css
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/date/date_api/date-rtl.css
+END
+date.css
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/date/date_api/date.css
+END
+date_year_range.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_api/date_year_range.js
+END
+date_api.admin.inc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_api/date_api.admin.inc
+END
+date_api_ical.inc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_api/date_api_ical.inc
+END
+date_api.module
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_api/date_api.module
+END
+date_api_elements.inc
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_api/date_api_elements.inc
+END
+date_api.install
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_api/date_api.install
+END
+date_api_sql.inc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/date/date_api/date_api_sql.inc
+END

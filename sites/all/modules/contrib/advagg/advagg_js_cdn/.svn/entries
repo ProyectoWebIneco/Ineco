@@ -1,0 +1,70 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/advagg/advagg_js_cdn
+http://svn/despliegues/webineco
+
+
+
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+advagg_js_cdn.info
+file
+
+
+
+
+2015-07-28T05:34:35.000000Z
+3eda8574abff74cf9d17b59e1a83b4bf
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+js
+dir
+
+advagg_js_cdn.module
+file
+
+
+
+
+2015-07-28T05:34:35.000000Z
+1c1d6a9766a98738fe9b10b37a2fe3cd
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+advagg_js_cdn.install
+file
+
+
+
+
+2015-07-28T05:34:36.000000Z
+477739469d056cfd35a058f3dd269031
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+

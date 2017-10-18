@@ -1,0 +1,41 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/views/css/ie
+http://svn/despliegues/webineco
+
+
+
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+views-admin.ie7.css
+file
+
+
+
+
+2014-12-10T12:36:44.000000Z
+8b7b21558da6f7cbe05b6412b4c9a9fd
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+

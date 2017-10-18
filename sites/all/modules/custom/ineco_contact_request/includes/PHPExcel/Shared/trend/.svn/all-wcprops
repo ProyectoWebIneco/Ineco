@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/trend
+END
+logarithmicBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/trend/logarithmicBestFitClass.php
+END
+polynomialBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/trend/polynomialBestFitClass.php
+END
+exponentialBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/trend/exponentialBestFitClass.php
+END
+linearBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/trend/linearBestFitClass.php
+END
+trendClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/trend/trendClass.php
+END
+powerBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/trend/powerBestFitClass.php
+END
+bestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/trend/bestFitClass.php
+END

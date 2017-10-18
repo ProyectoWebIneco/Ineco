@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_mod
+END
+advagg_mod_css_defer.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_mod/advagg_mod_css_defer.js
+END
+advagg_mod.info
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_mod/advagg_mod.info
+END
+loadCSS.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_mod/loadCSS.js
+END
+loadCSS.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_mod/loadCSS.min.js
+END
+advagg_mod.admin.inc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_mod/advagg_mod.admin.inc
+END
+advagg_mod.advagg.inc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_mod/advagg_mod.advagg.inc
+END
+advagg_mod.module
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/advagg/advagg_mod/advagg_mod.module
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/JAMA
+END
+LUDecomposition.php
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/JAMA/LUDecomposition.php
+END
+CholeskyDecomposition.php
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/JAMA/CholeskyDecomposition.php
+END
+SingularValueDecomposition.php
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/JAMA/SingularValueDecomposition.php
+END
+CHANGELOG.TXT
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/JAMA/CHANGELOG.TXT
+END
+QRDecomposition.php
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/JAMA/QRDecomposition.php
+END
+EigenvalueDecomposition.php
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/JAMA/EigenvalueDecomposition.php
+END
+Matrix.php
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/despliegues/webineco/!svn/ver/13/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/Shared/JAMA/Matrix.php
+END

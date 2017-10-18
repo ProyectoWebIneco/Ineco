@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/imageapi_optimize/binaries
+END
+advdef.inc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/imageapi_optimize/binaries/advdef.inc
+END
+pngcrush.inc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/imageapi_optimize/binaries/pngcrush.inc
+END
+jpegtran.inc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/imageapi_optimize/binaries/jpegtran.inc
+END
+jfifremove.inc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/imageapi_optimize/binaries/jfifremove.inc
+END
+pngout.inc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/imageapi_optimize/binaries/pngout.inc
+END
+pngquant.inc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/imageapi_optimize/binaries/pngquant.inc
+END
+jpegoptim.inc
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/imageapi_optimize/binaries/jpegoptim.inc
+END
+advpng.inc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/imageapi_optimize/binaries/advpng.inc
+END
+optipng.inc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/despliegues/webineco/!svn/ver/20/sites/all/modules/contrib/imageapi_optimize/binaries/optipng.inc
+END

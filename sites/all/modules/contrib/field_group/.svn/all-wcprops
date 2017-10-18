@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/field_group
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/field_group/LICENSE.txt
+END
+field_group.module
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/field_group/field_group.module
+END
+field_group.features.inc
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/field_group/field_group.features.inc
+END
+field_group.install
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/field_group/field_group.install
+END
+CHANGELOG.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/field_group/CHANGELOG.txt
+END
+field_group.field_ui.css
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/field_group/field_group.field_ui.css
+END
+field_group.css
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/field_group/field_group.css
+END
+field_group.field_ui.inc
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/field_group/field_group.field_ui.inc
+END
+field_group.field_ui.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/field_group/field_group.field_ui.js
+END
+field_group.info
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/field_group/field_group.info
+END
+field_group.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/field_group/field_group.js
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/field_group/README.txt
+END
+field_group.api.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/despliegues/webineco/!svn/ver/13/sites/all/modules/contrib/field_group/field_group.api.php
+END
+field_group.test
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/field_group/field_group.test
+END

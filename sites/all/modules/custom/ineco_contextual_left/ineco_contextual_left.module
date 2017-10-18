@@ -1,0 +1,39 @@
+<?php 
+/**
+ * Implements hook_block_info().
+ */
+function ineco_contextual_left_block_info() {
+	$blocks=array();
+
+	$blocks['contextual_left'] = array(
+			'info' => t('Bloque para cargar la zona izquierda en función de donde se encuentra'),
+			'cache' => DRUPAL_CACHE_GLOBAL,
+	);
+
+	return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ *
+ * Prepares the contents of the block.
+ */
+function ineco_contextual_left_block_view($delta = '') {
+	$block=array();
+
+	switch($delta){
+		case 'contextual_left':
+			$block['subject'] = '<none>';
+			$block['content'] = _contextual_left_block('main-menu');
+			break;
+	}
+
+	return $block;
+}
+
+function _contextual_left_block($menu){
+	
+	return t("EN CONSTRUCCIÓN ...");
+}
+?>

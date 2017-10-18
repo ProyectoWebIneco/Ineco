@@ -1,0 +1,41 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/admin_menu/tests
+http://svn/despliegues/webineco
+
+
+
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+admin_menu.test
+file
+
+
+
+
+2014-06-06T06:28:32.000000Z
+f447e115a5e0365806a3a5bca6eae2cf
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+

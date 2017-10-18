@@ -1,0 +1,64 @@
+
+name = Bartik
+description = A flexible, recolorable theme with many regions.
+package = Core
+version = VERSION
+core = 7.x
+
+stylesheets[all][] = css/layout.css
+;stylesheets[all][] = css/style.css
+stylesheets[print][] = css/print.css
+stylesheets[all][] = css/jquery.fancybox-1.3.4.css
+stylesheets[all][] = css/general.css
+
+stylesheets[(max-width: 479px)][] = css/responsive-mobile-portrait-layout.css
+stylesheets[(min-width: 480px)  and (max-width: 767px)][] = css/responsive-mobile-landscape-layout.css
+stylesheets[(min-width: 768px)  and (max-width: 979px)][] = css/responsive-tablet-layout.css
+stylesheets[(min-width: 980px)  and (max-width: 1119px)][] = css/responsive-screen-layout.css
+stylesheets[(min-width: 1120px)][] = css/responsive-wide-layout.css
+
+regions[header] = Header
+;regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+;regions[highlighted] = Highlighted
+
+;regions[featured] = Featured
+regions[content] = Content
+;regions[sidebar_first] = Sidebar first
+;regions[sidebar_second] = Sidebar second
+
+;regions[triptych_first] = Triptych first
+;regions[triptych_middle] = Triptych middle
+;regions[triptych_last] = Triptych last
+
+;regions[footer_firstcolumn] = Footer first column
+;regions[footer_secondcolumn] = Footer second column
+;regions[footer_thirdcolumn] = Footer third column
+;regions[footer_fourthcolumn] = Footer fourth column
+regions[footer] = Footer
+
+regions[main_menu_right] = Right main menu
+regions[main_menu_left] = Left main menu
+regions[secondary_menu_right] = Right secondary menu
+regions[secondary_menu_left] = Left secondary menu
+regions[complete_menu_responsive] = Complete menu responsive
+
+settings[shortcut_module_link] = 0
+
+; Scripts
+scripts[] = js/jquery.jcarousel.min.js
+scripts[] = js/jquery.tinyscrollbar.min.js
+scripts[] = js/jquery.fancybox-1.3.4.pack.js
+scripts[] = js/ineco.js
+scripts[] = js/jquery.fancybox-1.3.4.pack.js
+scripts[] = js/ineco_contact_request_form.js
+
+; Panels
+plugins[panels][layouts] = layouts
+
+; Information added by drupal.org packaging script on 2013-04-03
+version = "7.22"
+project = "drupal"
+datestamp = "1365027012"
+

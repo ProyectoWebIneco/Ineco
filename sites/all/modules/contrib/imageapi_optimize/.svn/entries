@@ -1,0 +1,102 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/imageapi_optimize
+http://svn/despliegues/webineco
+
+
+
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+LICENSE.txt
+file
+
+
+
+
+2015-07-28T05:32:09.000000Z
+b234ee4d69f5fce4486a80fdaf4a4263
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+imageapi_optimize.module
+file
+
+
+
+
+2015-07-28T05:32:10.000000Z
+0573773dd8002edc0506817a61117b56
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+imageapi_optimize.install
+file
+
+
+
+
+2015-07-28T05:32:10.000000Z
+9988a3b374dda48244bf0b47d0ddf4f2
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+services
+dir
+
+includes
+dir
+
+imageapi_optimize.info
+file
+
+
+
+
+2015-07-28T05:32:11.000000Z
+0e66aab04e0317cb5096459fa5c10329
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+README.txt
+file
+
+
+
+
+2015-07-28T05:32:12.000000Z
+c77c64cfc0b5e83e7b3b47db961751f4
+2015-07-23T14:33:56.373146Z
+20
+servicios.aplic
+has-props
+
+binaries
+dir
+

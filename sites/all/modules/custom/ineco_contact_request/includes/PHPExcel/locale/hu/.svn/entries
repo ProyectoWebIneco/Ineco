@@ -1,0 +1,54 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/custom/ineco_contact_request/includes/PHPExcel/locale/hu
+http://svn/despliegues/webineco
+
+
+
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+config
+file
+
+
+
+
+2014-06-06T06:28:34.000000Z
+321e35dafeac1e66474efe955c783a29
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+functions
+file
+
+
+
+
+2014-06-06T06:28:34.000000Z
+5f11b75771100d0ace8f825065833811
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+

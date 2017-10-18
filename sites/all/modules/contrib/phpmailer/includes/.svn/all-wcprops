@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/phpmailer/includes
+END
+phpmailer.drupal.inc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/phpmailer/includes/phpmailer.drupal.inc
+END
+phpmailer.mimemail.inc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/phpmailer/includes/phpmailer.mimemail.inc
+END
+phpmailer.class.inc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/despliegues/webineco/!svn/ver/10/sites/all/modules/contrib/phpmailer/includes/phpmailer.class.inc
+END

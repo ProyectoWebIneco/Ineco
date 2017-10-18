@@ -1,0 +1,10 @@
+#complete-menu-responsive {
+	display: none;
+}
+
+.i18n-en .panel-twocol-ineco .panel-twocol-ineco-content {
+    width: 640px;
+}
+.i18n-en.trabaja-con-nosotros .panel-twocol-ineco .panel-twocol-ineco-content {
+    width: 67.3%;
+}

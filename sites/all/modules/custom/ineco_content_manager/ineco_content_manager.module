@@ -1,0 +1,227 @@
+<?php
+
+define('CONTENT_MANAGER_RID', 4);
+
+/**
+ * Implements hook_permission().
+ */
+function ineco_content_manager_permission() {
+	return array(
+			'access panel control' => array(
+					'title' => t('Access panel control'),
+			),
+	);
+}
+
+/**
+ * Implements hook_block_info().
+*/
+function ineco_content_manager_block_info() {
+	$blocks=array();
+
+	$blocks['panel_administracion'] = array(
+			'info' => t('Bloque para el panel de administración del gestor'),
+			'cache' => DRUPAL_CACHE_GLOBAL,
+	);
+
+	$blocks['menu_administracion'] = array(
+			'info' => t('Bloque para los enlaces del menu de administracion del gestor'),
+			'cache' => DRUPAL_CACHE_GLOBAL,
+	);
+
+	return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function ineco_content_manager_block_view($delta = '') {
+	$block=array();
+
+	switch($delta){
+		case 'panel_administracion':
+			$block['subject'] = t('Content manager pane');
+			$block['content'] = _panel_administracion_block();
+			break;
+		case 'menu_administracion':
+			$block['subject'] = t('Menu manager pane');
+			$block['content'] = _panel_menu_administracion_block();
+			break;
+	}
+
+	return $block;
+}
+
+/**
+ * Implementation of hook_user_login
+ */
+function ineco_content_manager_user_login(&$edit, $account){
+	if(user_access('access panel control', $account)){
+		drupal_goto('panel-administracion');
+	}
+}
+
+/**
+ * Implementation of hook_form_alter
+ */
+function ineco_content_manager_form_alter(&$form, &$form_state, $form_id){
+	global $user;
+	if(_is_content_manager($user)){
+		switch($form_id){
+			case 'panel_node_form':
+				$form['panels_node']['css_id']['#access'] = FALSE;
+				$form['panels_node']['pipeline']['#access'] = FALSE;
+				break;
+			case 'panels_edit_display_form':
+				$form['preview']['#access'] = FALSE;
+				break;
+		}
+
+		if(isset($form['revision_information']) && $form['type']['#value'] != 'contact_request'){
+			$form['revision_information']['#access'] = FALSE;
+		}
+
+		if(isset($form['options']['sticky'])){
+			$form['options']['sticky']['#access'] = FALSE;
+		}
+	}
+}
+
+/**
+ * Implementation of hook_links_view_alter
+ */
+function ineco_content_manager_contextual_links_view_alter(&$element, &$items) {
+	if (isset($element['#element']['#views_contextual_links_info']['views_ui']['view_name'])) {
+		switch($element['#element']['#views_contextual_links_info']['views_ui']['view_name']){
+			case 'comunicacion_actualidad':
+				$element['#links']['add_content'] = array(
+				'title' => t('Create new'),
+				'href' => url('node/add/new', array('absolute' => TRUE)),
+				);
+				break;
+			case 'comunicacion_dossier_de_prensa':
+				$element['#links']['add_content'] = array(
+				'title' => t('Create dossier'),
+				'href' => url('node/add/dossier', array('absolute' => TRUE)),
+				);
+				break;
+			case 'comunicacion':
+				$element['#links']['add_content'] = array(
+				'title' => t('Create document'),
+				'href' => url('node/add/document', array('absolute' => TRUE)),
+				);
+				break;
+			case 'comunicacion_multimedia':
+				switch ($element['#element']['#views_contextual_links_info']['views_ui']['view_display_id']){
+					case 'panel_pane_1':
+						$element['#links']['add_content'] = array(
+						'title' => t('Create business display'),
+						'href' => url('node/add/business-displays', array('absolute' => TRUE)),
+						);
+						break;
+					case 'panel_pane_2':
+						$element['#links']['add_content'] = array(
+						'title' => t('Create video'),
+						'href' => url('node/add/video', array('absolute' => TRUE)),
+						);
+						break;
+				}
+			case 'comunicacion_marca_ineco':
+				$element['#links']['add_content'] = array(
+				'title' => t('Create logo'),
+				'href' => url('node/add/logo', array('absolute' => TRUE)),
+				);
+				break;
+			case 'que_hacemos_sectores':
+				$element['#links']['add_content'] = array(
+					'title' => t('Crear Mercado'),
+					'href' => url('admin/structure/taxonomy/sector/add', array('absolute' => TRUE)),
+				);
+				break;
+			case 'que_hacemos_servicios':
+				$element['#links']['add_content'] = array(
+					'title' => t('Crear Solución'),
+					'href' => url('admin/structure/taxonomy/services/add', array('absolute' => TRUE)),
+				);
+				break;
+			case 'donde_estamos_europa':
+				$element['#links']['add_content'] = array(
+					'title' => t('Crear País'),
+					'href' => url('admin/structure/taxonomy/country/add', array('absolute' => TRUE)),
+				);
+				break;
+		}
+	}
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ineco_content_manager_theme() {
+	$path = drupal_get_path('module', 'ineco_content_manager'). '/theme';
+
+	return array(
+			'ineco_content_manager_administration_panel' => array(
+					'template' => 'ineco_content_manager_administration_panel',
+					'variables' => array(),
+					'path' => $path,
+			),
+			'ineco_content_manager_administration_menu_block' => array(
+					'template' => 'ineco_content_manager_administration_menu_block',
+					'variables' => array(),
+					'path' => $path,
+			),
+	);
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function ineco_content_manager_menu_alter(&$items) {
+	$items['admin/config/regional/translate/import']['access callback'] = 'not_access_content_manager';
+	$items['admin/config/regional/translate/i18n_string']['access callback'] = 'not_access_content_manager';
+	$items['admin/config/regional/translate/export']['access callback'] = 'not_access_content_manager';
+	$items['admin/config/regional/translate']['access callback'] = 'not_access_content_manager';
+	$items['user/%user']['access callback'] = 'not_access_content_manager';
+}
+
+/**
+ * FUNCIONES AUXILIARES
+ */
+
+function not_access_content_manager(){
+	global $user;
+		
+	$uid = $user->uid;
+	
+	// Never allow access to view the anonymous user account.
+	if ($uid) {
+		// Admins can view all, users can view own profiles at all times.
+		if ($GLOBALS['user']->uid == $uid || user_access('administer users')) {
+			return TRUE;
+		}
+		elseif (_is_content_manager($user)) {
+			// At this point, load the complete account object.
+			return FALSE;
+		}
+	}
+}
+
+function _is_content_manager($account){
+	if(array_key_exists(CONTENT_MANAGER_RID, $account->roles)){
+		return TRUE;
+	}
+
+	if(user_access('access panel control', $account)){
+		return TRUE;
+	}
+	return FALSE;
+}
+
+function _panel_menu_administracion_block(){
+	return theme('ineco_content_manager_administration_menu_block', array());
+}
+
+function _panel_administracion_block(){
+	return theme('ineco_content_manager_administration_panel', array());
+}

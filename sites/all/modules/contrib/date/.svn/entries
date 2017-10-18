@@ -1,0 +1,279 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/date
+http://svn/despliegues/webineco
+
+
+
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+date_repeat_field
+dir
+
+date_context
+dir
+
+date_elements.inc
+file
+
+
+
+
+2014-06-06T06:28:33.000000Z
+e72953644185b6e6ef2a5a71eb220b95
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+date.install
+file
+
+
+
+
+2014-06-06T06:28:33.000000Z
+f95d494ad1f2db0df337c97b739ec6d2
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+INSTALL.txt
+file
+
+
+
+
+2014-12-10T12:42:54.000000Z
+c09d47f8b1666fb3b125b7b963d464ee
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+date_migrate
+dir
+
+date_repeat.inc
+file
+
+
+
+
+2014-06-06T06:28:33.000000Z
+1ec54ace5b08e81160ad59d550e2d724
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+date.tokens.inc
+file
+
+
+
+
+2014-06-06T06:28:33.000000Z
+c3d47da6e45ee27c0837a441043e741a
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+date.js
+file
+
+
+
+
+2014-06-06T06:28:33.000000Z
+4521ef4a1cbf753e4b710ac22a5711d2
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+date_views
+dir
+
+date_admin.inc
+file
+
+
+
+
+2014-06-06T06:28:33.000000Z
+a889e46f9680856e16d3f79b9476261e
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+date.devel_generate.inc
+file
+
+
+
+
+2014-06-06T06:28:33.000000Z
+8b9d6bed244e65baf10862adb375d4ab
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+date_tools
+dir
+
+LICENSE.txt
+file
+
+
+
+
+2014-12-10T12:42:54.000000Z
+ffa10f40b98be2c2bc9608f56827ed23
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+date_popup
+dir
+
+date_admin.js
+file
+
+
+
+
+2014-06-06T06:28:33.000000Z
+e46dd25adfe1404556537a8134bdac52
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+date.module
+file
+
+
+
+
+2014-06-06T06:28:33.000000Z
+3b4eff8fe0916ff71e0285bfd5dcf6b0
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+tests
+dir
+
+date_all_day
+dir
+
+CHANGELOG.txt
+file
+
+
+
+
+2014-12-10T12:42:55.000000Z
+c69147e69300b2893085ce70385a86b6
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+date_api
+dir
+
+date.info
+file
+
+
+
+
+2014-06-06T06:28:33.000000Z
+458de077114e29c8615dd6eed97aba0e
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+date.field.inc
+file
+
+
+
+
+2014-06-06T06:28:33.000000Z
+5dfd92a1b74239a53bf98faaea6d2f31
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+date.api.php
+file
+
+
+
+
+2014-12-10T12:42:55.000000Z
+5fe9a06b3bfda64ef7109d2b77439cda
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+README.txt
+file
+
+
+
+
+2014-12-10T12:42:56.000000Z
+455c9527f4944fdbb0183b0f9ac156bc
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+has-props
+
+date_repeat
+dir
+
+date.theme
+file
+
+
+
+
+2014-06-06T06:28:33.000000Z
+0449b1ece8f18a30f44d8705709c3d21
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+

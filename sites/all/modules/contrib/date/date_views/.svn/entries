@@ -1,0 +1,63 @@
+8
+
+dir
+31
+http://svn/despliegues/webineco/sites/all/modules/contrib/date/date_views
+http://svn/despliegues/webineco
+
+
+
+2014-12-10T11:46:50.498802Z
+13
+servicios.aplic
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e8623b4a-e9a0-44dd-b563-d640debeddc3
+
+theme
+dir
+
+date_views.info
+file
+
+
+
+
+2014-06-06T06:28:32.000000Z
+c2c980701919d592b9c7906d182941ba
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
+includes
+dir
+
+css
+dir
+
+date_views.module
+file
+
+
+
+
+2014-06-06T06:28:32.000000Z
+d49f0bfb12eb0ef6fe2dcb4aa22ef381
+2014-06-05T11:08:04.283119Z
+10
+servicios.aplic
+has-props
+
