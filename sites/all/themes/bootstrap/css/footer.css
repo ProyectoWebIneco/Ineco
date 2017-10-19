@@ -1,0 +1,77 @@
+/*Estilos Bloque redes sociales footer*/
+.region.region-footer #block-block-2{
+    margin-left: 3%;
+    float: left;   
+    position: relative; 
+}
+
+.region.region-footer #block-block-3{
+    float: left;
+    position: relative;
+    margin-left: 5%;
+}
+
+
+.region.region-footer #block-block-6{
+    float: left;
+    position: relative;
+    margin-left: 3%;
+}
+
+.region.region-footer #block-block-7{
+    float: left;
+    position: relative;
+    margin-left: 3%;
+}
+.rrss-all {
+    float: right;
+    position: relative;
+    margin-right: 5%;
+    margin-left: 3%;
+}
+
+.region.region-footer .block-social-networks-block-link a:hover:nth-child(1) img {
+    opacity: 50;
+}
+
+.region.region-footer .block-social-networks-block-link a:hover:nth-child(2) img {
+    opacity: 50;
+}
+
+.region.region-footer .block-social-networks-block-link a:hover:nth-child(4) img {
+    opacity: 50;
+}
+
+.region.region-footer .block-social-networks-block-link a:hover:nth-child(5) img {
+    opacity: 50;
+}
+
+.region.region-footer .block-social-networks-block-link a:hover:nth-child(3) img {
+    opacity: 50;
+}
+
+.region.region-footer .block-social-networks-block-link a {
+    display: inline-block;
+    background-size: 24px auto!important;
+    margin-left: 0.5em;
+}
+
+.region.region-footer .block-social-networks-block-link{
+    float: right;
+}
+
+.region.region-footer #block-block-5{
+    float: left;
+    position: relative;
+    margin-left: 3%;
+}
+
+.region.region-footer #block-block-4{
+    float: left;
+    margin-left: 3%;
+}
+
+
+
+
+

@@ -33,6 +33,7 @@ regions[page_bottom]    = 'Page bottom'
 
 ; Estilos Propios
 stylesheets[all][] = css/styles.css
+stylesheets[all][] = css/footer.css
 
 ; Container
 ; --------------
