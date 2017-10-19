@@ -1,0 +1,111 @@
+/**
+ * Place your custom styles here.
+ */
+
+
+ 
+ /*Custom Navbar */
+#navbarCustom {
+  height: 20px;
+  background-color: black;
+  min-height:28px !important;
+}
+
+
+#navbarCustom > li > a,
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-top:4px !important;
+  min-height:28px !important;
+}
+.navbar-form {
+  margin-top: 10px;
+}
+#navbar-collapse-custom{
+font-size: 10px;
+height: 10px;
+padding-top:0px !important;
+padding-bottom:0px !important;
+
+min-height:10px !important;
+}
+
+#navbar-collapse-custom  ul  li  a{
+    padding-bottom: 0;
+    padding-top: 3px;
+}
+
+
+
+
+/* Bloque idioma
+
+#block-locale-language{
+    height: 15px;
+}
+
+#block-locale-language ul li.first a {
+    background: url("../images/idioma-border-right.png") no-repeat scroll right 4px transparent;
+    margin-right: 5px;
+    padding-right: 8px;
+}
+#block-locale-language ul li.first .locale-untranslated {
+    color: #8B8B8D;
+    background: url("../images/idioma-border-right.png") no-repeat scroll right 4px transparent;
+    margin-right: 5px;
+    padding-right: 8px;
+}
+#block-locale-language ul li a {
+    color: #8B8B8D;
+    font-size: 11px;
+}
+#block-locale-language ul li.active a {
+    font-weight: bold;
+}*/
+
+
+/* Bloque idioma*/
+
+#block-locale-language{   
+    font-family: 'Avenir-Book', 'Nunito Sans';  
+    font-size: 10px;
+    font-weight: 500;
+   
+    text-decoration: none;
+    text-transform: uppercase;
+    list-style: none;
+    overflow: hidden;
+}
+#block-locale-language ul{
+     list-style: none;
+}
+
+#block-locale-language li{
+    FLOAT: left;
+    padding: 5px;
+    list-style: none;
+}
+#block-locale-language a{
+     color:white;
+      font-family: 'Avenir-Book', 'Nunito Sans';  
+}
+
+/* bloque menu */
+.region-header .block-menu ul liactive:after,  .region-header .block-menu ul li:hover:after{width: 100%}
+
+
+.region-header .block-menu ul li a {
+ padding: 5px;
+  text-align: right;
+  list-style: none; 
+  float: right;
+
+    font-family:'Avenir-Book', 'Nunito Sans';
+        display:block;
+        font-size:15px;
+        font-weight: 700;       
+        text-decoration: none;
+        color: #000001;
+}
+
