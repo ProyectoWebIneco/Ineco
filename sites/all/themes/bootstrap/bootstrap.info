@@ -33,7 +33,14 @@ regions[page_bottom]    = 'Page bottom'
 
 ; Estilos Propios
 stylesheets[all][] = css/styles.css
+stylesheets[all][] = css/style.css
 stylesheets[all][] = css/footer.css
+stylesheets[all][] = fonts/fonts.css
+
+
+; Custom JavaScript
+;scripts[] = js/jquery-3.2.1.min.js
+scripts[] = js/script.js
 
 ; Container
 ; --------------
@@ -131,8 +138,8 @@ settings[bootstrap_tooltip_container] = 'body'
 settings[bootstrap_cdn_provider] = 'jsdelivr'
 settings[bootstrap_cdn_custom_css] = 'https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.css'
 settings[bootstrap_cdn_custom_css_min] = 'https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css'
-settings[bootstrap_cdn_custom_js] = 'https://cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.js'
-settings[bootstrap_cdn_custom_js_min] = 'https://cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js'
+settings[bootstrap_cdn_custom_js] = 'https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.js'
+settings[bootstrap_cdn_custom_js_min] = 'https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js'
 settings[bootstrap_cdn_jsdelivr_version] = '3.3.7'
 settings[bootstrap_cdn_jsdelivr_theme] = 'bootstrap'
 
