@@ -3990,6 +3990,7 @@ function form_process_autocomplete($element) {
     // url()) but since this code is forcing non-clean URLs on sites that don't
     // normally use them, it is done here instead.
     $element['#autocomplete_input']['#url_value'] = url($element['#autocomplete_path'], array('absolute' => TRUE, 'script' => 'index.php'));
+   $element['#autocomplete_input']['#url_value'] = str_replace('index.php?q=', '', $element['#autocomplete_input']['#url_value']);
     $GLOBALS['conf']['clean_url'] = $current_clean_url;
   }
   return $element;
