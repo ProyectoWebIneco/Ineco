@@ -77,16 +77,16 @@ h2{font-size: 76px;font-family:'Avenir-Medium', 'Nunito Sans';font-weight: 600}
 h3{font-size: 56px;font-family:'Avenir-Medium', 'Nunito Sans';font-weight: 600}
 h4{font-size: 35px;font-family:'Avenir-Heavy', 'Nunito Sans';font-weight: 800}
 h5{font-size: 28px}
-h6{font-size: 24px}
+h6{font-size: 18px}
 
 .title-heading{font-size: 35px;font-family:'Avenir-Black', 'Nunito Sans'; font-weight: 900}
 .title-heading.tipo2{font-size: 35px;font-family:'Avenir-Heavy', 'Nunito Sans';font-weight: 600}
 .title-heading.tipo3{font-size: 51px;font-family:'Avenir-Black', 'Nunito Sans';font-weight: 900}
 
 .txt-dest{font-size: 19px;text-transform: uppercase;font-family:'Avenir-Black', 'Nunito Sans'; font-weight: 900}
-.txt-dest.tipo2{font-size: 16px}
+.txt-dest.tipo2{font-size: 14px}
 
-p{margin-bottom: 30px}
+p{margin-bottom: 30px;font-size: 1.1em;}
 
 
 ul li{list-style: none;position: relative;padding-left: 20px}

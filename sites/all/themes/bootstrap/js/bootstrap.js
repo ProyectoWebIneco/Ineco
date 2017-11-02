@@ -276,4 +276,3 @@ var Drupal = Drupal || {};
   };
 
 })(jQuery, Drupal);
-
