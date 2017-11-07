@@ -3962,7 +3962,7 @@ ul.project-carousel-carousel li img {
 }
 .project-fullcontent-header-left-subtitle > p { margin-bottom: 0; }
 .language-link.active { font-weight: bold; }
-.panel-col-first .contextual-links-region { /* min-height: 482px; */}
+
 .page-node-192 .panel-twocol-ineco .panel-twocol-ineco-sidebar { min-height: 500px; }
 .page-node-192 .panel-col-first .contextual-links-region { min-height: 500px; }
 .project-carousel-carousel-wrapper .project-teaser-title a { width: 144px; }
@@ -3991,10 +3991,7 @@ ul.project-carousel-carousel li img {
     border-bottom: 1px solid rgb(255,222,0);
     border-top: 1px solid rgb(255,222,0);
 }
-.que-hacemos .project-fullcontent-paragraph-0-right-body-testimony-ii {
-    /*border-bottom: 1px solid #B19401;
-    border-top: 1px solid #B19401;*/
-}
+
 .que-hacemos .project-fullcontent-paragraph-0-tech-all {
     background: url("../images/fnd-ficha-mostaza.png") repeat-x scroll 0 0 transparent;
 }
@@ -4858,6 +4855,8 @@ body.perfil-del-contratante .simple-page-fullcontent-body-scroll-wrapper {
     overflow: hidden;
     position: relative;
 }
+
+
 body.perfil-del-contratante .simple-page-controllers {
     bottom: 0;
     position: absolute;

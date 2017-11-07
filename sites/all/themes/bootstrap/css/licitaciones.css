@@ -1,0 +1,78 @@
+.view-perfil-del-contratante-licitaciones{
+ font-family:'Avenir-Book', 'Nunito Sans';
+}
+
+.pane-title{
+    float: right;
+    position: inherit;
+    margin-right: 37%;
+    font-size: 28px;
+}
+ 
+ 
+
+
+.view-perfil-del-contratante-licitaciones .view-content {
+    float: right;
+    width: 68%;
+    padding: 10%;
+    margin-top: -19%;
+
+
+}
+
+.view-perfil-del-contratante-licitaciones .view-header{
+             margin-left: 100px;
+             margin-top: -140px;
+              
+}
+.view-perfil-del-contratante-licitaciones .view-header a{
+            color: white;
+            font-size: 15px;     
+            font-family:'Avenir-Book', 'Nunito Sans';     
+            font-weight: normal;
+              
+}
+.view-perfil-del-contratante-licitaciones .view-header small{         
+            font-size: 10px;
+            position: absolute;
+            top: 200px;
+            color: black;
+            left: 100px;        
+            font-family:'Avenir-Book', 'Nunito Sans';                 
+}
+
+
+.view-perfil-del-contratante-licitaciones .view-header p{
+          color: white;
+          width: 34%;
+          background-image: url("../recursos/imagenes/bloqueAzul.png");
+          font-size: 25px;
+          padding: 3% 4%;
+          font-weight: bold;
+          left: 5%;
+          line-height: 120%;
+          background-repeat: no-repeat;
+          background-position: 30% 20%; 
+          background-position: center;
+          font-family:'Avenir-Heavy', 'Nunito Sans'; 
+              
+}
+
+.view-perfil-del-contratante-licitaciones .views-row{
+       background-color: #f7f7f7;
+        padding: 5%;
+        margin-bottom: 5%;
+}
+
+.view-perfil-del-contratante-licitaciones .views-row h2 {
+       font-size: 14px;
+      
+}
+
+.view-perfil-del-contratante-licitaciones .text-center {
+       width: 60%;
+       float: right;
+}
+
+    

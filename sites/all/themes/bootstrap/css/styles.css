@@ -148,10 +148,12 @@ a:link
         padding-bottom: 20px;
          color: #000001;
     }
-    /*
+    
     .active {
-  background-color: #f5d723 !important;
-}*/
+ /* background-color: #f5d723 !important;*/
+    font-weight: bold;
+    color: #666;
+}
 
     .btn-enlace a:after{
         content: '';
@@ -180,8 +182,7 @@ a:link
 }
 
 #footerlinks p a{
-     margin-left: 30px;
-     /*float: right;*/   
+     margin-left: 30px;    
      text-transform: uppercase;
      font-family:'Avenir-Book', 'Nunito Sans';
      font-size: 11px;
@@ -216,3 +217,64 @@ a:link
     font-weight: 800
 }
 
+/* custom tender perfil del contratante */
+
+.tender-teaser{ padding: 7%; }
+.tender-teaser-title a{text-decoration: none !important;}
+.tender-teaser-title{ margin-bottom: 2%;}
+.tender-teaser  div:first-child{font-family: 'Avenir-Black', 'Nunito Sans';margin-right:0.5%;}
+.tender-teaser > div > div{
+     float: left; line-height: 2;
+     }
+     .tender-teaser-documents > div{ clear: initial;}
+.clear {
+    clear: both;
+    display: block;
+    float: none !important;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+}
+
+
+.tender-teaser-documents-document{
+  text-transform: lowercase;
+}
+
+.tender-teaser-documents{
+  text-transform: lowercase;
+  margin-top: 2%;
+}
+
+.tender-teaser-documents a {
+    background: url("../templates/Iconos/pdf16.png") no-repeat scroll left center transparent;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 10px;
+     text-decoration: none !important;
+}
+
+
+.tender-teaser-documents-document::first-letter {
+    text-transform: uppercase;
+}
+
+
+  .tender-teaser-documents-document a:after {
+       content: '';
+        display: block;
+        position: relative; 
+        bottom: 13px; 
+        text-decoration: none !important;
+        right: 5%;
+        margin-top: 14px;
+      
+        height: 3px;
+        background-color: #000001;
+        width: 82%;
+        float: right;
+}
+
+    .tender-teaser-documents a:hover:after{background-color: #f5d723 !important;}

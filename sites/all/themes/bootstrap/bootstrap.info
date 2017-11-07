@@ -36,6 +36,7 @@ stylesheets[all][] = css/styles.css
 stylesheets[all][] = css/style.css
 stylesheets[all][] = css/footer.css
 stylesheets[all][] = fonts/fonts.css
+stylesheets[all][] = css/licitaciones.css
 
 
 ; Custom JavaScript
