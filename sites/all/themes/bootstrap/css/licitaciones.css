@@ -2,11 +2,11 @@
  font-family:'Avenir-Book', 'Nunito Sans';
 }
 
-.pane-title{
-    float: right;
-    position: inherit;
-    margin-right: 37%;
+ .pane-perfil-del-contratante-licitaciones-panel-pane-1 > .pane-title{
     font-size: 28px;
+    MARGIN-LEFT: 42%;
+    MARGIN-TOP: 0%;
+    
 }
  
  
@@ -36,7 +36,7 @@
 .view-perfil-del-contratante-licitaciones .view-header small{         
             font-size: 10px;
             position: absolute;
-            top: 200px;
+            margin-top: 4%;           
             color: black;
             left: 100px;        
             font-family:'Avenir-Book', 'Nunito Sans';                 
@@ -60,7 +60,7 @@
 }
 
 .view-perfil-del-contratante-licitaciones .views-row{
-       background-color: #f7f7f7;
+       background-color: #EBF5FB;
         padding: 5%;
         margin-bottom: 5%;
 }
@@ -74,5 +74,6 @@
        width: 60%;
        float: right;
 }
+
 
     

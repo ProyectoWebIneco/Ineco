@@ -204,22 +204,30 @@ a:link
 /* avisolegal */
 
 #AvisoLegal{
-    background-color: #f7f7f7;   
-    padding: 8%;
-    top: -150px;   
+    background-color: #EBF5FB;   
+    padding: 9%;
+    margin-top: -10%;
 }
 .pane-title{
     position: absolute;
     top: -100px;
     color:#ffffff;
-    font-size: 35px;
+    font-size: 26px;
     font-family:'Avenir-Heavy', 'Nunito Sans';
-    font-weight: 800
+    font-weight: 800;
+    
+}
+/*
+ contextual-links-wrapper.pane-title{
+    font-size: 28px;
+    MARGIN-LEFT: 42%;
+    MARGIN-TOP: 0%;
+    
 }
 
 /* custom tender perfil del contratante */
 
-.tender-teaser{ padding: 7%; }
+
 .tender-teaser-title a{text-decoration: none !important;}
 .tender-teaser-title{ margin-bottom: 2%;}
 .tender-teaser  div:first-child{font-family: 'Avenir-Black', 'Nunito Sans';margin-right:0.5%;}
@@ -249,7 +257,7 @@ a:link
 
 .tender-teaser-documents a {
     background: url("../templates/Iconos/pdf16.png") no-repeat scroll left center transparent;
-    font-size: 12px;
+    font-size: 9px;
     font-weight: bold;
     padding-left: 20px;
     padding-right: 10px;
@@ -278,3 +286,95 @@ a:link
 }
 
     .tender-teaser-documents a:hover:after{background-color: #f5d723 !important;}
+
+    .tender-teaser-btn > a {   
+        position: absolute;
+        font-size: 10px;
+        left: 81.6%;
+        margin-top: 3.5%;
+    }
+
+    #submenulicitacionesabiertas{
+        left: 24%;
+        top: -120px;
+        position: relative;
+    }
+
+
+  /* cajas enlaces MAPA WEB*/
+
+     .caja_enlaces_arriba_derecha{
+        width: 22%;
+        float:left;
+        padding: 20px 35px;
+        background-color: #f4f4f5;
+        margin-top:-10%;      
+        margin-left: 2.5%;
+        height:auto ;
+            
+       
+    }
+        .caja_enlaces_abajo_derecha{
+        width: 22%;
+        float:left;
+        padding: 20px 35px;
+        background-color: #f4f4f5;
+        margin-top: 3%;       
+        margin-left: 2.5%;
+           
+      
+    }
+    .caja_enlaces_arriba_izquierda{
+        width: 22%;
+        float:left;
+        padding: 20px 35PX;
+        background-color: #f4f4f5;
+        margin-top:-10%;        
+        margin-left: 2.5%;
+        height: 100%;
+      
+        
+    }
+        .caja_enlaces_abajo_izquierda{
+        width: 22%;
+        float:left;
+        padding: 20px 35px;
+        background-color: #f4f4f5;
+        margin-left: 2.5%;
+        margin-top: 3%;     
+    }
+
+    /* custom Accionistas*/
+
+    #img_accionistas{
+        height: 75%;
+        width: 75%;
+        margin-top: -35%;
+        margin-left: 10%;
+    }
+
+    #caja_color_amarillo{
+        height: 50%;
+        width: 60%;
+        margin-left: 35%;
+        margin-top: -5%;       
+   }
+
+   #grafico_accionistas{
+       padding-top: 5%;
+       padding-left: 15%;
+       height: 70%;
+       width: 70%;
+       
+   }
+#integrantes{
+    float: right;
+}
+#bg-comision{
+    width: 200%;
+    margin-top: -5%;
+}
+#Fondo_azul{
+    height:100px;
+}
+       

@@ -44,7 +44,7 @@ body{
 }
 
 .panel-panel{
-    margin:0; padding:0; height:100%;
+     padding:0; height:100%;
 }
 
 img{max-width: 100%}
@@ -57,7 +57,7 @@ img{max-width: 100%}
 	.tmn-1{width:calc(8.33333% - 10px);}
 	.tmn-2{width:calc(16.6667% - 10px);}
 	.tmn-3{width:calc(25% - 10px);}
-	.tmn-4{width:calc(33.3% - 10px);}
+	.tmn-4{width:calc(100%);height: 210px}
 	.tmn-5{width:calc(41.6667% - 10px);vertical-align: middle} 
 	.tmn-6{width:calc(50% - 8px);}
 	.tmn-7{width:calc(58.3333% - 10px);vertical-align: middle}
@@ -76,7 +76,7 @@ h1{font-size: 84px;font-family:'Avenir-Heavy', 'Nunito Sans';font-weight: 800}
 h2{font-size: 76px;font-family:'Avenir-Medium', 'Nunito Sans';font-weight: 600}
 h3{font-size: 56px;font-family:'Avenir-Medium', 'Nunito Sans';font-weight: 600}
 h4{font-size: 35px;font-family:'Avenir-Heavy', 'Nunito Sans';font-weight: 800}
-h5{font-size: 28px}
+h5{font-size: 28px;font-family:'Avenir-Black', 'Nunito Sans';font-weight: 800}
 h6{font-size: 18px}
 
 .title-heading{font-size: 35px;font-family:'Avenir-Black', 'Nunito Sans'; font-weight: 900}
@@ -171,7 +171,7 @@ strong{font-family:'Avenir-Black', 'Nunito Sans'; font-weight: 900}
     /* ver-mas */
 
     .ver-mas a{       
-        padding: 13px 40px;
+        padding: 5px 20px;
         background-color: #f5d723;
       
     }
@@ -290,7 +290,11 @@ strong{font-family:'Avenir-Black', 'Nunito Sans'; font-weight: 900}
         }
     .pagination li.pager-ellipsis{display: none;}
     .pagination li.pager-first{display: none;}
-    .pagination li.prev{display: none;}
+    .pagination li.prev a{ 
+        border: 1px solid #cdcccc;
+        background: transparent url("../templates/Iconos/prev.png") no-repeat 50% 50%;
+        
+        }
     .pagination li.pager-last{display: none;}
     
 
@@ -448,7 +452,7 @@ CONTENIDOS
 .tipo-color{
     text-align: center;
     padding:10px 0;
-    background-color: #f7f7f7;
+    background-color: #EBF5FB;
     font-size: 24px;
 }
 
@@ -550,5 +554,4 @@ RESPONSIVE
     
     .title-heading.tipo3{font-size: 28px}
 }
-
 

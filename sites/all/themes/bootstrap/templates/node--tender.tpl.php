@@ -1,7 +1,8 @@
 <?php if($teaser): ?>
 	<div class="tender-teaser">
 		<div class="tender-teaser-title">
-			<!!--print t solo imprime como texto, para enlaces print-->
+			<!!--print t solo imprime como texto, para enlaces print
+			pasar como segundo parametro el id-->
 			<?php print t($node->title);?>
 		</div>
 		<?php if(isset($node->field_tender_expedient_numer['und'][0]['value'])):?>
@@ -99,6 +100,9 @@
 					<?php endif;?>
 				<?php endforeach;?>
 			</div>
+			<div class="tender-teaser-btn ver-mas">
+			<?php print l('VER DETALLE', 'node/'.$node->nid);?>
+		</div>
 			<div class="clear"></div>
 		<?php endif;?>
 	</div>

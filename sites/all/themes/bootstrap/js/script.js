@@ -1,18 +1,17 @@
-$(document).ready(function(){
-    animacionAncla();
-    navegacion();
-});
+jQuery(document).ready(function(){
+   
+
 
 
 function animacionAncla(){
     
-    $('.animacionAncla').click(function(event){
-        $('.animacionAncla').parent('li').removeClass('active');
+    jQuery('.animacionAncla').click(function(event){
+        jQuery('.animacionAncla').parent('p').removeClass('active');
         
         var id = $( $(this).attr('href') );
-        $(this).parent('li').addClass('active');
+        jQuery(this).parent('p').addClass('active');
         if( id.length ) {
-            $('html, body').animate({
+            jQuery('html, body').animate({
                 scrollTop: id.offset().top
             }, 1000);
         }
@@ -21,12 +20,15 @@ function animacionAncla(){
 }
 
 
+
+
 function navegacion(){
-	$('.ico-nav').click(function(){
+	jQuery('.ico-nav').click(function(){
        $('body').toggleClass('nav-on');
 	});
     
-    $('#filtro').click(function(){
+    jQuery('#filtro').click(function(){
 		$('body').removeClass('nav-on');
 	});
 }
+});
