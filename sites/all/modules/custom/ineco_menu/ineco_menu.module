@@ -313,11 +313,11 @@ function _menu_completo_responsive_block(){
 	$complete_menu_main = menu_tree_output($menu);
 
 	// Se carga el menu secundario
-	$menu = menu_tree_all_data('menu-secondary-menu');
-	$complete_menu_secondary = menu_tree_output($menu);
+	//$menu = menu_tree_all_data('menu-secondary-menu');
+//	$complete_menu_secondary = menu_tree_output($menu);
 
 	$aux_main = render($complete_menu_main);
-	$aux_secondary = render($complete_menu_secondary);
+	//$aux_secondary = render($complete_menu_secondary);
 
 	$output = '<div class="responsive-menu-all">';
 	$output .= '<div class="responsive-menu-access">';
@@ -329,9 +329,9 @@ function _menu_completo_responsive_block(){
 	$output .= _menu_responsive_links_html(_menu_responsive_links('main-menu'));
 	$output .= '</ul>';
 	$output .= '</div>';
-	$output .= '<div id="responsive-menu-secondary">';
-	$output .= '<ul>';
-	$output .= _menu_responsive_links_html(_menu_responsive_links('menu-secondary-menu'));
+//	$output .= '<div id="responsive-menu-secondary">';
+//	$output .= '<ul>';
+//	$output .= _menu_responsive_links_html(_menu_responsive_links('menu-secondary-menu'));
 	$output .= '</ul>';
 	$output .= '</div>';
 	$output .= '</div>';

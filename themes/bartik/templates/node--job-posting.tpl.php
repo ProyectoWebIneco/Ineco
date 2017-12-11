@@ -111,14 +111,14 @@ $my_url = str_replace('/en/', '/', $my_url);
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php print render($title_prefix); ?>
   <?php /*if (!$page):*/ ?>
-    <h2<?php print $title_attributes; ?>>
+    <h5<?php print $title_attributes; ?>>
       <?php 
         if (!empty($reference)) { 
           $reference = ' Ref. ' . $reference; 
         } 
       ?>
       <a href="<?php print $node_url; ?>"><?php print $title.$reference; ?></a>
-    </h2>
+    </h5>
   <?php /*endif;*/ ?>
   <?php print render($title_suffix); ?>
   <div class="field-label"><?php print t("General function:"); ?></div>

@@ -18,3 +18,18 @@
 
 .panels-dnd .bootstrap-twocol-stacked #panel-region-left {width: 48.0%;}
 .panels-dnd .bootstrap-twocol-stacked #panel-region-right {width: 48.0%;}
+
+.panels-dnd .bootstrap-twocol-stacked-minheight #panel-region-left {width: 48.0%;}
+.panels-dnd .bootstrap-twocol-stacked-minheight #panel-region-right {width: 48.0%;}
+
+@media only screen and (max-device-width: 568px) and (min-device-width: 320px){
+.panels-dnd .bootstrap-threecol-stacked #panel-region-left {width: 100;}
+.panels-dnd .bootstrap-threecol-stacked #panel-region-middle {width: 100%;}
+.panels-dnd .bootstrap-threecol-stacked #panel-region-right {width: 100%;}
+
+.panels-dnd .bootstrap-twocol-stacked #panel-region-left {width: 100;}
+.panels-dnd .bootstrap-twocol-stacked #panel-region-right {width: 100%;}
+
+.panels-dnd .bootstrap-twocol-stacked-minheight #panel-region-left {width: 100;}
+.panels-dnd .bootstrap-twocol-stacked-minheight #panel-region-right {width: 100%;}
+}

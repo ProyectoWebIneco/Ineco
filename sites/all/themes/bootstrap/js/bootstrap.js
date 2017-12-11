@@ -3,7 +3,7 @@
  * bootstrap.js
  *
  * Provides general enhancements and fixes to Bootstrap's JS files.
- */
+ 
 
 var Drupal = Drupal || {};
 
@@ -53,7 +53,7 @@ var Drupal = Drupal || {};
 
   /**
    * Behavior for .
-   */
+   
   Drupal.behaviors.bootstrapFormHasError = {
     attach: function (context, settings) {
       if (settings.bootstrap && settings.bootstrap.formHasError) {
@@ -73,7 +73,7 @@ var Drupal = Drupal || {};
 
   /**
    * Bootstrap Popovers.
-   */
+   
   Drupal.behaviors.bootstrapPopovers = {
     attach: function (context, settings) {
       // Immediately return if popovers are not available.
@@ -162,7 +162,7 @@ var Drupal = Drupal || {};
 
   /**
    * Bootstrap Tooltips.
-   */
+   
   Drupal.behaviors.bootstrapTooltips = {
     attach: function (context, settings) {
       if (settings.bootstrap && settings.bootstrap.tooltipEnabled) {
@@ -178,7 +178,7 @@ var Drupal = Drupal || {};
 
   /**
    * Anchor fixes.
-   */
+   
   var $scrollableElement = $();
   Drupal.behaviors.bootstrapAnchors = {
     attach: function(context, settings) {
@@ -266,7 +266,7 @@ var Drupal = Drupal || {};
 
   /**
    * Tabledrag theming elements.
-   */
+   
   Drupal.theme.tableDragChangedMarker = function () {
     return '<span class="tabledrag-changed glyphicon glyphicon-warning-sign text-warning"></span>';
   };
@@ -275,4 +275,4 @@ var Drupal = Drupal || {};
     return '<div class="tabledrag-changed-warning alert alert-warning messages warning">' + Drupal.theme('tableDragChangedMarker') + ' ' + Drupal.t('Changes made in this table will not be saved until the form is submitted.') + '</div>';
   };
 
-})(jQuery, Drupal);
+})(jQuery, Drupal);*/

@@ -73,11 +73,12 @@
  * @ingroup templates
  */
 ?>
-<header id="navbarCustom" role="banner" class="<?php print $navbar_classes; ?>">
-  <div class="<?php print $container_class; ?>" id="cabecera">
+
+<header id="" role="banner" class="<?php print $navbar_classes; ?> navbarCustom">
+  <div class="<?php print $container_class; ?>" id="container_general">
     <div class="navbar-header">
       <?php if ($logo): ?>
-        <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+        <a class=" navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         </a>
       <?php endif; ?>
@@ -144,7 +145,11 @@
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
       <?php if (!empty($title)): ?>
+
+      <!-- descomentar para mostrar el titulo
         <h1 class="page-header"><?php print $title; ?></h1>
+        -->
+
       <?php endif; ?>
       <?php print render($title_suffix); ?>
       <?php print $messages; ?>

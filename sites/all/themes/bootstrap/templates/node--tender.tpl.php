@@ -129,18 +129,37 @@
 	//}
 
  ?>
+ <!-- detalle de licitacion -->
+ <img src="\webineco\sites\all\themes\bootstrap\templates\image\bg-bloqueAzul.png" alt="mapa web" height="100%" width="100%">
 	<div class="tender-fullcontent">
 		<div class="tender-fullcontent-title">
-			<?php print node_load($node->nid)->title;?>
+			<h5 style="
+			color:#ffffff;
+			margin-left: 10%;
+			font-size:25px;
+			margin-top:-15%;
+			width: 60%;
+			font-family: 'Avenir-Book', 'Nunito Sans'; ">
+				<?php print node_load($node->nid)->title;?>
+		   </h5>
+		
 		</div>
 		<br/>
 		<?php if(isset($node->field_tender_expedient_numer['und'][0]['value'])):?>
-			<div class="tender-fullcontent-expedient">
-				<div class="tender-fullcontent-expedient-label float-left">
-					<?php print t("Expedient number:")?>
+		<div  style="width: 45%;
+  background-color: #EBF5FB;
+  margin-left:10%;
+  position:absolute; 
+  PADDING: 3%;
+  line-height: 2.5;
+  height: auto;">
+  
+  <div class="tender-fullcontent-expedient">
+				<div class="tender-fullcontent-expedient-label" style="float: left;">
+					<strong><?php print t("Expedient number:")?></strong>
 				</div>
-				<div class="tender-fullcontent-expedient-content float-left negrita">
-					<?php print $node->field_tender_expedient_numer['und'][0]['value'];?>
+				<div class="tender-fullcontent-expedient-content">
+					&nbsp;&nbsp;<?php print $node->field_tender_expedient_numer['und'][0]['value'];?>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -158,16 +177,16 @@
 		<?php endif;*/?>
 		<?php if(isset($node->field_limit_date['und'][0]['value'])):?>
 			<div class="tender-fullcontent-limit-date">
-				<div class="tender-fullcontent-limit-date-label float-left">
-					<?php print t("Limit date:")?>
+				<div class="tender-fullcontent-limit-date-label" style="float: left;">
+					<strong><?php print t("Limit date:")?>&nbsp;&nbsp;</strong>
 				</div>
-				<div class="tender-fullcontent-limit-date-content float-left negrita">
+				<div class="tender-fullcontent-limit-date-content">
 					<?php //print format_date(strtotime($node->field_limit_date['und'][0]['value']), $node->language.'_new');?>
 					<?php // print date('H:i, j \d\e F \d\e Y', strtotime($node->field_limit_date['und'][0]['value']));
 						$field = field_get_items('node', $node, 'field_limit_date');
 						$datetime = DateTime::createFromFormat('Y-m-d H:i:s', $field[0]['value'], new DateTimeZone($field[0]['timezone_db']));
 						$timestamp = $datetime->getTimestamp();
-						print format_date($timestamp, $type = 'tender_date_'.$node->language);
+						print format_date($timestamp, $type =  'tender_date_'.$node->language);
 					?>
 				</div>
 			</div>
@@ -186,8 +205,8 @@
 		<?php endif;*/?>
 		<?php if(isset($node->field_approximate_date['und'][0]['value'])):?>
 			<div class="tender-fullcontent-approximate-date">
-				<div class="tender-fullcontent-approximate-date-label float-left">
-					<?php print t("Approximate date:")?>
+				<div class="tender-fullcontent-approximate-date-label" style="float: left;">
+					<strong><?php print t("Approximate date:")?>&nbsp;&nbsp;</strong>
 				</div>
 				<div class="tender-fullcontent-approximate-date-content float-left negrita">
 					<?php //print format_date(strtotime($node->field_approximate_date['und'][0]['value']), $node->language.'_new');?>
@@ -205,10 +224,10 @@
 		<?php endif;?>
 		<?php if(isset($node->field_tender_technical_manager['und'][0]['value'])):?>
 			<div class="tender-fullcontent-technical-manager">
-				<div class="tender-fullcontent-technical-manager-label float-left">
-					<?php print t("Technical manager:")?>
+				<div class="tender-fullcontent-technical-manager-label" style="float: left;">
+					<strong><?php print t("Technical manager:")?>&nbsp;&nbsp;</strong>
 				</div>
-				<div class="tender-fullcontent-technical-manager-content float-left negrita">
+				<div class="tender-fullcontent-technical-manager-content">
 					<?php print $node->field_tender_technical_manager['und'][0]['value'];?>
 				</div>
 			</div>
@@ -217,18 +236,21 @@
 		
 		<?php if(isset($node->field_tender_documents['und'][0]['value'])):?>
 			<div class="tender-fullcontent-documents">
+				<strong><?php print t("Documents:")?>&nbsp;&nbsp;</strong>
 				<?php foreach ($node->field_tender_documents['und'] as $field_document):?>
 					<?php $element = array_values(entity_load('field_collection_item', array($field_document['value'])));?>
 					<?php $element = $element[0];?>
 					<?php $document = $element->field_tender_document_file;?>
 					<?php $show = $element->field_tender_document_show;?>
-					<div class="tender-fullcontent-documents-document tender-teaser-documents-document-<?php print str_replace('application/', '', $document['und'][0]['filemime']);?>">
+					
+					<div class="btn-licitaciones tender-fullcontent-documents-document tender-teaser-documents-document-<?php print str_replace('application/', '', $document['und'][0]['filemime']);?>"><br/>
+					<img alt="" src="\webineco\sites\all\themes\bootstrap\templates\Iconos\pdf16.png" style="height:14px; width:14px" />&nbsp; &nbsp;
 						<?php print l($document['und'][0]['description'], file_create_url($document['und'][0]['uri']));?>
-					</div>
+					</div><br/>
 				<?php endforeach;?>
 			</div>
 			<div class="clear"></div>
-		<?php endif;?>
+		<?php endif;?><br/>
 		
 		<?php /*if(isset($node->field_tender_post_date['und'][0]['value'])):?>
 			<div class="tender-fullcontent-post-date">
@@ -261,20 +283,32 @@
 		
 		<?php if(isset($node->field_tender_c_required['und'][0]['value'])):?>
 			<div class="tender-fullcontent-clasification-required">
-				<div class="tender-fullcontent-clasification-required-label float-left">
-					<?php print t("Clasification required:")?>
+				<div class="tender-fullcontent-clasification-required-label" style="float: left;">
+					<strong><?php print t("Clasification required:")?>&nbsp;&nbsp;</strong>
 				</div>
-				<div class="tender-fullcontent-clasification-required-content float-left negrita">
+				<div class="tender-fullcontent-clasification-required-content">
 					<?php print $node->field_tender_c_required['und'][0]['value'];?>
 				</div>
 			</div>
 			<div class="clear"></div>
 		<?php endif;?>
 		
+  
+  </div>
+			
 		<?php if(isset($node->field_tender_place_receipt['und'][0]['value'])):?>
-			<div class="tender-fullcontent-place">
+			<div class="tender-fullcontent-place"
+			 style="width: 45%;
+			  position:absolute; 
+			 background-color: #ffde00;
+			  margin-left:40%;
+			   PADDING: 3%;
+			   margin-top:5%;
+			   line-height: 2;
+			   height: auto;
+			 ">
 				<div class="tender-fullcontent-place-label textosecundario3d">
-					<?php print t("Place of receipt and shipping terms")?>
+					<strong style="font-size:14px"><?php print t("Place of receipt and shipping terms")?></strong><br/><br/>
 				</div>
 				<div class="tender-fullcontent-place-content">
 					<?php print $node->field_tender_place_receipt['und'][0]['value'];?>
@@ -283,7 +317,7 @@
 		<?php endif;?>
 		<?php if(isset($node->field_observaciones['und'][0]['value'])):?>
 			<div class="tender-fullcontent-place">
-				<div class="tender-fullcontent-place-label textosecundario3d">
+				<div class="tender-fullcontent-place-label">
 					<?php print t("Observations")?>
 				</div>
 				<div class="tender-fullcontent-place-content">

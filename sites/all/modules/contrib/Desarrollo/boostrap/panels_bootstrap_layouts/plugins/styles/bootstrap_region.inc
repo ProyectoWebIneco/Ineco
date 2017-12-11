@@ -27,6 +27,7 @@ function theme_panels_bootstrap_layouts_style_region_render($vars) {
   $layouts = array(
     'bootstrap_twocol_stacked',
     'bootstrap_threecol_stacked',
+   'bootstrap_twocol_minheight_stacked',
   );
 
   if (in_array($display->layout, $layouts) && $panes) {
@@ -110,7 +111,7 @@ function _panels_bootstrap_layouts_get_default_column_size($layout, $pid) {
     return 12;
   }
 
-  if ($layout == 'bootstrap_twocol_stacked') {
+  if ($layout == 'bootstrap_twocol_stacked' || $layout == 'bootstrap_twocol_minheight_stacked') {
     return 6;
   }
 

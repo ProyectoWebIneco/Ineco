@@ -13,7 +13,7 @@ simplytest_dependencies[] = jquery_update
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Regions
 ;;;;;;;;;;;;;;;;;;;;;
-
+regions[idioma]     = 'Idioma'
 regions[navigation]     = 'Navigation'
 regions[header]         = 'Top Bar'
 regions[highlighted]    = 'Highlighted'
@@ -24,6 +24,7 @@ regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
 regions[page_top]       = 'Page top'
 regions[page_bottom]    = 'Page bottom'
+;regions[complete_menu_responsive] = 'Complete menu responsive'
 
 
 ;;;;;;;;;;;;;;;;;;;;;
@@ -37,11 +38,19 @@ stylesheets[all][] = css/style.css
 stylesheets[all][] = css/footer.css
 stylesheets[all][] = fonts/fonts.css
 stylesheets[all][] = css/licitaciones.css
+;stylesheets[all][] = css/bootstrap/css/bootstrap.css
+
+;stylesheets[(max-width: 479px)][] = css/responsive-mobile-portrait-layout.css
+;stylesheets[(min-width: 480px)  and (max-width: 767px)][] = css/responsive-mobile-landscape-layout.css
+;stylesheets[(min-width: 768px)  and (max-width: 979px)][] = css/responsive-tablet-layout.css
+;stylesheets[(min-width: 980px)  and (max-width: 1119px)][] = css/responsive-screen-layout.css
+;stylesheets[(min-width: 1120px)][] = css/responsive-wide-layout.css
 
 
 ; Custom JavaScript
 ;scripts[] = js/jquery-3.2.1.min.js
 scripts[] = js/script.js
+;scripts[] = css/bootstrap/js/bootstrap.js
 
 ; Container
 ; --------------

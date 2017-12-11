@@ -42,6 +42,9 @@ body{
     height: auto;
     overflow: hidden;    
 }
+#container_general{
+    margin-top: 5%
+}
 
 .panel-panel{
      padding:0; height:100%;
@@ -59,7 +62,7 @@ img{max-width: 100%}
 	.tmn-3{width:calc(25% - 10px);}
 	.tmn-4{width:calc(100%);height: 210px}
 	.tmn-5{width:calc(41.6667% - 10px);vertical-align: middle} 
-	.tmn-6{width:calc(50% - 8px);}
+	.tmn-6{width: calc(70% - 1px);}
 	.tmn-7{width:calc(58.3333% - 10px);vertical-align: middle}
 	.tmn-8{width:calc(66.6667% - 10px);}   
 	.tmn-9{width:calc(75% - 10px);}
@@ -97,7 +100,7 @@ ul li:before{
     left: 0;
     height: 5px;
     width: 5px;
-    background-color: #f4da25;
+    /*background-color: #f4da25;*/
     margin-right: 20px;
 }
 
@@ -106,6 +109,7 @@ ul li, ol li{padding-top: 10px;}
 ul.tipo2 li{list-style: none;padding-left: 0}
 ul.tipo2 li:before{display: none}
 ul.tipo2 li a{text-decoration: underline}
+
 
 a{
     font-family:'Avenir-Black', 'Nunito Sans';
@@ -257,7 +261,6 @@ strong{font-family:'Avenir-Black', 'Nunito Sans'; font-weight: 900}
 .pagination{
     display: inline-block;
     margin: 0 auto;
-    width: 100%;
     bottom: 140px;
     right: -190px;   
     position: relative;
@@ -543,15 +546,117 @@ RESPONSIVE
     .title-heading{font-size: 25px;}
     .title-heading.tipo2{font-size: 25px}
     .title-heading.tipo3{font-size: 41px}
+
+    .tmn-4.color_primario{
+        display: none;
+        margin-top: 0;
+        position: relative;
+    }
+     #contenido_colaboramos{
+             width: 0; 
+     margin-left: 0; 
+    }
 }
 
 
-@media (max-width:360px){
+@media (max-width:320px){
     
     h1{font-size: 48px}
     h2{font-size: 36px}
     h3{font-size: 28px}
     
     .title-heading.tipo3{font-size: 28px}
+   
+    .tmn-4.color_primario{
+        margin-top: 0
+    }
+    #contenido_colaboramos{
+             width: 0; 
+     margin-left: 0; 
+    }
 }
+
+@media only screen and (max-device-width: 568px) and (min-device-width: 320px){
+   .tmn-4.color_primario{
+        margin-top: 0
+    }
+
+     #contenido_colaboramos{
+            width: 100%;
+           margin-left: 0;
+    }
+    #footerlinks p{
+    white-space: normal;
+    }
+
+    .text-center ul{
+        right: 0
+    }
+    #cabeceraOfertas{
+      color: black !important
+    }
+    #contenidoOportunidades{
+ padding: 5%
+    }
+    h5{
+        margin-top: -195%;
+        font-size: 15px;
+    }
+
+    #contentDetalle{
+        width: 100% !important;
+        margin-top: 0 !important;
+        margin-bottom: 10%;
+    }
+    #btn-inscribete{
+        margin-left: 0 !important;
+    }
+    #oferta-detalle{
+       /* margin-top: 160%;*/
+    }
+    #subtitulo-detalle{
+        width: 100% !important;
+        min-height: auto !important;
+    }
+    #block-system-main img{
+        /*display: none*/
+    }
+       #imagen_becas{
+               margin-top: 0;
+          
+    }
+    #img_top_becas, #img_top_ofertas, #img_top_contratante{
+        display: none
+    }
+    h1{font-size: 64px}
+    h2{font-size: 56px}
+    h3{font-size: 36px}
+   
+    h5,h4{font-size: 16px !important;
+    margin: auto !important;
+    color: black !important}
+    h6{font-size: 16px}
+    
+    .title-heading{font-size: 25px;}
+    .title-heading.tipo2{font-size: 25px}
+    .title-heading.tipo3{font-size: 41px}
+   /*a{font-size: 15px !important}*/
+   
+
+
+.pane-oportunidades-profesionales{
+    margin: auto
+}
+#content_top{
+    margin: auto !important
+}
+.swiper-container{
+    display: none
+}
+#contenido_contratante{
+    margin: 0 !important;
+    
+}
+ 
+    }
 

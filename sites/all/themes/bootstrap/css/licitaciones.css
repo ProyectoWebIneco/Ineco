@@ -8,6 +8,10 @@
     MARGIN-TOP: 0%;
     
 }
+.fondo-gris>.pane-title{
+   margin-top: -1%;
+    margin-left: 42%;
+}
  
  
 
@@ -73,6 +77,58 @@
 .view-perfil-del-contratante-licitaciones .text-center {
        width: 60%;
        float: right;
+}
+
+@media only screen and (max-device-width: 568px) and (min-device-width: 320px){
+    #img_top_licitaciones{
+        display: none
+    }
+    .view-perfil-del-contratante-licitaciones .view-header{
+        margin: 0 !important
+    }
+    .view-perfil-del-contratante-licitaciones .view-header p{
+        width: 100%
+    }
+    .view-perfil-del-contratante-licitaciones .view-content{
+        margin-top: 10% !important;
+        width: 100%;
+        padding: 0
+    }
+    .view-perfil-del-contratante-licitaciones .view-header small{
+        margin-top: 0 !important;
+        margin-bottom: 5%;
+        left: 0;
+    }
+    #footerlinks{
+        margin-top: 40%;
+     top:0;
+     left:0;
+    }
+    .pagination{
+            bottom: 0;
+             margin: 5%;
+    }
+    .ver-mas a{
+            margin-top: 10%;
+                font-size: 8px;
+    }
+    #imagen_accesible{
+        display: none
+    }
+    .btn .btn-enlace .tipo2{
+        margin-top: 50%
+    }
+    #accesibilidad_derecha{
+        top: 0
+    }
+    #img_top_adjudicaciones{
+        display: none
+    }
+    #content_adjudicaciones{
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 30px !important;
+    }
 }
 
 
