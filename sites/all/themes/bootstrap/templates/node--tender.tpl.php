@@ -100,7 +100,7 @@
 					<?php endif;?>
 				<?php endforeach;?>
 			</div>
-			<div class="tender-teaser-btn ver-mas">
+			<div class="tender-teaser-btn ver-mas" style="height:10%" >
 			<?php print l('VER DETALLE', 'node/'.$node->nid);?>
 		</div>
 			<div class="clear"></div>
@@ -275,7 +275,7 @@
 						$datetime = DateTime::createFromFormat('Y-m-d H:i:s', $field[0]['value'], new DateTimeZone($field[0]['timezone_db']));
 						$timestamp = $datetime->getTimestamp();						
 						print format_date($timestamp, $type = 'tender_date_'.$node->language);
-					?>
+		 			?>
 				</div>
 			</div>
 			<div class="clear"></div>

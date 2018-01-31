@@ -131,5 +131,7 @@
     }
 }
 
-
+.panel-pane.pane-node-content.fondo-gris > h2{
+    display: none
+}
     

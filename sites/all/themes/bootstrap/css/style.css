@@ -611,16 +611,12 @@ RESPONSIVE
     #btn-inscribete{
         margin-left: 0 !important;
     }
-    #oferta-detalle{
-       /* margin-top: 160%;*/
-    }
+  
     #subtitulo-detalle{
         width: 100% !important;
         min-height: auto !important;
     }
-    #block-system-main img{
-        /*display: none*/
-    }
+  
        #imagen_becas{
                margin-top: 0;
           
